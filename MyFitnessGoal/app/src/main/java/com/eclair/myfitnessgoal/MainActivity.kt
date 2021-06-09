@@ -17,8 +17,6 @@ class MainActivity : AppCompatActivity() {
         val plansFragment = PlansFragment()
         val meFragment = MeFragment()
 
-        //checking username
-
         currentFragment(homeFragment)
 
         bottomNavigation.setOnNavigationItemSelectedListener {
