@@ -1,8 +1,9 @@
-package com.eclair.myfitnessgoal
+package com.eclair.views
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import com.eclair.myfitnessgoal.R
 import com.eclair.myfitnessgoal.fragments.*
 import kotlinx.android.synthetic.main.activity_main.*
 
