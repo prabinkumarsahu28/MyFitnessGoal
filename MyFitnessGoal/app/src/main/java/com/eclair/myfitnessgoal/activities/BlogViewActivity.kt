@@ -13,7 +13,7 @@ class BlogViewActivity : AppCompatActivity() {
 
         if (intent != null && intent.extras != null) {
             val link = intent.getStringExtra("link").toString()
-            wvBlog.loadUrl("https://wrytin.com/daminibhandary/uplift-and-rise-knifbk3g")
+            wvBlog.loadUrl(link)
         }
     }
 }
