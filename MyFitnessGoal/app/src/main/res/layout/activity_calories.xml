@@ -3,20 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:layout_height="match_parent"
-    tools:context=".views.CaloriesActivity">
+    android:orientation="vertical"
+    tools:context=".activities.CaloriesActivity">
 
     <EditText
         android:id="@+id/etSearch"
-        android:background="@drawable/search_bg"
-        android:padding="@dimen/dp_10"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dp_20"
+        android:background="@drawable/search_bg"
         android:drawableLeft="@drawable/ic_magnifying_glass_search"
         android:drawablePadding="@dimen/dp_15"
         android:hint="Search for a food"
+        android:padding="@dimen/dp_10"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.tabs.TabLayout
@@ -27,11 +27,11 @@
         android:background="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etSearch2"
-        app:tabGravity="center"
+        app:tabGravity="fill"
+        app:tabMaxWidth="@dimen/dp_0"
         app:tabIndicatorColor=" #2E86C1"
-        app:tabSelectedTextColor="@color/black"
         app:tabIndicatorHeight="3dp"
-        app:tabMode="scrollable"
+        app:tabSelectedTextColor="@color/black"
         app:tabTextAppearance="@style/MineCustomTabText" />
 
     <androidx.viewpager.widget.ViewPager

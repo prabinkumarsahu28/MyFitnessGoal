@@ -1,4 +1,4 @@
-package com.eclair.myfitnessgoal.views
+package com.eclair.myfitnessgoal.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
