@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.eclair.myfitnessgoal.R
 import com.eclair.myfitnessgoal.activities.BlogViewActivity
+import com.eclair.myfitnessgoal.activities.VideoPlayerActivity
 import com.eclair.myfitnessgoal.adapter.HomeBlogsAdapter
 import com.eclair.myfitnessgoal.listeners.BlogClickListener
 import com.eclair.myfitnessgoal.models.HomeBlogs
@@ -76,11 +77,9 @@ class HomeFragment : Fragment(), BlogClickListener {
             intent.putExtra("link", homeBlogs.link)
             startActivity(intent)
         } else {
-            Toast.makeText(
-                context,
-                "Inti jaldi kis baat ki, hui nehi he ye abhi tak. chup chap wait kar",
-                Toast.LENGTH_LONG
-            ).show()
+            val intent = Intent(context, VideoPlayerActivity::class.java)
+            intent.putExtra("link", homeBlogs.link)
+            startActivity(intent)
         }
     }
 }
