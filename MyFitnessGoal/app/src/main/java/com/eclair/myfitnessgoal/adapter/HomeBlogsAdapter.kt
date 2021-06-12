@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.eclair.myfitnessgoal.R
 import com.eclair.myfitnessgoal.listeners.BlogClickListener
 import com.eclair.myfitnessgoal.models.HomeBlogs
+import com.eclair.myfitnessgoal.viewHolder.HomeBlogsViewHolder
 
 class HomeBlogsAdapter(
     private val blogList: List<HomeBlogs>,
