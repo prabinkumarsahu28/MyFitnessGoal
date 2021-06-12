@@ -8,8 +8,8 @@
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:orientation="vertical"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -36,14 +36,14 @@
                 android:text="View More" />
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_farmersMarket"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/dp_15"
                 android:layout_below="@id/tvSproutsHeader"
+                android:layout_marginStart="@dimen/dp_15"
                 android:layout_marginTop="@dimen/dp_15">
 
             </androidx.recyclerview.widget.RecyclerView>
-
 
 
         </RelativeLayout>
@@ -73,14 +73,14 @@
                 android:text="View More" />
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_immuneSupport"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/dp_15"
                 android:layout_below="@id/tvImmuneSystemRecipe"
+                android:layout_marginStart="@dimen/dp_15"
                 android:layout_marginTop="@dimen/dp_15">
 
             </androidx.recyclerview.widget.RecyclerView>
-
 
 
         </RelativeLayout>
@@ -110,14 +110,14 @@
                 android:text="View More" />
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_pantryStaples"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/dp_15"
                 android:layout_below="@id/tvPantryStaplesRecipe"
+                android:layout_marginStart="@dimen/dp_15"
                 android:layout_marginTop="@dimen/dp_15">
 
             </androidx.recyclerview.widget.RecyclerView>
-
 
 
         </RelativeLayout>
@@ -147,14 +147,14 @@
                 android:text="View More" />
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_preWorkout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/dp_15"
                 android:layout_below="@id/tvPreWorkOutRecipe"
+                android:layout_marginStart="@dimen/dp_15"
                 android:layout_marginTop="@dimen/dp_15">
 
             </androidx.recyclerview.widget.RecyclerView>
-
 
 
         </RelativeLayout>
@@ -184,14 +184,14 @@
                 android:text="View More" />
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_postWorkout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/dp_15"
                 android:layout_below="@id/tvPostWorkOutRecipe"
+                android:layout_marginStart="@dimen/dp_15"
                 android:layout_marginTop="@dimen/dp_15">
 
             </androidx.recyclerview.widget.RecyclerView>
-
 
 
         </RelativeLayout>
@@ -221,21 +221,19 @@
                 android:text="View More" />
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_highProtein"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/dp_15"
                 android:layout_below="@id/tvHighProteinRecipe"
+                android:layout_marginStart="@dimen/dp_15"
                 android:layout_marginTop="@dimen/dp_15">
 
             </androidx.recyclerview.widget.RecyclerView>
 
 
-
         </RelativeLayout>
 
     </LinearLayout>
-
-
 
 
 </ScrollView>

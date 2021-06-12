@@ -11,6 +11,8 @@ class FarmersMarketViewHolder(private val view: View) : RecyclerView.ViewHolder(
 
         view.apply {
             Glide.with(this).load(farmersMarketClass.FoodImage).into(ivSproutsMarket)
+            tvMarketItemName.text = farmersMarketClass.FoodName
+            tvCal.text = farmersMarketClass.FoodCal
         }
 
     }
