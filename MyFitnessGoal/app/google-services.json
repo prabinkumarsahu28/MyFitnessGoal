@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "771132396835",
+    "firebase_url": "https://myfitnessgoal-62d88-default-rtdb.firebaseio.com",
+    "project_id": "myfitnessgoal-62d88",
+    "storage_bucket": "myfitnessgoal-62d88.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:771132396835:android:9d03b8ac2994768076e896",
+        "android_client_info": {
+          "package_name": "com.eclair.myfitnessgoal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "771132396835-o6vfomgmjapcek2q3lj24hbu2gfsrtfo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6EZXvSZRbmE7YOPNKJ1Wii6ra-ZHiCUM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "771132396835-o6vfomgmjapcek2q3lj24hbu2gfsrtfo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
