@@ -1,9 +1,9 @@
-package com.eclair.views
+package com.eclair.myfitnessgoal.views
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.viewpager.widget.ViewPager
-import com.eclair.adapter.HomeAdapter
+import com.eclair.myfitnessgoal.adapter.HomeAdapter
 import com.eclair.myfitnessgoal.R
 import com.google.android.material.tabs.TabLayout
 
