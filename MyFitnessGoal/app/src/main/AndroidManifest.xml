@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.eclair.myfitnessgoal">
 
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,16 +10,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyFitnessGoal">
-        <activity android:name="com.eclair.myfitnessgoal.views.MainActivity">
+        <activity android:name=".activities.BlogViewActivity"></activity>
+        <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.eclair.myfitnessgoal.views.CaloriesActivity">
-
-        </activity>
+        <activity android:name=".activities.CaloriesActivity"></activity>
     </application>
 
 </manifest>
