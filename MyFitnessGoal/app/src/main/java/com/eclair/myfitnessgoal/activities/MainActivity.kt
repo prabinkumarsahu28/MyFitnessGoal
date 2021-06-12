@@ -22,14 +22,38 @@ class MainActivity : AppCompatActivity() {
 
         bottomNavigation.setOnNavigationItemSelectedListener {
             when (it.itemId) {
-                R.id.ic_home -> currentFragment(homeFragment)
-                R.id.ic_diary -> currentFragment(diaryFragment)
-                R.id.ic_recipes -> currentFragment(recipesFragment)
-                R.id.ic_plans -> currentFragment(plansFragment)
-                R.id.ic_me -> currentFragment(meFragment)
+                R.id.ic_home -> {
+                    supportActionBar?.title = "MyFitnessGoal"
+                    currentFragment(homeFragment)
+                }
+                R.id.ic_diary -> {
+                    supportActionBar?.title = "Diary"
+                    currentFragment(diaryFragment)
+                }
+                R.id.ic_recipes -> {
+                    supportActionBar?.title = "Recipes"
+                    currentFragment(recipesFragment)
+                }
+                R.id.ic_plans -> {
+                    supportActionBar?.title = "Plans"
+                    currentFragment(plansFragment)
+                }
+                R.id.ic_me -> {
+                    supportActionBar?.title = "About"
+                    currentFragment(meFragment)
+                }
 
             }
             true
+        }
+    }
+
+    override fun onBackPressed() {
+        if (bottomNavigation.selectedItemId == R.id.ic_home) {
+            super.onBackPressed()
+            finish()
+        } else {
+            bottomNavigation.selectedItemId = R.id.ic_home
         }
     }
 

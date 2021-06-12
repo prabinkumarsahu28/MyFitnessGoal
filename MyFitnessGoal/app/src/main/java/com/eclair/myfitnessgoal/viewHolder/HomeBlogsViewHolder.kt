@@ -1,4 +1,4 @@
-package com.eclair.myfitnessgoal.adapter
+package com.eclair.myfitnessgoal.viewHolder
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
