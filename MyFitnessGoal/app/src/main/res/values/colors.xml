@@ -9,5 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="red">#B8860B</color>
     <color name="green">#228B22</color>
+    <color name="grey">#696969</color>
+    <color name="custom_grey">#DCDCDC</color>
     <color name="smoke_white">#F5F5F5</color>
 </resources>

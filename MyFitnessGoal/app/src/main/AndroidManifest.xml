@@ -11,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyFitnessGoal">
+        <activity android:name=".activities.PlanDetailsActivity"></activity>
         <activity
             android:name=".activities.VideoPlayerActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"

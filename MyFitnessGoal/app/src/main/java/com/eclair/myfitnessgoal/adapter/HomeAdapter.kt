@@ -42,7 +42,7 @@ class HomeAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
                 return "ALL"
             }
             1 -> {
-                return "RECIPIES"
+                return "RECIPES"
             }
             2-> {
                 return "MEALS"
