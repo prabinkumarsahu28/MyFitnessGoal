@@ -2,4 +2,19 @@
     <string name="app_name">MyFitnessGoal</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="meal_plans">Meal plans, workout plans, and more, Start a plan, follow along, and reach your goals.</string>
+    <string name="learn_how">Learn how to track your macros in the plan. From high carb to Keto, you will learn which macro breakdown is best for you and how to hit your macro goals.</string>
+    <string name="disclaimer">Disclaimer: Consult your physician before starting any plan. Neither MyFitnessGoal nor its affiliates will be liable for any injury sustained as a result of your participation.</string>
+    <string name="you_are">You are new to macro tracking</string>
+    <string name="you_have">You have tried macro tracking but have trouble hitting your goals</string>
+    <string name="you_are_unsure">You are unsure of which macro breakdown is best for your health or fitness goal.</string>
+    <string name="learn_how_different">Learn how different macro breakdowns help with different goals.</string>
+    <string name="focus_on">Focus on one macro goal at a time with strategies to hit that goal.</string>
+    <string name="build_meals">Build meals that meet your specific macro goal.</string>
+    <string name="trial_and_error">Trial and error: practice counting your macronutrients and then adjust your means accordingly.</string>
+    <string name="by_the_end">By the end of the plan, you will be ready to track your macros confidently and easily.</string>
+    <string name="straight_sets">Straight Sets. The focus this week is to learn the movements, understand your appropriate level of progression, and do every rep perfectly.</string>
+    <string name="emoms">Every Minute On the Minute are fun and challenging. With this format, you are in control of how much rest you get (if any) between exercises. If you want to  move slowly, that is fine, but you will have less rest between sets.</string>
+    <string name="amrap">As Many Rounds as Possible takes your cardiovascular system to a new  level. The goal with these is to complete as many rounds as possible of the prescribed exercises, and to move quickly but with proper movement patterns.</string>
+    <string name="you_have_spent">you have spent three weeks with these exercises and now its time to put them to the test.</string>
 </resources>

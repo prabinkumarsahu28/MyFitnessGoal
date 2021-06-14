@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.eclair.myfitnessgoal.R
-import com.eclair.myfitnessgoal.listeners.BlogClickListener
 import com.eclair.myfitnessgoal.listeners.RecipeViewListener
 import com.eclair.myfitnessgoal.models.RecipesClass
 import com.eclair.myfitnessgoal.viewHolder.FarmersMarketViewHolder
