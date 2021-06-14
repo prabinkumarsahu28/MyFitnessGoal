@@ -13,7 +13,8 @@
         <ImageView
             android:id="@+id/ivRecipeImageView"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_180"
+            android:layout_height="230dp"
+            android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -22,7 +23,8 @@
             android:id="@+id/tvRecipeName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp_10"
+            android:layout_marginStart="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_20"
             android:textColor="@color/black"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -32,9 +34,165 @@
             android:id="@+id/tvServes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_20"
             android:text="Serves 4"
             app:layout_constraintStart_toStartOf="@id/tvRecipeName"
             app:layout_constraintTop_toBottomOf="@id/tvRecipeName" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_30"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="@id/tvServes"
+            app:layout_constraintTop_toBottomOf="@id/tvServes">
+
+            <TextView
+                android:id="@+id/tvIngredients"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ingredients"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvLineOne"
+                style="@style/RecipeDetailsTextView"
+                android:text="0.75 cup old-fashioned rolled oats" />
+
+            <TextView
+                android:id="@+id/tvLineTwo"
+                style="@style/RecipeDetailsTextView"
+                android:text="1.0 cup all-purpose flour" />
+
+            <TextView
+                android:id="@+id/tvLineThree"
+                style="@style/RecipeDetailsTextView"
+                android:text="1.0 teaspoon baking soda" />
+
+            <TextView
+                android:id="@+id/tvLineFour"
+                style="@style/RecipeDetailsTextView"
+                android:text="0.5 teaSpoon salt" />
+
+            <TextView
+                android:id="@+id/tvLineFive"
+                style="@style/RecipeDetailsTextView"
+                android:text="1.0 tableSpoon pumpkin pie spice" />
+
+            <TextView
+                android:id="@+id/tvLineSix"
+                style="@style/RecipeDetailsTextView"
+                android:text="0.5 cup chopped walnuts, plus extra for topping" />
+
+            <TextView
+                android:id="@+id/tvLineSeven"
+                style="@style/RecipeDetailsTextView"
+                android:text="1.0 cup Sprouts Pumpkin" />
+
+            <TextView
+                android:id="@+id/tvLineEight"
+                style="@style/RecipeDetailsTextView"
+                android:text="0.75 cup honey" />
+
+            <TextView
+                android:id="@+id/tvLineNine"
+                style="@style/RecipeDetailsTextView"
+                android:text="0.33333333 cup melted butter" />
+
+            <TextView
+                android:id="@+id/tvLineTen"
+                style="@style/RecipeDetailsTextView"
+                android:text="2.0 large eggs" />
+
+            <TextView
+                android:id="@+id/tvLineEleven"
+                style="@style/RecipeDetailsTextView"
+                android:text="1.0 teaspoon Vanilla extract" />
+
+            <TextView
+                android:id="@+id/tvLineTwelve"
+                style="@style/RecipeDetailsTextView"
+                android:text="0.25 cup unsalted butter, room temperature" />
+
+            <TextView
+                android:id="@+id/tvLineThirteen"
+                style="@style/RecipeDetailsTextView"
+                android:text="1.0 ounce cream cheese, room temperature" />
+
+            <TextView
+                android:id="@+id/tvLineFourteen"
+                style="@style/RecipeDetailsTextView"
+                android:text="1.5 cup cup confectioner sugar. sifted" />
+
+            <TextView
+                android:id="@+id/tvLineFifteen"
+                style="@style/RecipeDetailsTextView"
+                android:text="0.5 teaSpoon Vanilla" />
+
+            <TextView
+                android:id="@+id/tvDirectionsHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Directions"
+                android:layout_marginTop="@dimen/dp_30"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvDirOne"
+                android:padding="@dimen/dp_4"
+                style="@style/RecipeDetailsTextView"
+                android:text="1. Preheat oven to 350. Lightly grease an 8 inch loaf pan." />
+
+            <TextView
+                android:id="@+id/tvDirTwo"
+                style="@style/RecipeDetailsTextView"
+                android:text="2. In a food processor pulse the oats until course." />
+
+            <TextView
+                android:id="@+id/tvDirThree"
+                android:padding="@dimen/dp_4"
+                style="@style/RecipeDetailsTextView"
+                android:text="3. In a large bowl, combine oats, flour, baking soda, salt,pumpkin pie spice and walnuts." />
+
+            <TextView
+                android:id="@+id/tvDirFour"
+                android:padding="@dimen/dp_4"
+                style="@style/RecipeDetailsTextView"
+                android:text="4. In a medium bowl, combine the pumpkin puree, honey, melted butter, eggs and vanilla extract. Mix until smooth." />
+
+            <TextView
+                android:id="@+id/tvDirFive"
+                style="@style/RecipeDetailsTextView"
+                android:text="5. Pour pumpkin mixture into the bowl with the dry ingredients. Stir the mixture until combined." />
+
+            <TextView
+                android:id="@+id/tvDirSix"
+                style="@style/RecipeDetailsTextView"
+                android:text="6. Place the mixture into bread pan. Bake for 50-60 minutes." />
+
+            <TextView
+                android:id="@+id/tvDirSeven"
+                style="@style/RecipeDetailsTextView"
+                android:text="7. While the bread is baking make the icing. Beat the butter until it is completely smooth, then beat in the cream cheese until combined. Add the sugar and vanilla and beat until smooth." />
+
+            <TextView
+                android:id="@+id/tvDirEight"
+                style="@style/RecipeDetailsTextView"
+                android:text="8. Remove the bread from pan onto a wire rack and let cool. Once the bread has cooled ice and top with walnutes." />
+
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/dp_8"
+                android:layout_marginTop="@dimen/dp_20"
+                android:layout_marginEnd="@dimen/dp_8"
+                android:padding="@dimen/dp_6"
+                android:text="ADD TO DIARY" />
+        </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
