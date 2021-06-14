@@ -38,6 +38,21 @@ class LoginActivity : AppCompatActivity() {
         btnGoogleLogin.setOnClickListener {
             signIn()
         }
+
+        btnLoginLogin.setOnClickListener {
+            auth.signInWithEmailAndPassword(
+                etEmailLogin.text.toString(),
+                etPasswordLogin.text.toString()
+            ).addOnCompleteListener {
+                if (it.isSuccessful) {
+                    val intent = Intent(this, MainActivity::class.java)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                    startActivity(intent)
+                } else {
+                    Toast.makeText(this, it.exception?.message, Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
     }
 
     private fun signIn() {

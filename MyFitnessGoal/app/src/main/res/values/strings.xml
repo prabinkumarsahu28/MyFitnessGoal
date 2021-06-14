@@ -18,4 +18,5 @@
     <string name="amrap">As Many Rounds as Possible takes your cardiovascular system to a new  level. The goal with these is to complete as many rounds as possible of the prescribed exercises, and to move quickly but with proper movement patterns.</string>
     <string name="you_have_spent">you have spent three weeks with these exercises and now its time to put them to the test.</string>
     <string name="title_activity_maps">Map</string>
+    <string name="we_use_this">We use this information to calculate an accurate calorie goal for you.</string>
 </resources>

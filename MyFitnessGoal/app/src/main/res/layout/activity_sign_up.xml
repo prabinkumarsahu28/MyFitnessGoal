@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activities.LoginActivity">
+    tools:context=".activities.SignUpActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
@@ -36,42 +36,9 @@
 
     </androidx.appcompat.widget.Toolbar>
 
-    <Button
-        android:id="@+id/btnEmailSignup"
+    <FrameLayout
+        android:id="@+id/flSignUp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dp_15"
-        android:layout_marginTop="@dimen/dp_40"
-        android:layout_marginEnd="@dimen/dp_15"
-        android:padding="@dimen/dp_11"
-        android:text="SIGN UP WITH EMAIL"
-        android:textColor="@color/white"
-        android:textSize="@dimen/sp_17"
-        android:textStyle="bold" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="@dimen/dp_30"
-        android:text="OR"
-        android:textColor="@color/grey" />
-
-    <TextView
-        android:id="@+id/btnGoogleSignup"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dp_15"
-        android:layout_marginTop="@dimen/dp_30"
-        android:layout_marginEnd="@dimen/dp_15"
-        android:background="@drawable/rectangle_bg"
-        android:gravity="center"
-        android:padding="@dimen/dp_11"
-        android:paddingStart="@dimen/dp_50"
-        android:text="CONTINUE WITH GOOGLE"
-        android:textColor="@color/purple_500"
-        android:textSize="@dimen/sp_15"
-        android:textStyle="bold"
-        app:drawableStartCompat="@drawable/ic_google" />
+        android:layout_height="match_parent" />
 
 </LinearLayout>

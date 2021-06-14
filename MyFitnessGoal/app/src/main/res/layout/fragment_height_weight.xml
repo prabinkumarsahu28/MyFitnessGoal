@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:paddingStart="@dimen/dp_15"
+    android:paddingEnd="@dimen/dp_15"
+    tools:context=".fragments.GoalFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_40"
+        android:orientation="horizontal"
+        android:weightSum="5">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_3"
+            android:layout_margin="@dimen/dp_3"
+            android:layout_weight="1"
+            android:background="@color/green" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_3"
+            android:layout_margin="@dimen/dp_3"
+            android:layout_weight="1"
+            android:background="@color/green" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_3"
+            android:layout_margin="@dimen/dp_3"
+            android:layout_weight="1"
+            android:background="@color/green" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_3"
+            android:layout_margin="@dimen/dp_3"
+            android:layout_weight="1"
+            android:background="@color/custom_grey" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_3"
+            android:layout_margin="@dimen/dp_3"
+            android:layout_weight="1"
+            android:background="@color/custom_grey" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_40"
+        android:text="Height (in cm)"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sp_16" />
+
+    <EditText
+        android:id="@+id/etHeight"
+        android:layout_width="@dimen/dp_200"
+        android:layout_height="wrap_content"
+        android:hint="0 cm"
+        android:inputType="number"
+        android:maxLength="3" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_40"
+        android:text="Weight (in kg)"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sp_16" />
+
+    <EditText
+        android:id="@+id/etWeight"
+        android:layout_width="@dimen/dp_200"
+        android:layout_height="wrap_content"
+        android:hint="0 kg"
+        android:inputType="number"
+        android:maxLength="3" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/we_use_this"
+        android:textSize="@dimen/sp_12" />
+
+    <Button
+        android:id="@+id/btnNextHeightWt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/dp_30"
+        android:text="next"
+        android:textStyle="bold" />
+
+</LinearLayout>
