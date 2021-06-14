@@ -17,4 +17,5 @@
     <string name="emoms">Every Minute On the Minute are fun and challenging. With this format, you are in control of how much rest you get (if any) between exercises. If you want to  move slowly, that is fine, but you will have less rest between sets.</string>
     <string name="amrap">As Many Rounds as Possible takes your cardiovascular system to a new  level. The goal with these is to complete as many rounds as possible of the prescribed exercises, and to move quickly but with proper movement patterns.</string>
     <string name="you_have_spent">you have spent three weeks with these exercises and now its time to put them to the test.</string>
+    <string name="title_activity_maps">Map</string>
 </resources>
