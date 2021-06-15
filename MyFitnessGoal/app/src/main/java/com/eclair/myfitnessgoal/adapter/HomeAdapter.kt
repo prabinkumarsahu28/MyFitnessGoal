@@ -13,7 +13,7 @@ class HomeAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
     override fun getItem(position: Int): Fragment {
         when (position) {
             0 -> {
-                return AllFoodFragment()
+                return GoalFragment()
             }
 
             1-> {
@@ -27,7 +27,7 @@ class HomeAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
             3-> {
                 return MyFoodFragment()
             }else -> {
-                return AllFoodFragment()
+                return GoalFragment()
             }
 
         }
