@@ -8,8 +8,7 @@
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/>
-
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -18,8 +17,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyFitnessGoal">
-        <activity android:name=".activities.StartActivity"
-            android:theme="@style/Theme.Design.NoActionBar"/>
+        <activity android:name=".activities.ShowFoodDetailsActivity"></activity>
+        <activity
+            android:name=".activities.StartActivity"
+            android:theme="@style/Theme.Design.NoActionBar" />
         <activity android:name=".activities.SignUpActivity" />
         <activity android:name=".activities.MainActivity" />
         <activity android:name=".activities.LoginActivity" />
