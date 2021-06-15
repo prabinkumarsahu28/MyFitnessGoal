@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.eclair.myfitnessgoal">
-
+    <!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         location permissions for the "MyLocation" functionality.
+    -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/>
 
 
     <application
@@ -12,22 +18,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyFitnessGoal">
-
-        <activity android:name=".activities.PlanDetailsActivity"/>
-        <activity android:name=".activities.RecipeViewActivity"/>
+        <activity android:name=".activities.StartActivity"
+            android:theme="@style/Theme.Design.NoActionBar"/>
+        <activity android:name=".activities.SignUpActivity" />
+        <activity android:name=".activities.MainActivity" />
+        <activity android:name=".activities.LoginActivity" />
+        <activity android:name=".activities.PlanDetailsActivity" />
+        <activity android:name=".activities.RecipeViewActivity" />
+        <activity android:name=".activities.CaloriesActivity" />
         <activity
             android:name=".activities.VideoPlayerActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:theme="@style/Theme.Design.NoActionBar" />
         <activity android:name=".activities.BlogViewActivity" />
-        <activity android:name=".activities.MainActivity">
+        <activity
+            android:name=".activities.SplashScreenActivity"
+            android:theme="@style/Theme.Design.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.CaloriesActivity" />
     </application>
 
 </manifest>

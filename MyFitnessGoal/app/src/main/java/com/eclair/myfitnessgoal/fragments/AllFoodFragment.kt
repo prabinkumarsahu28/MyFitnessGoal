@@ -9,17 +9,15 @@ import android.widget.LinearLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.room.RoomDatabase
 import com.eclair.myfitnessgoal.R
-import com.eclair.myfitnessgoal.adapter.SearchFoodItemsAdapter
-import com.eclair.myfitnessgoal.database.AllFoodsEntity
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.fragment_all_food.*
 
 class AllFoodFragment : Fragment() {
 
-    private val searchItemList = mutableListOf<AllFoodsEntity>()
+//    private val searchItemList = mutableListOf<AllFoodsEntity>()
 
     private lateinit var database: FirebaseDatabase
-    lateinit var searchFoodItemsAdapter: SearchFoodItemsAdapter
+//    lateinit var searchFoodItemsAdapter: SearchFoodItemsAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,10 +29,10 @@ class AllFoodFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         database = FirebaseDatabase.getInstance()
-        searchFoodItemsAdapter = SearchFoodItemsAdapter(searchItemList)
+//        searchFoodItemsAdapter = SearchFoodItemsAdapter(searchItemList)
 
         rv_SearchFood.layoutManager = LinearLayoutManager(activity,LinearLayoutManager.VERTICAL,false)
-        rv_SearchFood.adapter = searchFoodItemsAdapter
+//        rv_SearchFood.adapter = searchFoodItemsAdapter
 
         getFoodItems()
     }
