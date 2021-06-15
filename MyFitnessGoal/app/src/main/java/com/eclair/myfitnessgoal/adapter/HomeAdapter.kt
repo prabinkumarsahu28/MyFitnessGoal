@@ -3,10 +3,7 @@ package com.eclair.myfitnessgoal.adapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import com.eclair.myfitnessgoal.fragments.AllFoodFragment
-import com.eclair.myfitnessgoal.fragments.MealsFragment
-import com.eclair.myfitnessgoal.fragments.MyFoodFragment
-import com.eclair.myfitnessgoal.fragments.RecipesFragment
+import com.eclair.myfitnessgoal.fragments.*
 
 class HomeAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
     override fun getCount(): Int {
@@ -20,7 +17,7 @@ class HomeAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
             }
 
             1-> {
-                return RecipesFragment()
+                return DiaryRecipesFragment()
             }
 
             2-> {

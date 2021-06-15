@@ -12,6 +12,7 @@ interface FoodDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun addFood(foodEntity: FoodEntity)
 
+
     @Query("SELECT * FROM FoodTable")
     fun getAllFood(): LiveData<List<FoodEntity>>
 

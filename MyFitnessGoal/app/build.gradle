@@ -80,3 +80,5 @@ dependencies {
     // Lottie ("https://github.com/airbnb/lottie-android")
     implementation "com.airbnb.android:lottie:3.7.0"
 }
+
+
