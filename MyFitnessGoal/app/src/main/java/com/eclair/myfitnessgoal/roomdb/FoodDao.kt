@@ -10,9 +10,13 @@ import androidx.room.Query
 interface FoodDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun saveFoodItems(foodEntity: FoodEntity)
+    fun addFood(foodEntity: FoodEntity)
+
 
     @Query("SELECT * FROM FoodTable")
     fun getAllFood(): LiveData<List<FoodEntity>>
+
+    @Query("SELECT SUM(calories) FROM FoodTable")
+    fun getTotalCalorie(): LiveData<Int?>
 
 }
