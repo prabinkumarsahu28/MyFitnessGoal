@@ -46,6 +46,11 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
+
+        if (intent != null && intent.extras != null){
+            if (intent.getIntExtra("AddFood",0)== 2)
+                currentFragment(diaryFragment)
+        }
     }
 
     override fun onBackPressed() {

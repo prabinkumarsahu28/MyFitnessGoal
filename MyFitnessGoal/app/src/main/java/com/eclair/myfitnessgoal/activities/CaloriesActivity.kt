@@ -1,5 +1,6 @@
 package com.eclair.myfitnessgoal.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -10,6 +11,8 @@ import androidx.viewpager.widget.ViewPager
 import com.eclair.myfitnessgoal.adapter.HomeAdapter
 import com.eclair.myfitnessgoal.R
 import com.eclair.myfitnessgoal.adapter.SearchFoodItemsAdapter
+import com.eclair.myfitnessgoal.listeners.FoodClickListener
+import com.eclair.myfitnessgoal.roomdb.FoodEntity
 import com.google.android.material.tabs.TabLayout
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -18,10 +21,10 @@ import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.activity_calories.*
 import kotlinx.android.synthetic.main.activity_calories.view.*
 
-class CaloriesActivity : AppCompatActivity() {
+class CaloriesActivity : AppCompatActivity(), FoodClickListener {
 
 
-    private val searchItemList = mutableListOf<String>()
+    private val searchItemList = mutableListOf<FoodEntity>()
     private lateinit var database: FirebaseDatabase
     lateinit var searchFoodItemsAdapter: SearchFoodItemsAdapter
 
@@ -30,7 +33,7 @@ class CaloriesActivity : AppCompatActivity() {
         setContentView(R.layout.activity_calories)
 
         database = FirebaseDatabase.getInstance()
-        searchFoodItemsAdapter = SearchFoodItemsAdapter(searchItemList)
+        searchFoodItemsAdapter = SearchFoodItemsAdapter(searchItemList, this)
 
         rv_SearchFood.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
@@ -58,9 +61,10 @@ class CaloriesActivity : AppCompatActivity() {
 
                     for (dataSnapshot in snapshot.children) {
                         val data = dataSnapshot.value.toString()
-                        val temp : List<String> = data.split(",")
+                        val temp: List<String> = data.split(",")
 
-                        searchItemList.add(data)
+                        val foodEntity = FoodEntity(temp[0], temp[1], temp[2])
+                        searchItemList.add(foodEntity)
 
                     }
 
@@ -75,4 +79,13 @@ class CaloriesActivity : AppCompatActivity() {
         })
 
     }
+
+    override fun onFoodItemClicked(foodEntity: FoodEntity) {
+        val intent = Intent(this, ShowFoodDetailsActivity::class.java)
+        intent.putExtra("foodItem", foodEntity)
+        startActivity(intent)
+
+    }
+
+
 }
