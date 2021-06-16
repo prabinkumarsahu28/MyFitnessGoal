@@ -1,11 +1,13 @@
 package com.eclair.myfitnessgoal.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.eclair.myfitnessgoal.R
+import com.eclair.myfitnessgoal.activities.MainActivity
 import kotlinx.android.synthetic.main.fragment_height_weight.*
 
 class HeightWeightFragment : Fragment() {
@@ -23,10 +25,10 @@ class HeightWeightFragment : Fragment() {
 
         btnNextHeightWt.setOnClickListener {
             if (checkValidation()) {
-                val fragmentTransaction =
-                    requireActivity().supportFragmentManager.beginTransaction()
-                fragmentTransaction.add(R.id.flSignUp, DetailsFragment())
-                    .addToBackStack("detailsFragment").commit()
+                val intent = Intent(context, MainActivity::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK
+                        or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                startActivity(intent)
             }
         }
 

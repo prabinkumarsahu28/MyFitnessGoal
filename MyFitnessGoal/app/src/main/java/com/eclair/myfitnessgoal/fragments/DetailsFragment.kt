@@ -55,11 +55,12 @@ class DetailsFragment : Fragment() {
 
                                     database.reference.child("Users").child(id!!).setValue(user)
 
-                                    val intent = Intent(activity, MainActivity::class.java)
-                                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
-                                    startActivity(intent)
+                                    val goalFragment = GoalFragment()
+                                    val fragmentTransaction = requireActivity().supportFragmentManager.beginTransaction()
+                                    fragmentTransaction.add(R.id.flSignUp,goalFragment).addToBackStack("goalFragment").commit()
+
                                     Toast.makeText(context,
-                                        "Successfully SignedUp",
+                                        "Successfully SignedUp, Kindly verify your email",
                                         Toast.LENGTH_SHORT).show()
                                 } else {
                                     Toast.makeText(context,

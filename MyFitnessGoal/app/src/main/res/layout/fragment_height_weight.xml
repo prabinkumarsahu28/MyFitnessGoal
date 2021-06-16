@@ -42,7 +42,7 @@
             android:layout_height="@dimen/dp_3"
             android:layout_margin="@dimen/dp_3"
             android:layout_weight="1"
-            android:background="@color/custom_grey" />
+            android:background="@color/green" />
 
         <View
             android:layout_width="0dp"
@@ -97,7 +97,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/dp_30"
-        android:text="next"
+        android:text="Finish"
         android:textStyle="bold" />
 
 </LinearLayout>
