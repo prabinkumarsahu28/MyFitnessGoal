@@ -1,6 +1,5 @@
 package com.eclair.myfitnessgoal.fragments
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.eclair.myfitnessgoal.R
-import com.eclair.myfitnessgoal.activities.MainActivity
 import com.eclair.myfitnessgoal.models.Users
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
@@ -56,8 +54,13 @@ class DetailsFragment : Fragment() {
                                     database.reference.child("Users").child(id!!).setValue(user)
 
                                     val goalFragment = GoalFragment()
-                                    val fragmentTransaction = requireActivity().supportFragmentManager.beginTransaction()
-                                    fragmentTransaction.add(R.id.flSignUp,goalFragment).addToBackStack("goalFragment").commit()
+                                    val bundle = Bundle()
+                                    bundle.putSerializable("user", user)
+                                    goalFragment.arguments = bundle
+                                    val fragmentTransaction =
+                                        requireActivity().supportFragmentManager.beginTransaction()
+                                    fragmentTransaction.add(R.id.flSignUp, goalFragment)
+                                        .addToBackStack("goalFragment").commit()
 
                                     Toast.makeText(context,
                                         "Successfully SignedUp, Kindly verify your email",

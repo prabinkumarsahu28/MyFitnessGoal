@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package com.eclair.myfitnessgoal.fragments
 
 import android.content.Intent
@@ -7,7 +9,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.eclair.myfitnessgoal.R
@@ -30,12 +31,12 @@ class DiaryFragment : Fragment(), FoodClickListener {
     private val dinnerList = mutableListOf<FoodEntity>()
     private val snackList = mutableListOf<FoodEntity>()
 
-    lateinit var breakFastAdapter: SearchFoodItemsAdapter
-    lateinit var lunchAdapter: SearchFoodItemsAdapter
-    lateinit var dinnerAdapter: SearchFoodItemsAdapter
-    lateinit var snackAdapter: SearchFoodItemsAdapter
+    private lateinit var viewModel: FoodViewModel
 
-    lateinit var viewModel: FoodViewModel
+    private lateinit var breakFastAdapter: SearchFoodItemsAdapter
+    private lateinit var lunchAdapter: SearchFoodItemsAdapter
+    private lateinit var dinnerAdapter: SearchFoodItemsAdapter
+    private lateinit var snackAdapter: SearchFoodItemsAdapter
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -88,28 +89,28 @@ class DiaryFragment : Fragment(), FoodClickListener {
 
 
 
-        viewModel.getALlAddedFood("breakfast").observe(requireActivity(), Observer {
+        viewModel.getALlAddedFood("breakfast").observe(requireActivity(), {
             breakFastList.clear()
             breakFastList.addAll(it)
             breakFastAdapter.notifyDataSetChanged()
 
         })
 
-        viewModel.getALlAddedFood("lunch").observe(requireActivity(), Observer {
+        viewModel.getALlAddedFood("lunch").observe(requireActivity(), {
             lunchList.clear()
             lunchList.addAll(it)
             lunchAdapter.notifyDataSetChanged()
 
         })
 
-        viewModel.getALlAddedFood("dinner").observe(requireActivity(), Observer {
+        viewModel.getALlAddedFood("dinner").observe(requireActivity(), {
             dinnerList.clear()
             dinnerList.addAll(it)
             dinnerAdapter.notifyDataSetChanged()
 
         })
 
-        viewModel.getALlAddedFood("snack").observe(requireActivity(), Observer {
+        viewModel.getALlAddedFood("snack").observe(requireActivity(), {
             snackList.clear()
             snackList.addAll(it)
             snackAdapter.notifyDataSetChanged()
@@ -129,12 +130,12 @@ class DiaryFragment : Fragment(), FoodClickListener {
 
     override fun onFoodItemClicked(foodEntity: FoodEntity, s: String) {
 
-        if (s == "delete"){
+        if (s == "delete") {
             CoroutineScope(Dispatchers.IO).launch {
                 viewModel.getDeletedFoodItem(foodEntity)
             }
-        }else{
-            Toast.makeText(context,"details",Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(context, "details", Toast.LENGTH_SHORT).show()
         }
 
     }
