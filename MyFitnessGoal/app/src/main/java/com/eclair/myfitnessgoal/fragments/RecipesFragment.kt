@@ -71,8 +71,6 @@ class RecipesFragment : Fragment(), RecipeViewListener {
             LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
         rv_farmersMarket.adapter = farmersMarketAdapter
 
-
-
         getRecipes()
 
     }
@@ -86,7 +84,7 @@ class RecipesFragment : Fragment(), RecipeViewListener {
                     postWorkOutList.clear()
                     preWorkOutList.clear()
                     immuneSystemList.clear()
-                    var count = 0;
+                    var count = 0
 
                     for (dataSnapshot in snapshot.children) {
                         for (valueSnapshot in dataSnapshot.children) {

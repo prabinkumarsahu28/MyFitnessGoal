@@ -6,9 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.eclair.myfitnessgoal.R
+import com.eclair.myfitnessgoal.models.Users
 import kotlinx.android.synthetic.main.fragment_you.*
 
 class YouFragment : Fragment() {
+
+    private lateinit var user: Users
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -21,14 +24,35 @@ class YouFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        rgYou.setOnCheckedChangeListener { radioGroup, p1 ->
+        user = arguments?.getSerializable("user") as Users
+
+        rgYou.setOnCheckedChangeListener { radioGroup, _ ->
             if (radioGroup.checkedRadioButtonId != -1) {
+
+                var sex: String? = null
+
+                when (radioGroup.checkedRadioButtonId) {
+                    R.id.rbMale -> sex = "Male"
+                    R.id.rbFemale -> sex = "Female"
+                }
+
+                val fragment = HeightWeightFragment()
+                val bundle = Bundle()
+                val users =
+                    Users(user.userName,
+                        user.email,
+                        user.password,
+                        user.goalType,
+                        user.activeness,
+                        sex)
+                bundle.putSerializable("user", users)
+                fragment.arguments = bundle
+
                 val fragmentTransaction =
                     requireActivity().supportFragmentManager.beginTransaction()
-                fragmentTransaction.add(R.id.flSignUp, HeightWeightFragment())
+                fragmentTransaction.add(R.id.flSignUp, fragment)
                     .addToBackStack("heightWeightFragment").commit()
             }
         }
     }
-
 }

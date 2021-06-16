@@ -8,8 +8,6 @@ import android.view.ViewGroup
 import com.eclair.myfitnessgoal.R
 
 
-
-
 class DiaryRecipesFragment : Fragment() {
 
     override fun onCreateView(
@@ -19,7 +17,5 @@ class DiaryRecipesFragment : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_diary_recipes, container, false)
     }
-
-
-
-    }
+    
+}
