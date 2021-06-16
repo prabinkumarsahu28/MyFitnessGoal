@@ -17,7 +17,11 @@ class FoodViewModel(private val foodRepo: FoodRepo) : ViewModel() {
         return foodRepo.getTotalCalorie()
     }
 
-    fun getALlAddedFood(type : String) : LiveData<List<FoodEntity>>{
+    fun getALlAddedFood(type: String): LiveData<List<FoodEntity>> {
         return foodRepo.getAddedFood(type)
+    }
+
+    fun getDeletedFoodItem(foodEntity: FoodEntity) {
+        foodRepo.deleteFoodItem(foodEntity)
     }
 }

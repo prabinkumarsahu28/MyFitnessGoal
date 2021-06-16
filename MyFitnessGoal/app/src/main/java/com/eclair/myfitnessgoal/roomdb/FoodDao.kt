@@ -1,10 +1,7 @@
 package com.eclair.myfitnessgoal.roomdb
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 
 @Dao
 interface FoodDao {
@@ -20,5 +17,8 @@ interface FoodDao {
     fun getTotalCalorie(): LiveData<Int?>
 
     @Query("SELECT * FROM FoodTable WHERE type =:types")
-    fun getAddedFood(types: String) : LiveData<List<FoodEntity>>
+    fun getAddedFood(types: String): LiveData<List<FoodEntity>>
+
+    @Delete
+    fun deleteFood(foodEntity: FoodEntity)
 }

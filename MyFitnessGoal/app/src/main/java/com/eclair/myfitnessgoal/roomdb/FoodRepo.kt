@@ -24,4 +24,10 @@ class FoodRepo(private val foodDao: FoodDao) {
     fun getAddedFood(types: String): LiveData<List<FoodEntity>> {
         return foodDao.getAddedFood(types)
     }
+
+    fun deleteFoodItem(foodEntity: FoodEntity) {
+        CoroutineScope(Dispatchers.IO).launch {
+            foodDao.deleteFood(foodEntity)
+        }
+    }
 }
