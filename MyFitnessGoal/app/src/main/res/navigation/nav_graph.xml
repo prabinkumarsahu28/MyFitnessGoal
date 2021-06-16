@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/showFoodDetailsActivity">
+
+    <activity
+        android:id="@+id/showFoodDetailsActivity"
+        android:name="com.eclair.myfitnessgoal.activities.ShowFoodDetailsActivity"
+        android:label="activity_show_food_details"
+        tools:layout="@layout/activity_show_food_details" />
+    <fragment
+        android:id="@+id/diaryFragment"
+        android:name="com.eclair.myfitnessgoal.fragments.DiaryFragment"
+        android:label="fragment_diary"
+        tools:layout="@layout/fragment_diary" />
+</navigation>

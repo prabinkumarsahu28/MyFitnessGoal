@@ -1,8 +1,9 @@
 package com.eclair.myfitnessgoal.roomdb
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.ViewModel
 
-class FoodViewModel(private val foodRepo: FoodRepo) {
+class FoodViewModel(private val foodRepo: FoodRepo) : ViewModel() {
 
     fun addFood(foodEntity: FoodEntity) {
         foodRepo.addFood(foodEntity)
@@ -14,5 +15,9 @@ class FoodViewModel(private val foodRepo: FoodRepo) {
 
     fun getTotalCalorie(): LiveData<Int?> {
         return foodRepo.getTotalCalorie()
+    }
+
+    fun getALlAddedFood(type : String) : LiveData<List<FoodEntity>>{
+        return foodRepo.getAddedFood(type)
     }
 }

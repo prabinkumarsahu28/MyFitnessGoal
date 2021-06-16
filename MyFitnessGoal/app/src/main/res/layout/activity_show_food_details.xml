@@ -1,9 +1,464 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.ShowFoodDetailsActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/tb_FoodHeaderDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/smoke_white"
+            android:elevation="@dimen/dp_10"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/ivBackArrowChat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_baseline_arrow_back_24"
+                    app:tint="@color/grey" />
+
+                <TextView
+                    android:id="@+id/tvAddFoodHeader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp_40"
+                    android:text="Add Food"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_20" />
+
+                <ImageButton
+                    android:id="@+id/btnAddFoodItem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:layout_marginEnd="@dimen/dp_20"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_iconfinder_3209370_check_choose_correct_mark_tick_icon" />
+            </RelativeLayout>
+
+
+        </androidx.appcompat.widget.Toolbar>
+
+
+        <TextView
+            android:id="@+id/tvFoodItemDisplay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_20"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tb_FoodHeaderDetails" />
+
+        <View
+            android:id="@+id/LineOneFoodDisplay"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_3"
+            android:layout_marginTop="@dimen/dp_20"
+            android:background="#BDC3C7"
+            app:layout_constraintTop_toBottomOf="@id/tvFoodItemDisplay" />
+
+        <TextView
+            android:id="@+id/tvNoOfServings"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/dp_20"
+            android:text="Number of Servings"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@id/tvFoodItemDisplay"
+            app:layout_constraintTop_toBottomOf="@id/LineOneFoodDisplay" />
+
+        <View
+            android:id="@+id/LineTwoFoodDisplay"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_3"
+            android:layout_marginTop="@dimen/dp_20"
+            android:background="#BDC3C7"
+            app:layout_constraintTop_toBottomOf="@id/tvNoOfServings" />
+
+        <TextView
+            android:id="@+id/tvServingNum"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/dp_20"
+            android:layout_marginEnd="@dimen/dp_20"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/LineOneFoodDisplay" />
+
+
+        <TextView
+            android:id="@+id/tvServingSize"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/dp_20"
+            android:text="Serving Size"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@id/tvFoodItemDisplay"
+            app:layout_constraintTop_toBottomOf="@id/LineTwoFoodDisplay" />
+
+        <View
+            android:id="@+id/LineThreeFoodDisplay"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_3"
+            android:layout_marginTop="@dimen/dp_20"
+            android:background="#BDC3C7"
+            app:layout_constraintTop_toBottomOf="@id/tvServingSize" />
+
+        <TextView
+            android:id="@+id/tvServingSizeNum"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/dp_20"
+            android:layout_marginEnd="@dimen/dp_20"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/LineTwoFoodDisplay" />
+
+        <TextView
+            android:id="@+id/tvTime"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/dp_20"
+            android:text="Time"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@id/tvFoodItemDisplay"
+            app:layout_constraintTop_toBottomOf="@id/LineThreeFoodDisplay" />
+
+        <View
+            android:id="@+id/LineFourFoodDisplay"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_3"
+            android:layout_marginTop="@dimen/dp_20"
+            android:background="#BDC3C7"
+            app:layout_constraintTop_toBottomOf="@id/tvTime" />
+
+        <TextView
+            android:id="@+id/tvCaloriesFoodDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_30"
+            android:text="Calories"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@id/tvServingSize"
+            app:layout_constraintTop_toBottomOf="@id/LineFourFoodDisplay" />
+
+        <TextView
+            android:id="@+id/tvCalNumFoodDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_30"
+            android:layout_marginEnd="@dimen/dp_30"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/LineFourFoodDisplay" />
+
+        <View
+            android:id="@+id/LineFiveFoodDisplay"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_3"
+            android:layout_marginTop="@dimen/dp_20"
+            android:background="#BDC3C7"
+            app:layout_constraintTop_toBottomOf="@id/tvCaloriesFoodDetails" />
+
+        <TextView
+            android:id="@+id/tvSatNumFoodDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_30"
+            android:layout_marginEnd="@dimen/dp_30"
+            android:text="0g"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/LineFiveFoodDisplay" />
+
+        <TextView
+            android:id="@+id/tvFatFoodDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_30"
+            android:text="Fat"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@id/tvServingSize"
+            app:layout_constraintTop_toBottomOf="@id/LineFiveFoodDisplay" />
+
+        <View
+            android:id="@+id/LineSixFoodDisplay"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_3"
+            android:layout_marginTop="@dimen/dp_20"
+            android:background="#BDC3C7"
+            app:layout_constraintTop_toBottomOf="@id/tvFatFoodDetails" />
+
+        <TextView
+            android:id="@+id/tvSaturatedFoodDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_30"
+            android:text="Saturated"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@id/tvServingSize"
+            app:layout_constraintTop_toBottomOf="@id/LineFiveFoodDisplay" />
+
+        <View
+            android:id="@+id/LineSevenFoodDisplay"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_3"
+            android:layout_marginTop="@dimen/dp_20"
+            android:background="#BDC3C7"
+            app:layout_constraintTop_toBottomOf="@id/tvFatFoodDetails" />
+
+        <TextView
+            android:id="@+id/tvPloySaturatedFoodDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_30"
+            android:text="Ply Saturated"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@id/tvServingSize"
+            app:layout_constraintTop_toBottomOf="@id/LineSixFoodDisplay" />
+
+        <View
+            android:id="@+id/LineEightFoodDisplay"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_3"
+            android:layout_marginTop="@dimen/dp_20"
+            android:background="#BDC3C7"
+            app:layout_constraintTop_toBottomOf="@id/tvPloySaturatedFoodDetails" />
+
+        <TextView
+            android:id="@+id/tvPlySatNumFoodDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_30"
+            android:layout_marginEnd="@dimen/dp_30"
+            android:text="0g"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/LineSixFoodDisplay" />
+
+
+        <TextView
+            android:id="@+id/tvCholesterolFoodDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_30"
+            android:text="Cholesterol"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@id/tvServingSize"
+            app:layout_constraintTop_toBottomOf="@id/LineEightFoodDisplay" />
+
+        <View
+            android:id="@+id/LineNineFoodDisplay"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_3"
+            android:layout_marginTop="@dimen/dp_20"
+            android:background="#BDC3C7"
+            app:layout_constraintTop_toBottomOf="@id/tvCholesterolFoodDetails" />
+
+        <TextView
+            android:id="@+id/tvCholNumFoodDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_30"
+            android:layout_marginEnd="@dimen/dp_30"
+            android:text="0 mg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/LineEightFoodDisplay" />
+
+        <TextView
+            android:id="@+id/tvSodiumFoodDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_30"
+            android:text="Sodium"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@id/tvServingSize"
+            app:layout_constraintTop_toBottomOf="@id/LineNineFoodDisplay" />
+
+        <View
+            android:id="@+id/LineTenFoodDisplay"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_3"
+            android:layout_marginTop="@dimen/dp_20"
+            android:background="#BDC3C7"
+            app:layout_constraintTop_toBottomOf="@id/tvSodiumFoodDetails" />
+
+        <TextView
+            android:id="@+id/tvSodNumFoodDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_30"
+            android:layout_marginEnd="@dimen/dp_30"
+            android:text="0 mg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/LineNineFoodDisplay" />
+
+        <TextView
+            android:id="@+id/tvPotassiumFoodDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_30"
+            android:text="Potassium"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@id/tvServingSize"
+            app:layout_constraintTop_toBottomOf="@id/LineTenFoodDisplay" />
+
+        <View
+            android:id="@+id/LineElevenFoodDisplay"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_3"
+            android:layout_marginTop="@dimen/dp_20"
+            android:background="#BDC3C7"
+            app:layout_constraintTop_toBottomOf="@id/tvPotassiumFoodDetails" />
+
+        <TextView
+            android:id="@+id/tvPotNumFoodDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_30"
+            android:layout_marginEnd="@dimen/dp_30"
+            android:text="0 mg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/LineTenFoodDisplay" />
+
+        <TextView
+            android:id="@+id/tvCarbohydratesFoodDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_30"
+            android:text="Carbohydrates"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@id/tvServingSize"
+            app:layout_constraintTop_toBottomOf="@id/LineElevenFoodDisplay" />
+
+        <View
+            android:id="@+id/LineTwelveFoodDisplay"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_3"
+            android:layout_marginTop="@dimen/dp_20"
+            android:background="#BDC3C7"
+            app:layout_constraintTop_toBottomOf="@id/tvCarbohydratesFoodDetails" />
+
+        <TextView
+            android:id="@+id/tvCarbNumFoodDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_30"
+            android:layout_marginEnd="@dimen/dp_30"
+            android:text="15 mg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/LineElevenFoodDisplay" />
+
+        <TextView
+            android:id="@+id/tvProteinFoodDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_30"
+            android:text="Protein"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@id/tvServingSize"
+            app:layout_constraintTop_toBottomOf="@id/LineTwelveFoodDisplay" />
+
+        <View
+            android:id="@+id/LineThirteenFoodDisplay"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_3"
+            android:layout_marginTop="@dimen/dp_20"
+            android:background="#BDC3C7"
+            app:layout_constraintTop_toBottomOf="@id/tvProteinFoodDetails" />
+
+        <TextView
+            android:id="@+id/tvProtNumFoodDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_30"
+            android:layout_marginEnd="@dimen/dp_30"
+            android:text="7 mg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/LineTwelveFoodDisplay" />
+
+        <TextView
+            android:id="@+id/tvVAFoodDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_30"
+            android:text="Vitamin A"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@id/tvServingSize"
+            app:layout_constraintTop_toBottomOf="@id/LineThirteenFoodDisplay" />
+
+        <View
+            android:id="@+id/LineFourteenFoodDisplay"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_3"
+            android:layout_marginTop="@dimen/dp_20"
+            android:background="#BDC3C7"
+            app:layout_constraintTop_toBottomOf="@id/tvVAFoodDetails" />
+
+        <TextView
+            android:id="@+id/tvVANumFoodDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_30"
+            android:layout_marginEnd="@dimen/dp_30"
+            android:text="-"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/LineThirteenFoodDisplay" />
+
+        <TextView
+            android:id="@+id/tvCalorieRules"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_30"
+            android:layout_marginEnd="@dimen/dp_30"
+            android:text="@string/food_details"
+            app:layout_constraintStart_toStartOf="@id/tvProteinFoodDetails"
+            app:layout_constraintTop_toBottomOf="@id/LineFourteenFoodDisplay" />
+
+        <View
+            android:id="@+id/LineFifteenFoodDisplay"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_3"
+            android:layout_marginTop="@dimen/dp_20"
+            android:background="#BDC3C7"
+            app:layout_constraintTop_toBottomOf="@id/tvCalorieRules" />
+
+        <TextView
+            android:id="@+id/tvReportFood"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_30"
+            android:layout_marginBottom="@dimen/dp_30"
+            android:text="@string/report_food"
+            android:textColor="#2E86C1"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/LineFifteenFoodDisplay" />
+
+        <View
+            android:id="@+id/LineSixteenFoodDisplay"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_3"
+            android:layout_marginTop="@dimen/dp_20"
+            android:background="#BDC3C7"
+            app:layout_constraintTop_toBottomOf="@id/tvReportFood" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>

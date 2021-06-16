@@ -19,4 +19,6 @@ interface FoodDao {
     @Query("SELECT SUM(calories) FROM FoodTable")
     fun getTotalCalorie(): LiveData<Int?>
 
+    @Query("SELECT * FROM FoodTable WHERE type =:types")
+    fun getAddedFood(types: String) : LiveData<List<FoodEntity>>
 }
