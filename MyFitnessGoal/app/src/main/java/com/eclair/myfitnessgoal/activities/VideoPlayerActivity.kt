@@ -5,7 +5,6 @@ import android.os.Bundle
 import com.eclair.myfitnessgoal.R
 import com.google.android.exoplayer2.MediaItem
 import com.google.android.exoplayer2.SimpleExoPlayer
-import kotlinx.android.synthetic.main.activity_blog_view.*
 import kotlinx.android.synthetic.main.activity_video_player.*
 
 class VideoPlayerActivity : AppCompatActivity() {

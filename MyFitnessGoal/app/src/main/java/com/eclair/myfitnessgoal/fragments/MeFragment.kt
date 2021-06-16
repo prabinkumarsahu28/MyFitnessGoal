@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.fragment_me.*
 
 class MeFragment : Fragment() {
 
-    lateinit var auth: FirebaseAuth
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,5 +35,4 @@ class MeFragment : Fragment() {
             startActivity(intent)
         }
     }
-
 }

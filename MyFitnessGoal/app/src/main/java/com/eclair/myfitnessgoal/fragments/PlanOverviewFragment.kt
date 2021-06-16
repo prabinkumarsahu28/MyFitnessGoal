@@ -22,7 +22,6 @@ class PlanOverviewFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         val plans: Plans = arguments?.getSerializable("plans") as Plans
 
         tvDurPlanDetails.text = plans.duration

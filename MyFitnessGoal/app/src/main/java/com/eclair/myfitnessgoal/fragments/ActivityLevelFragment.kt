@@ -6,9 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.eclair.myfitnessgoal.R
+import com.eclair.myfitnessgoal.models.Users
 import kotlinx.android.synthetic.main.fragment_activity_level.*
 
 class ActivityLevelFragment : Fragment() {
+
+    private lateinit var user: Users
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -21,11 +24,29 @@ class ActivityLevelFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        rgActivity.setOnCheckedChangeListener { radioGroup, p1 ->
+        user = arguments?.getSerializable("user") as Users
+
+        rgActivity.setOnCheckedChangeListener { radioGroup, _ ->
             if (radioGroup.checkedRadioButtonId != -1) {
+
+                var activeness: String? = null
+
+                when (radioGroup.checkedRadioButtonId) {
+                    R.id.rbNotVeryActive -> activeness = "Not Very Active"
+                    R.id.rbLightlyActive -> activeness = "Lightly Active"
+                    R.id.rbActive -> activeness = "Active"
+                    R.id.rbVeryActive -> activeness = "Very Active"
+                }
+
+                val fragment = YouFragment()
+                val bundle = Bundle()
+                val users =
+                    Users(user.userName, user.email, user.password, user.goalType, activeness)
+                bundle.putSerializable("user", users)
+                fragment.arguments = bundle
                 val fragmentTransaction =
                     requireActivity().supportFragmentManager.beginTransaction()
-                fragmentTransaction.add(R.id.flSignUp, YouFragment())
+                fragmentTransaction.add(R.id.flSignUp, fragment)
                     .addToBackStack("youFragment").commit()
             }
         }
