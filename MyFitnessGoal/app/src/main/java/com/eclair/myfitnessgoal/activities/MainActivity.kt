@@ -23,23 +23,18 @@ class MainActivity : AppCompatActivity() {
         bottomNavigation.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.ic_home -> {
-                    supportActionBar?.title = "MyFitnessGoal"
                     currentFragment(homeFragment)
                 }
                 R.id.ic_diary -> {
-                    supportActionBar?.title = "Diary"
                     currentFragment(diaryFragment)
                 }
                 R.id.ic_recipes -> {
-                    supportActionBar?.title = "Recipes"
                     currentFragment(recipesFragment)
                 }
                 R.id.ic_plans -> {
-                    supportActionBar?.title = "Plans"
                     currentFragment(plansFragment)
                 }
                 R.id.ic_me -> {
-                    supportActionBar?.title = "About"
                     currentFragment(meFragment)
                 }
 
@@ -47,9 +42,11 @@ class MainActivity : AppCompatActivity() {
             true
         }
 
-        if (intent != null && intent.extras != null){
-            if (intent.getIntExtra("AddFood",0)== 2)
+        if (intent != null && intent.extras != null) {
+            if (intent.getIntExtra("AddFood", 0) == 2) {
+                bottomNavigation.selectedItemId = R.id.ic_diary
                 currentFragment(diaryFragment)
+            }
         }
     }
 
