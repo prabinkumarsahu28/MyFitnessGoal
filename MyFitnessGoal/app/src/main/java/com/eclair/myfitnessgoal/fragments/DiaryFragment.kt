@@ -20,6 +20,9 @@ import com.eclair.myfitnessgoal.roomdb.FoodEntity
 import com.eclair.myfitnessgoal.roomdb.FoodViewModel
 import com.eclair.myfitnessgoal.roomdb.FoodViewModelFactory
 import kotlinx.android.synthetic.main.fragment_diary.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class DiaryFragment : Fragment(), FoodClickListener {
 
@@ -28,10 +31,13 @@ class DiaryFragment : Fragment(), FoodClickListener {
     private val dinnerList = mutableListOf<FoodEntity>()
     private val snackList = mutableListOf<FoodEntity>()
 
+    private lateinit var viewModel: FoodViewModel
+
     private lateinit var breakFastAdapter: SearchFoodItemsAdapter
     private lateinit var lunchAdapter: SearchFoodItemsAdapter
     private lateinit var dinnerAdapter: SearchFoodItemsAdapter
     private lateinit var snackAdapter: SearchFoodItemsAdapter
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -63,7 +69,7 @@ class DiaryFragment : Fragment(), FoodClickListener {
         val app = activity?.application as FoodApplication
         val repository = app.foodRepo
         val viewModelFactory = FoodViewModelFactory(repository)
-        val viewModel = ViewModelProviders.of(this, viewModelFactory).get(FoodViewModel::class.java)
+        viewModel = ViewModelProviders.of(this, viewModelFactory).get(FoodViewModel::class.java)
 
         rv_breakFast.layoutManager = LinearLayoutManager(context)
         breakFastAdapter = SearchFoodItemsAdapter(breakFastList, this)
@@ -122,8 +128,16 @@ class DiaryFragment : Fragment(), FoodClickListener {
 
     }
 
-    override fun onFoodItemClicked(foodEntity: FoodEntity) {
-        Toast.makeText(context, "delete", Toast.LENGTH_SHORT).show()
+    override fun onFoodItemClicked(foodEntity: FoodEntity, s: String) {
+
+        if (s == "delete") {
+            CoroutineScope(Dispatchers.IO).launch {
+                viewModel.getDeletedFoodItem(foodEntity)
+            }
+        } else {
+            Toast.makeText(context, "details", Toast.LENGTH_SHORT).show()
+        }
+
     }
 
 

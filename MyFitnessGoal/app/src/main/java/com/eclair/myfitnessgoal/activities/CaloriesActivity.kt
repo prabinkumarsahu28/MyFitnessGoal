@@ -80,7 +80,7 @@ class CaloriesActivity : AppCompatActivity(), FoodClickListener {
 
     }
 
-    override fun onFoodItemClicked(foodEntity: FoodEntity) {
+    override fun onFoodItemClicked(foodEntity: FoodEntity, s: String) {
         val intent = Intent(this, ShowFoodDetailsActivity::class.java)
         intent.putExtra("foodItem", foodEntity)
         startActivity(intent)
