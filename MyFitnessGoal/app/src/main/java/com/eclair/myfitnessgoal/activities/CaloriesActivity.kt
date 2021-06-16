@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.eclair.myfitnessgoal.R
 import com.eclair.myfitnessgoal.adapter.SearchFoodItemsAdapter
@@ -40,14 +41,15 @@ class CaloriesActivity : AppCompatActivity(), FoodClickListener {
         rv_SearchFood.adapter = searchFoodItemsAdapter
 
         iBtnSearchFood.setOnClickListener {
-            val searchedItem = etSearch.text.toString()
-
-            getFoodItems(searchedItem)
-
-            pb_SearchFood.visibility = View.VISIBLE
+            if (etSearch.text.toString().isNotEmpty()) {
+                val searchedItem = etSearch.text.toString()
+                getFoodItems(searchedItem)
+                pb_SearchFood.visibility = View.VISIBLE
+            } else {
+                Toast.makeText(this, "fill something", Toast.LENGTH_SHORT).show()
+            }
 
         }
-
 
     }
 
@@ -63,7 +65,7 @@ class CaloriesActivity : AppCompatActivity(), FoodClickListener {
                         val data = dataSnapshot.value.toString()
                         val temp: List<String> = data.split(",")
 
-                        val foodEntity = FoodEntity(temp[0], temp[1], temp[2],foodType!!)
+                        val foodEntity = FoodEntity(temp[0], temp[1], temp[2], foodType!!)
                         searchItemList.add(foodEntity)
 
                     }
@@ -83,9 +85,9 @@ class CaloriesActivity : AppCompatActivity(), FoodClickListener {
     override fun onFoodItemClicked(foodEntity: FoodEntity, s: String) {
         val intent = Intent(this, ShowFoodDetailsActivity::class.java)
         intent.putExtra("foodItem", foodEntity)
+        intent.putExtra("type", "save")
         startActivity(intent)
 
     }
-
 
 }

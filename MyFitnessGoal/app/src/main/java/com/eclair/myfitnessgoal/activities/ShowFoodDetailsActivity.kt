@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package com.eclair.myfitnessgoal.activities
 
 import android.content.Intent
@@ -14,7 +16,9 @@ import kotlinx.android.synthetic.main.activity_show_food_details.*
 
 
 class ShowFoodDetailsActivity : AppCompatActivity() {
+
     lateinit var foodEntity: FoodEntity
+    private var type: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,8 +26,8 @@ class ShowFoodDetailsActivity : AppCompatActivity() {
 
         if (intent != null && intent.extras != null) {
             foodEntity = intent.getSerializableExtra("foodItem") as FoodEntity
+            type = intent.getStringExtra("type")
             tvFoodItemDisplay.text = foodEntity.foodName
-
         }
 
         val app = application as FoodApplication
@@ -31,15 +35,17 @@ class ShowFoodDetailsActivity : AppCompatActivity() {
         val viewModelFactory = FoodViewModelFactory(repository)
         val viewModel = ViewModelProviders.of(this, viewModelFactory).get(FoodViewModel::class.java)
         btnAddFoodItem.setOnClickListener {
-            viewModel.addFood(foodEntity)
+            if (type == "save") {
+                viewModel.addFood(foodEntity)
+            }
 
-            val intent = Intent(this,MainActivity::class.java)
-            intent.putExtra("AddFood",2)
+            val intent = Intent(this, MainActivity::class.java)
+            intent.putExtra("AddFood", 2)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
             startActivity(intent)
 
-
             viewModel.getTotalCalorie().observe(this, {
-                Log.d("hu", it.toString())
+                Log.d("cal", it.toString())
             })
         }
     }
