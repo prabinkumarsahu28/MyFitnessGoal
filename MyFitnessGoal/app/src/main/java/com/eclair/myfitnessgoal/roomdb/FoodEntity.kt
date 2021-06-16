@@ -10,7 +10,9 @@ data class FoodEntity(
     @ColumnInfo(name = "foodName") var foodName: String,
     @ColumnInfo(name = "quantity") var quantity: String,
     @ColumnInfo(name = "calories") var calories: String,
-) : Serializable {
+    @ColumnInfo(name = "type") var type: String,
+
+    ) : Serializable {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
     var id: Int? = null

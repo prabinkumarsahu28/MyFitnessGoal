@@ -20,4 +20,8 @@ class FoodRepo(private val foodDao: FoodDao) {
     fun getTotalCalorie(): LiveData<Int?> {
         return foodDao.getTotalCalorie()
     }
+
+    fun getAddedFood(types: String): LiveData<List<FoodEntity>> {
+        return foodDao.getAddedFood(types)
+    }
 }
