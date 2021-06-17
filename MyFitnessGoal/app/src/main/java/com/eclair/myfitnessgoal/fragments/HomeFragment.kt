@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.eclair.myfitnessgoal.R
 import com.eclair.myfitnessgoal.activities.BlogViewActivity
@@ -14,6 +16,10 @@ import com.eclair.myfitnessgoal.activities.VideoPlayerActivity
 import com.eclair.myfitnessgoal.adapter.HomeBlogsAdapter
 import com.eclair.myfitnessgoal.listeners.BlogClickListener
 import com.eclair.myfitnessgoal.models.HomeBlogs
+import com.eclair.myfitnessgoal.roomdb.FoodApplication
+import com.eclair.myfitnessgoal.roomdb.UserEntity
+import com.eclair.myfitnessgoal.roomdb.UserViewModel
+import com.eclair.myfitnessgoal.roomdb.UserViewModelFactory
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -26,9 +32,10 @@ class HomeFragment : Fragment(), BlogClickListener {
     private lateinit var database: FirebaseDatabase
     lateinit var blogsAdapter: HomeBlogsAdapter
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false)
@@ -41,6 +48,8 @@ class HomeFragment : Fragment(), BlogClickListener {
         blogsAdapter = HomeBlogsAdapter(blogsList, this)
         recyclerViewHome.layoutManager = LinearLayoutManager(activity)
         recyclerViewHome.adapter = blogsAdapter
+
+
 
         getBlogs()
     }

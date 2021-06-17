@@ -8,9 +8,13 @@ import com.eclair.myfitnessgoal.fragments.*
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+
+    private var userName: String? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
 
         val homeFragment = HomeFragment()
         val diaryFragment = DiaryFragment()
@@ -43,8 +47,10 @@ class MainActivity : AppCompatActivity() {
         }
 
         if (intent != null && intent.extras != null) {
-            if (intent.getIntExtra("AddFood", 0) == 2) {
+
+         if (intent.getIntExtra("AddFood", 0) == 2) {
                 bottomNavigation.selectedItemId = R.id.ic_diary
+
                 currentFragment(diaryFragment)
             }
         }
@@ -60,7 +66,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun currentFragment(fragment: Fragment) {
+        val bundle = Bundle()
+        if (intent != null && intent.extras != null) {
+            userName = intent.getStringExtra("userName")
+
+        }
+        bundle.putString("userName", userName)
+
         supportFragmentManager.beginTransaction().apply {
+
             replace(R.id.flContainer, fragment)
             commit()
         }
