@@ -13,9 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyFitnessGoal">
-
-        <activity android:name=".activities.ShowFoodDetailsActivity"/>
-
+        <activity android:name=".activities.EditProfileActivity"></activity>
+        <activity android:name=".activities.SettingsActivity" />
+        <activity android:name=".activities.ShowFoodDetailsActivity" />
         <activity
             android:name=".activities.StartActivity"
             android:theme="@style/Theme.Design.NoActionBar" />
