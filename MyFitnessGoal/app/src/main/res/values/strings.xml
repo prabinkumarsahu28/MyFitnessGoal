@@ -21,4 +21,6 @@
     <string name="we_use_this">We use this information to calculate an accurate calorie goal for you.</string>
     <string name="food_details">*Percent Daily Values are based on 2,000 Calories diet. Your daily values may be higher or lower depending on your calories needs.</string>
     <string name="report_food">Report Food</string>
+    <string name="progress">Progress</string>
+    <string name="add_weight">ADD WEIGHT</string>
 </resources>
