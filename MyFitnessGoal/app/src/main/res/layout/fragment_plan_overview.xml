@@ -1,293 +1,300 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:background="@color/white"
     android:padding="@dimen/dp_15"
     tools:context=".fragments.PlanOverviewFragment">
 
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        android:scrollbars="vertical">
 
-        <TextView
-            android:id="@+id/tvDescPlanDetails"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/learn_how"
-            android:textColor="@color/black" />
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/tvDisclaimerPlanDetails"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tvDescPlanDetails"
-            android:layout_marginTop="@dimen/dp_20"
-            android:text="@string/disclaimer"
-            android:textSize="@dimen/sp_11" />
-
-        <TextView
-            android:id="@+id/tvDurationPlanDetails"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tvDisclaimerPlanDetails"
-            android:layout_marginTop="@dimen/dp_10"
-            android:text="Duration"
-            android:textColor="@color/black" />
-
-        <TextView
-            android:id="@+id/tvDurPlanDetails"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tvDisclaimerPlanDetails"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="@dimen/dp_10"
-            android:text="28 days"
-            android:textColor="@color/black" />
-
-        <TextView
-            android:id="@+id/tvPerWeekPlanDetails"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tvDurationPlanDetails"
-            android:layout_marginTop="@dimen/dp_20"
-            android:text="Times Per Week"
-            android:textColor="@color/black" />
-
-        <TextView
-            android:id="@+id/tvWeeklyPlanDetails"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tvDurationPlanDetails"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="@dimen/dp_20"
-            android:text="Daily"
-            android:textColor="@color/black" />
-
-        <TextView
-            android:id="@+id/tvDifficultyPlanDetails"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tvPerWeekPlanDetails"
-            android:layout_marginTop="@dimen/dp_20"
-            android:text="Difficulty"
-            android:textColor="@color/black" />
-
-        <TextView
-            android:id="@+id/tvDiffPlanDetails"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tvPerWeekPlanDetails"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="@dimen/dp_20"
-            android:text="Beginner"
-            android:textColor="@color/black" />
-
-        <TextView
-            android:id="@+id/tvChoosePlanDetails"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tvDifficultyPlanDetails"
-            android:layout_marginTop="@dimen/dp_20"
-            android:text="Choose This Plan If"
-            android:textColor="@color/black"
-            android:textSize="@dimen/sp_18"
-            android:textStyle="bold" />
-
-        <TableLayout
-            android:id="@+id/tlChoosePlanDetails"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tvChoosePlanDetails">
-
-            <TableRow
+            <TextView
+                android:id="@+id/tvDescPlanDetails"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:text="@string/learn_how"
+                android:textColor="@color/black" />
 
-                <TextView
-                    android:layout_column="1"
-                    android:text="•"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/sp_20"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_column="2"
-                    android:layout_marginStart="@dimen/dp_15"
-                    android:text="@string/you_are"
-                    android:textColor="@color/black" />
-            </TableRow>
-
-            <TableRow
+            <TextView
+                android:id="@+id/tvDisclaimerPlanDetails"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvDescPlanDetails"
+                android:layout_marginTop="@dimen/dp_20"
+                android:text="@string/disclaimer"
+                android:textSize="@dimen/sp_11" />
 
-                <TextView
-                    android:layout_column="1"
-                    android:text="•"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/sp_20"
-                    android:textStyle="bold" />
+            <TextView
+                android:id="@+id/tvDurationPlanDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvDisclaimerPlanDetails"
+                android:layout_marginTop="@dimen/dp_10"
+                android:text="Duration"
+                android:textColor="@color/black" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_column="2"
-                    android:layout_marginStart="@dimen/dp_15"
-                    android:paddingBottom="@dimen/dp_5"
-                    android:text="@string/you_have"
-                    android:textColor="@color/black" />
-            </TableRow>
+            <TextView
+                android:id="@+id/tvDurPlanDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvDisclaimerPlanDetails"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="@dimen/dp_10"
+                android:text="28 days"
+                android:textColor="@color/black" />
 
-            <TableRow
+            <TextView
+                android:id="@+id/tvPerWeekPlanDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvDurationPlanDetails"
+                android:layout_marginTop="@dimen/dp_20"
+                android:text="Times Per Week"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/tvWeeklyPlanDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvDurationPlanDetails"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="@dimen/dp_20"
+                android:text="Daily"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/tvDifficultyPlanDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvPerWeekPlanDetails"
+                android:layout_marginTop="@dimen/dp_20"
+                android:text="Difficulty"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/tvDiffPlanDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvPerWeekPlanDetails"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="@dimen/dp_20"
+                android:text="Beginner"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/tvChoosePlanDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvDifficultyPlanDetails"
+                android:layout_marginTop="@dimen/dp_20"
+                android:text="Choose This Plan If"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_18"
+                android:textStyle="bold" />
+
+            <TableLayout
+                android:id="@+id/tlChoosePlanDetails"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvChoosePlanDetails">
 
-                <TextView
-                    android:layout_column="1"
-                    android:text="•"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/sp_20"
-                    android:textStyle="bold" />
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_column="2"
-                    android:layout_marginStart="@dimen/dp_15"
-                    android:paddingBottom="@dimen/dp_5"
-                    android:text="@string/you_are_unsure"
-                    android:textColor="@color/black" />
-            </TableRow>
+                    <TextView
+                        android:layout_column="1"
+                        android:text="•"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp_20"
+                        android:textStyle="bold" />
 
-        </TableLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="2"
+                        android:layout_marginStart="@dimen/dp_15"
+                        android:text="@string/you_are"
+                        android:textColor="@color/black" />
+                </TableRow>
 
-        <TextView
-            android:id="@+id/tvWhatYouDoPlanDetails"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tlChoosePlanDetails"
-            android:layout_marginTop="@dimen/dp_20"
-            android:text="What You Will Do"
-            android:textColor="@color/black"
-            android:textSize="@dimen/sp_18"
-            android:textStyle="bold" />
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-        <TableLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tvWhatYouDoPlanDetails">
+                    <TextView
+                        android:layout_column="1"
+                        android:text="•"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp_20"
+                        android:textStyle="bold" />
 
-            <TableRow
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="2"
+                        android:layout_marginStart="@dimen/dp_15"
+                        android:paddingBottom="@dimen/dp_5"
+                        android:text="@string/you_have"
+                        android:textColor="@color/black" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_column="1"
+                        android:text="•"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp_20"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="2"
+                        android:layout_marginStart="@dimen/dp_15"
+                        android:paddingBottom="@dimen/dp_5"
+                        android:text="@string/you_are_unsure"
+                        android:textColor="@color/black" />
+                </TableRow>
+
+            </TableLayout>
+
+            <TextView
+                android:id="@+id/tvWhatYouDoPlanDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tlChoosePlanDetails"
+                android:layout_marginTop="@dimen/dp_20"
+                android:text="What You Will Do"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_18"
+                android:textStyle="bold" />
+
+            <TableLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvWhatYouDoPlanDetails">
 
-                <TextView
-                    android:layout_column="1"
-                    android:text="•"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/sp_20"
-                    android:textStyle="bold" />
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_column="2"
-                    android:layout_marginStart="@dimen/dp_15"
-                    android:paddingBottom="@dimen/dp_5"
-                    android:text="@string/learn_how_different"
-                    android:textColor="@color/black" />
-            </TableRow>
+                    <TextView
+                        android:layout_column="1"
+                        android:text="•"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp_20"
+                        android:textStyle="bold" />
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="2"
+                        android:layout_marginStart="@dimen/dp_15"
+                        android:paddingBottom="@dimen/dp_5"
+                        android:text="@string/learn_how_different"
+                        android:textColor="@color/black" />
+                </TableRow>
 
-                <TextView
-                    android:layout_column="1"
-                    android:text="•"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/sp_20"
-                    android:textStyle="bold" />
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_column="2"
-                    android:layout_marginStart="@dimen/dp_15"
-                    android:paddingBottom="@dimen/dp_5"
-                    android:text="@string/focus_on"
-                    android:textColor="@color/black" />
-            </TableRow>
+                    <TextView
+                        android:layout_column="1"
+                        android:text="•"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp_20"
+                        android:textStyle="bold" />
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="2"
+                        android:layout_marginStart="@dimen/dp_15"
+                        android:paddingBottom="@dimen/dp_5"
+                        android:text="@string/focus_on"
+                        android:textColor="@color/black" />
+                </TableRow>
 
-                <TextView
-                    android:layout_column="1"
-                    android:text="•"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/sp_20"
-                    android:textStyle="bold" />
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_column="2"
-                    android:layout_marginStart="@dimen/dp_15"
-                    android:paddingBottom="@dimen/dp_5"
-                    android:text="@string/build_meals"
-                    android:textColor="@color/black" />
-            </TableRow>
+                    <TextView
+                        android:layout_column="1"
+                        android:text="•"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp_20"
+                        android:textStyle="bold" />
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="2"
+                        android:layout_marginStart="@dimen/dp_15"
+                        android:paddingBottom="@dimen/dp_5"
+                        android:text="@string/build_meals"
+                        android:textColor="@color/black" />
+                </TableRow>
 
-                <TextView
-                    android:layout_column="1"
-                    android:text="•"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/sp_20"
-                    android:textStyle="bold" />
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_column="2"
-                    android:layout_marginStart="@dimen/dp_15"
-                    android:paddingBottom="@dimen/dp_5"
-                    android:text="@string/trial_and_error"
-                    android:textColor="@color/black" />
-            </TableRow>
+                    <TextView
+                        android:layout_column="1"
+                        android:text="•"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp_20"
+                        android:textStyle="bold" />
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="2"
+                        android:layout_marginStart="@dimen/dp_15"
+                        android:paddingBottom="@dimen/dp_5"
+                        android:text="@string/trial_and_error"
+                        android:textColor="@color/black" />
+                </TableRow>
 
-                <TextView
-                    android:layout_column="1"
-                    android:text="•"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/sp_20"
-                    android:textStyle="bold" />
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_column="2"
-                    android:layout_marginStart="@dimen/dp_15"
-                    android:paddingBottom="@dimen/dp_5"
-                    android:text="@string/by_the_end"
-                    android:textColor="@color/black" />
-            </TableRow>
+                    <TextView
+                        android:layout_column="1"
+                        android:text="•"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp_20"
+                        android:textStyle="bold" />
 
-        </TableLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="2"
+                        android:layout_marginStart="@dimen/dp_15"
+                        android:paddingBottom="@dimen/dp_5"
+                        android:text="@string/by_the_end"
+                        android:textColor="@color/black" />
+                </TableRow>
 
-    </RelativeLayout>
+            </TableLayout>
 
-</ScrollView>
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>

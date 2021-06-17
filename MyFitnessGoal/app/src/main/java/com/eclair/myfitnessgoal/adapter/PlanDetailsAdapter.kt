@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package com.eclair.myfitnessgoal.adapter
 
 import android.os.Bundle
