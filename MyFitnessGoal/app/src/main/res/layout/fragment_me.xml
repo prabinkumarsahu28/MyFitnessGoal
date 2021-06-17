@@ -1,50 +1,182 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ECF0F1"
     tools:context=".fragments.MeFragment">
 
-    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/profile_image"
-        android:layout_width="@dimen/dp_70"
-        android:layout_height="@dimen/dp_70"
-        android:layout_margin="@dimen/dp_20"
-        android:src="@drawable/user"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/tvUidUser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dp_30"
-        android:layout_marginTop="@dimen/dp_10"
-        android:text="prabinkumarsahu28"
-        android:textColor="@color/black"
-        android:textSize="@dimen/sp_21"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@id/profile_image"
-        app:layout_constraintTop_toTopOf="@id/profile_image" />
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvUserDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/dp_30"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="India"
-        android:textColor="@color/black"
-        android:textSize="@dimen/sp_16"
-        app:layout_constraintStart_toStartOf="@id/tvUidUser"
-        app:layout_constraintTop_toBottomOf="@id/tvUidUser" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/dp_20">
 
-    <Button
-        android:id="@+id/btnSignOut"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="sign out"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+                <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/profile_image"
+                    android:layout_width="@dimen/dp_70"
+                    android:layout_height="@dimen/dp_70"
+                    android:layout_margin="@dimen/dp_20"
+                    android:src="@drawable/user"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:id="@+id/tvUidUser"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp_30"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:text="prabinkumarsahu28"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_21"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@id/profile_image"
+                    app:layout_constraintTop_toTopOf="@id/profile_image" />
+
+                <TextView
+                    android:id="@+id/tvIndia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="India"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_16"
+                    app:layout_constraintStart_toStartOf="@id/tvUidUser"
+                    app:layout_constraintTop_toBottomOf="@id/tvUidUser" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_8"
+                    android:layout_marginBottom="@dimen/dp_30"
+                    android:text="Streak : 9 days"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toStartOf="@id/tvIndia"
+                    app:layout_constraintTop_toBottomOf="@id/tvIndia">
+
+                </TextView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvProgressDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_20"
+            android:elevation="@dimen/dp_40"
+            app:layout_constraintTop_toBottomOf="@id/cvUserDetails">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tvProgress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp_20"
+                    android:layout_marginTop="@dimen/dp_20"
+                    android:text="@string/progress"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/dp_20"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <me.bastanfar.semicirclearcprogressbar.SemiCircleArcProgressBar
+                    android:id="@+id/pb_SemiCircle"
+                    android:layout_width="200dp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="@dimen/dp_10"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.517"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvProgress"
+                    app:layout_constraintVertical_bias="0.0"
+                    app:percent="70"
+                    app:progressBarColor="@android:color/holo_blue_dark"
+                    app:progressBarWidth="25"
+                    app:progressPlaceHolderColor="@android:color/holo_orange_light"
+                    app:progressPlaceHolderWidth="5" />
+
+                <View
+                    android:id="@+id/vLineOneMe"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_1"
+                    android:layout_marginTop="@dimen/dp_20"
+                    android:background="#B3B6B7"
+                    app:layout_constraintTop_toBottomOf="@+id/pb_SemiCircle" />
+
+                <TextView
+                    android:id="@+id/tvAddWeight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:text="@string/add_weight"
+                    android:textColor="#2874A6"
+                    android:textSize="@dimen/sp_15"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/tvProgress"
+                    app:layout_constraintTop_toBottomOf="@+id/vLineOneMe" />
+
+                <View
+                    android:id="@+id/vLineTwoMe"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_1"
+                    android:layout_marginTop="@dimen/dp_20"
+                    android:background="#B3B6B7"
+                    app:layout_constraintTop_toBottomOf="@+id/tvAddWeight" />
+
+                <TextView
+                    android:id="@+id/tvKgLost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0 kg lost"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/pb_SemiCircle"
+                    app:layout_constraintEnd_toEndOf="@+id/pb_SemiCircle"
+                    app:layout_constraintHorizontal_bias="0.47"
+                    app:layout_constraintStart_toStartOf="@+id/pb_SemiCircle"
+                    app:layout_constraintTop_toTopOf="@+id/pb_SemiCircle"
+                    app:layout_constraintVertical_bias="1.0" />
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="@dimen/dp_24"
+                    android:layout_height="@dimen/dp_24"
+                    android:src="@drawable/scale"
+                    app:layout_constraintBottom_toTopOf="@+id/vLineOneMe"
+                    app:layout_constraintEnd_toEndOf="@+id/pb_SemiCircle"
+                    app:layout_constraintStart_toStartOf="@+id/pb_SemiCircle"
+                    app:layout_constraintTop_toTopOf="@+id/pb_SemiCircle"
+                    app:layout_constraintVertical_bias="0.309" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>
