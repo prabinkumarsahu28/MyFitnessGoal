@@ -17,6 +17,10 @@ class FoodRepo(private val foodDao: FoodDao, private val userDao: UserDao) {
         return foodDao.getAllFood()
     }
 
+    fun getFoodDateWise(reqDate: String, types: String): LiveData<List<FoodEntity>> {
+        return foodDao.getFoodDateWise(reqDate, types)
+    }
+
     fun getTotalCalorie(): LiveData<Int?> {
         return foodDao.getTotalCalorie()
     }

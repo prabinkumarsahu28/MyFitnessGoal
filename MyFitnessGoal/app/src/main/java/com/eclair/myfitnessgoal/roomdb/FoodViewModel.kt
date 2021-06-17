@@ -10,10 +10,12 @@ class FoodViewModel(private val foodRepo: FoodRepo) : ViewModel() {
     }
 
 
-
-
     fun getAllFood(): LiveData<List<FoodEntity>> {
         return foodRepo.getAllFood()
+    }
+
+    fun getFoodDateWise(reqDate: String, types: String): LiveData<List<FoodEntity>> {
+        return foodRepo.getFoodDateWise(reqDate, types)
     }
 
     fun getTotalCalorie(): LiveData<Int?> {
