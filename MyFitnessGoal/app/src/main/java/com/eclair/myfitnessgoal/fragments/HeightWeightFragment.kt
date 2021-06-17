@@ -7,10 +7,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.lifecycle.ViewModelProviders
 import com.eclair.myfitnessgoal.R
 import com.eclair.myfitnessgoal.activities.MainActivity
 import com.eclair.myfitnessgoal.models.Users
+import com.eclair.myfitnessgoal.roomdb.FoodApplication
+import com.eclair.myfitnessgoal.roomdb.UserEntity
+import com.eclair.myfitnessgoal.roomdb.UserViewModel
+import com.eclair.myfitnessgoal.roomdb.UserViewModelFactory
 import kotlinx.android.synthetic.main.fragment_height_weight.*
+import kotlinx.android.synthetic.main.fragment_home.*
 import java.util.*
 import kotlin.math.roundToInt
 
@@ -23,6 +29,9 @@ class HeightWeightFragment : Fragment() {
     private var reqCalorie: Int = 0
     private var height: Int = 0
     private var weight: Int = 0
+
+    lateinit var viewModel: UserViewModel
+    lateinit var userEntity: UserEntity
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -52,6 +61,7 @@ class HeightWeightFragment : Fragment() {
             dob = "$day/${month + 1}/$year"
         }
 
+
         val users = Users(
             user.userName,
             user.email,
@@ -64,21 +74,44 @@ class HeightWeightFragment : Fragment() {
             dob,
             reqCalorie.toString()
         )
+
     }
 
     private fun clickListener() {
 
         btnNextHeightWt.setOnClickListener {
+
+
             if (checkValidation()) {
 
                 getCalorie()
                 val intent = Intent(context, MainActivity::class.java)
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK
                         or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                intent.putExtra("userName",user.userName)
+
                 startActivity(intent)
                 Toast.makeText(context,
                     "age: $age, reqCalorie: $reqCalorie",
                     Toast.LENGTH_LONG).show()
+
+
+                val app = activity?.application as FoodApplication
+                val repository = app.foodRepo
+                val viewModelFactory = UserViewModelFactory(repository)
+                viewModel = ViewModelProviders.of(this, viewModelFactory).get(UserViewModel::class.java)
+
+
+                userEntity = UserEntity(user.email!!,
+                    user.password!!,
+                    user.goalType!!,
+                    user.activeness!!,
+                    user.sex!!,
+                    height.toString(),
+                    weight.toString(),
+                    dob!!,
+                    reqCalorie.toString())
+                viewModel.addData(userEntity)
             }
         }
     }
