@@ -9,6 +9,9 @@ class FoodViewModel(private val foodRepo: FoodRepo) : ViewModel() {
         foodRepo.addFood(foodEntity)
     }
 
+
+
+
     fun getAllFood(): LiveData<List<FoodEntity>> {
         return foodRepo.getAllFood()
     }
