@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.eclair.myfitnessgoal.R
 import com.eclair.myfitnessgoal.activities.CaloriesActivity
+import com.eclair.myfitnessgoal.activities.ShowFoodDetailsActivity
 import com.eclair.myfitnessgoal.adapter.SearchFoodItemsAdapter
 import com.eclair.myfitnessgoal.listeners.FoodClickListener
 import com.eclair.myfitnessgoal.roomdb.FoodApplication
@@ -135,10 +136,12 @@ class DiaryFragment : Fragment(), FoodClickListener {
                 viewModel.getDeletedFoodItem(foodEntity)
             }
         } else {
-            Toast.makeText(context, "details", Toast.LENGTH_SHORT).show()
+            val intent = Intent(context, ShowFoodDetailsActivity::class.java)
+            intent.putExtra("foodItem", foodEntity)
+            intent.putExtra("type", "view")
+            startActivity(intent)
         }
 
     }
-
 
 }
