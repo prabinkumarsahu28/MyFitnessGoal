@@ -1,10 +1,12 @@
 package com.eclair.myfitnessgoal.activities
 
+import android.annotation.SuppressLint
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.eclair.myfitnessgoal.R
 import com.eclair.myfitnessgoal.adapter.SearchFoodItemsAdapter
@@ -15,6 +17,8 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.activity_calories.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 class CaloriesActivity : AppCompatActivity(), FoodClickListener {
 
@@ -23,7 +27,9 @@ class CaloriesActivity : AppCompatActivity(), FoodClickListener {
     private lateinit var database: FirebaseDatabase
     lateinit var searchFoodItemsAdapter: SearchFoodItemsAdapter
     var foodType: String? = null
+    var curDate: String? = null
 
+    @SuppressLint("SimpleDateFormat")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calories)
@@ -35,6 +41,9 @@ class CaloriesActivity : AppCompatActivity(), FoodClickListener {
         if (intent != null && intent.extras != null) {
             foodType = intent.getStringExtra("type").toString()
         }
+
+        val dateFormat = SimpleDateFormat("dd/MM/yyyy")
+        curDate = dateFormat.format(Date())
 
         rv_SearchFood.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
@@ -48,9 +57,7 @@ class CaloriesActivity : AppCompatActivity(), FoodClickListener {
             } else {
                 Toast.makeText(this, "fill something", Toast.LENGTH_SHORT).show()
             }
-
         }
-
     }
 
     private fun getFoodItems(searchedItem: String) {
@@ -65,7 +72,8 @@ class CaloriesActivity : AppCompatActivity(), FoodClickListener {
                         val data = dataSnapshot.value.toString()
                         val temp: List<String> = data.split(",")
 
-                        val foodEntity = FoodEntity(temp[0], temp[1], temp[2], foodType!!)
+                        val foodEntity = FoodEntity(temp[0], temp[1], temp[2], foodType!!,
+                            curDate!!)
                         searchItemList.add(foodEntity)
 
                     }
