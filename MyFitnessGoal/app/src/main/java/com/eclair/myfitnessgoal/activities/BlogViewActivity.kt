@@ -1,5 +1,6 @@
 package com.eclair.myfitnessgoal.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.eclair.myfitnessgoal.R
@@ -14,6 +15,12 @@ class BlogViewActivity : AppCompatActivity() {
         if (intent != null && intent.extras != null) {
             val link = intent.getStringExtra("link").toString()
             wvBlog.loadUrl(link)
+        }
+
+        ivBackArrowBlog.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+            startActivity(intent)
         }
     }
 }

@@ -23,8 +23,8 @@ class PlanDetailsActivity : AppCompatActivity() {
             tvPlanDetailsName.text = plans.name
         }
 
-        vpPlanDetails.adapter = PlanDetailsAdapter(supportFragmentManager, plans)
         tlPlanDetails.setupWithViewPager(vpPlanDetails)
+        vpPlanDetails.adapter = PlanDetailsAdapter(supportFragmentManager, plans)
 
         ivArrowBack.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)

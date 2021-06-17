@@ -15,7 +15,7 @@ class FarmersMarketViewHolder(private val view: View,private val recipeViewListe
         view.apply {
             Glide.with(this).load(recipesClass.ImgLink).into(ivSproutsMarket)
             tvMarketItemName.text = recipesClass.Name
-            tvCal.text = recipesClass.cal
+            tvCal.text = "${recipesClass.cal} Cal"
 
             ivSproutsMarket.setOnClickListener {
                 recipeViewListener.onRecipeClicked(recipesClass)
