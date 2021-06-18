@@ -8,6 +8,7 @@ import java.io.Serializable
 
 @Entity(tableName = "User_Table")
 data class UserEntity(
+
     @ColumnInfo(name = "email") var emailId: String,
     @ColumnInfo(name = "uid") var uid: String,
     @ColumnInfo(name = "Password") var password: String,
