@@ -113,7 +113,7 @@ class DiaryFragment : Fragment(), FoodClickListener {
             }
         }
 
-        viewModel.getTotalCalorie().observe(requireActivity(), {
+        viewModel.getCalDateWise(uid!!, reqDate!!).observe(requireActivity(), {
             Log.d("prabin", it.toString())
             if (it.toString() == "null") {
                 consumedCalorie = 0
