@@ -224,6 +224,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/totalCalBreakfast"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
@@ -300,6 +301,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/totalCalLunch"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
@@ -376,6 +378,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/tvTotalCalDinner"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
@@ -452,6 +455,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/tvTotalCalSnacks"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
@@ -529,6 +533,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/tvTotalCalExercise"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"

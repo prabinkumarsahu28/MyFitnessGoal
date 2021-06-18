@@ -53,10 +53,10 @@ class MainActivity : AppCompatActivity() {
 
             if (intent.getIntExtra("AddFood", 0) == 2) {
                 bottomNavigation.selectedItemId = R.id.ic_diary
-
                 currentFragment(diaryFragment)
             }
         }
+
     }
 
     override fun onBackPressed() {

@@ -14,8 +14,16 @@ class FoodViewModel(private val foodRepo: FoodRepo) : ViewModel() {
         return foodRepo.getAllFood()
     }
 
-    fun getFoodDateWise(reqDate: String, types: String): LiveData<List<FoodEntity>> {
-        return foodRepo.getFoodDateWise(reqDate, types)
+    fun getFoodDateWise(reqDate: String, types: String, uid: String): LiveData<List<FoodEntity>> {
+        return foodRepo.getFoodDateWise(reqDate, types, uid)
+    }
+
+    fun getFoodDateWiseCalSum(
+        reqDate: String,
+        types: String,
+        uid: String,
+    ): LiveData<Int?>{
+        return foodRepo.getFoodDateWiseCalSum(reqDate, types, uid)
     }
 
     fun getTotalCalorie(): LiveData<Int?> {

@@ -5,6 +5,7 @@ package com.eclair.myfitnessgoal.fragments
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -45,7 +46,9 @@ class DiaryFragment : Fragment(), FoodClickListener {
     private var yesterday: String? = null
     private var tomorrow: String? = null
     private var req = 0
-    var reqCalorie: Int = 0
+    private var reqCalorie: Int = 0
+    private var consumedCalorie: Int = 0
+    private val uid = FirebaseAuth.getInstance().uid
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -74,6 +77,11 @@ class DiaryFragment : Fragment(), FoodClickListener {
         val userViewModelFactory = UserViewModelFactory(userRepo)
         userViewModel =
             ViewModelProviders.of(this, userViewModelFactory).get(UserViewModel::class.java)
+
+        CoroutineScope(Dispatchers.IO).launch {
+            reqCalorie = userViewModel.getReqCalorie(uid!!).toInt()
+            tvGoalCal.text = "$reqCalorie"
+        }
 
         clickListeners()
         recyclerData()
@@ -105,45 +113,76 @@ class DiaryFragment : Fragment(), FoodClickListener {
             }
         }
 
-        val uid = FirebaseAuth.getInstance().uid
-        CoroutineScope(Dispatchers.IO).launch {
-            tvGoalCal.text = userViewModel.getReqCalorie(uid!!)
-        }
-
         viewModel.getTotalCalorie().observe(requireActivity(), {
+            Log.d("prabin", it.toString())
             if (it.toString() == "null") {
+                consumedCalorie = 0
                 tvFoodCal.text = "0"
             } else {
+                consumedCalorie = it!!
                 tvFoodCal.text = it.toString()
             }
+            tvRemainingCal.text = "${reqCalorie - consumedCalorie}"
         })
 
-        viewModel.getFoodDateWise(reqDate!!, "breakfast").observe(requireActivity(), {
+        viewModel.getFoodDateWise(reqDate!!, "breakfast", uid!!).observe(requireActivity(), {
             breakFastList.clear()
             breakFastList.addAll(it)
             breakFastAdapter.notifyDataSetChanged()
 
         })
 
-        viewModel.getFoodDateWise(reqDate!!, "lunch").observe(requireActivity(), {
+        viewModel.getFoodDateWiseCalSum(reqDate!!, "breakfast", uid).observe(requireActivity(), {
+            if (it.toString() == "null") {
+                totalCalBreakfast.text = "0"
+            } else {
+                totalCalBreakfast.text = it.toString()
+            }
+        })
+
+        viewModel.getFoodDateWise(reqDate!!, "lunch", uid).observe(requireActivity(), {
             lunchList.clear()
             lunchList.addAll(it)
             lunchAdapter.notifyDataSetChanged()
 
         })
 
-        viewModel.getFoodDateWise(reqDate!!, "dinner").observe(requireActivity(), {
+        viewModel.getFoodDateWiseCalSum(reqDate!!, "lunch", uid).observe(requireActivity(), {
+            if (it.toString() == "null") {
+                totalCalLunch.text = "0"
+            } else {
+                totalCalLunch.text = it.toString()
+            }
+        })
+
+        viewModel.getFoodDateWise(reqDate!!, "dinner", uid).observe(requireActivity(), {
             dinnerList.clear()
             dinnerList.addAll(it)
             dinnerAdapter.notifyDataSetChanged()
 
         })
 
-        viewModel.getFoodDateWise(reqDate!!, "snack").observe(requireActivity(), {
+        viewModel.getFoodDateWiseCalSum(reqDate!!, "dinner", uid).observe(requireActivity(), {
+            if (it.toString() == "null") {
+                tvTotalCalDinner.text = "0"
+            } else {
+                tvTotalCalDinner.text = it.toString()
+            }
+        })
+
+        viewModel.getFoodDateWise(reqDate!!, "snack", uid).observe(requireActivity(), {
             snackList.clear()
             snackList.addAll(it)
             snackAdapter.notifyDataSetChanged()
 
+        })
+
+        viewModel.getFoodDateWiseCalSum(reqDate!!, "snack", uid).observe(requireActivity(), {
+            if (it.toString() == "null") {
+                tvTotalCalSnacks.text = "0"
+            } else {
+                tvTotalCalSnacks.text = it.toString()
+            }
         })
     }
 
