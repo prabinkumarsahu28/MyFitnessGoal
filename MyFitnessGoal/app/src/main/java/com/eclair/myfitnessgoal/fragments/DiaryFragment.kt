@@ -45,6 +45,7 @@ class DiaryFragment : Fragment(), FoodClickListener {
     private var yesterday: String? = null
     private var tomorrow: String? = null
     private var req = 0
+    var reqCalorie: Int = 0
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -110,7 +111,11 @@ class DiaryFragment : Fragment(), FoodClickListener {
         }
 
         viewModel.getTotalCalorie().observe(requireActivity(), {
-            tvFoodCal.text = it.toString()
+            if (it.toString() == "null") {
+                tvFoodCal.text = "0"
+            } else {
+                tvFoodCal.text = it.toString()
+            }
         })
 
         viewModel.getFoodDateWise(reqDate!!, "breakfast").observe(requireActivity(), {

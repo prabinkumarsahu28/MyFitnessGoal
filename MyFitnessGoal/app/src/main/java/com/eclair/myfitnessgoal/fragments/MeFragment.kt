@@ -28,11 +28,11 @@ class MeFragment : Fragment() {
 
         auth = FirebaseAuth.getInstance()
 
-        btnSignOut.setOnClickListener {
-            auth.signOut()
-            val intent = Intent(activity, StartActivity::class.java)
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
-            startActivity(intent)
-        }
+//        btnSignOut.setOnClickListener {
+//            auth.signOut()
+//            val intent = Intent(activity, StartActivity::class.java)
+//            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+//            startActivity(intent)
+//        }
     }
 }

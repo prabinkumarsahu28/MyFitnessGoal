@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.EditProfileActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvNameEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_20"
+            android:text="User Name"
+            android:textColor="@color/black" />
+
+        <View
+            android:id="@+id/vLineOneEdit"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_1"
+            android:layout_below="@id/tvNameEdit"
+            android:layout_marginTop="@dimen/dp_20"
+            android:background="#B3B6B7" />
+
+        <TextView
+            android:id="@+id/tvSoubiaEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/dp_20"
+            android:layout_marginEnd="@dimen/dp_40" />
+
+        <TextView
+            android:id="@+id/tvProfileEdit"
+            android:layout_below="@id/vLineOneEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_20"
+            android:text="Profile Photo"
+            android:textColor="@color/black" />
+
+        <View
+            android:id="@+id/vLineTwoEdit"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_1"
+            android:layout_below="@id/tvProfileEdit"
+            android:layout_marginTop="@dimen/dp_20"
+            android:background="#B3B6B7" />
+
+        <TextView
+            android:id="@+id/tvHeightEdit"
+            android:layout_below="@id/vLineTwoEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_20"
+            android:text="Height"
+            android:textColor="@color/black" />
+
+        <View
+            android:id="@+id/vLineThreeEdit"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_1"
+            android:layout_below="@id/tvHeightEdit"
+            android:layout_marginTop="@dimen/dp_20"
+            android:background="#B3B6B7" />
+
+        <TextView
+            android:id="@+id/tvHeightValEdit"
+            android:layout_below="@id/vLineTwoEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/dp_20"
+            android:layout_marginEnd="@dimen/dp_40" />
+
+        <TextView
+            android:id="@+id/tvSexEdit"
+            android:layout_below="@id/vLineThreeEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_20"
+            android:text="Sex"
+            android:textColor="@color/black" />
+
+        <View
+            android:id="@+id/vLineFourEdit"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_1"
+            android:layout_below="@id/tvSexEdit"
+            android:layout_marginTop="@dimen/dp_20"
+            android:background="#B3B6B7" />
+
+        <TextView
+            android:id="@+id/tvSexValEdit"
+            android:layout_below="@id/vLineThreeEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/dp_20"
+            android:layout_marginEnd="@dimen/dp_40" />
+
+        <TextView
+            android:id="@+id/tvDobEdit"
+            android:layout_below="@id/vLineFourEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_20"
+            android:text="Date of Birth"
+            android:textColor="@color/black" />
+
+        <View
+            android:id="@+id/vLineFiveEdit"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_1"
+            android:layout_below="@id/tvDobEdit"
+            android:layout_marginTop="@dimen/dp_20"
+            android:background="#B3B6B7" />
+
+        <TextView
+            android:id="@+id/tvDobValEdit"
+            android:layout_below="@id/vLineFourEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/dp_20"
+            android:layout_marginEnd="@dimen/dp_40" />
+
+        <TextView
+            android:id="@+id/tvLocationEdit"
+            android:layout_below="@id/vLineFiveEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_20"
+            android:text="Location"
+            android:textColor="@color/black" />
+
+        <View
+            android:id="@+id/vLineSixEdit"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_1"
+            android:layout_below="@id/tvLocationEdit"
+            android:layout_marginTop="@dimen/dp_20"
+            android:background="#B3B6B7" />
+
+        <TextView
+            android:id="@+id/tvLocationValEdit"
+            android:layout_below="@id/vLineFiveEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/dp_20"
+            android:layout_marginEnd="@dimen/dp_40" />
+
+        <TextView
+            android:id="@+id/tvTimeEdit"
+            android:layout_below="@id/vLineSixEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_20"
+            android:text="Time Zone"
+            android:textColor="@color/black" />
+
+        <View
+            android:id="@+id/vLineSevenEdit"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_1"
+            android:layout_below="@id/tvTimeEdit"
+            android:layout_marginTop="@dimen/dp_20"
+            android:background="#B3B6B7" />
+
+        <TextView
+            android:id="@+id/tvTimeValEdit"
+            android:layout_below="@id/vLineSixEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/dp_20"
+            android:layout_marginEnd="@dimen/dp_40" />
+
+        <TextView
+            android:id="@+id/tvZipEdit"
+            android:layout_below="@id/vLineSevenEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_20"
+            android:text="Zip Code"
+            android:textColor="@color/black" />
+
+        <View
+            android:id="@+id/vLineEightEdit"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_1"
+            android:layout_below="@id/tvZipEdit"
+            android:layout_marginTop="@dimen/dp_20"
+            android:background="#B3B6B7" />
+
+        <TextView
+            android:id="@+id/tvZipValEdit"
+            android:layout_below="@id/vLineSevenEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/dp_20"
+            android:layout_marginEnd="@dimen/dp_40" />
+
+        <TextView
+            android:id="@+id/tvEmailEdit"
+            android:layout_below="@id/vLineEightEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_20"
+            android:text="Email"
+            android:textColor="@color/black" />
+
+        <View
+            android:id="@+id/vLineNineEdit"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_1"
+            android:layout_below="@id/tvEmailEdit"
+            android:layout_marginTop="@dimen/dp_20"
+            android:background="#B3B6B7" />
+
+        <TextView
+            android:id="@+id/tvEmailValEdit"
+            android:layout_below="@id/vLineEightEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/dp_20"
+            android:layout_marginEnd="@dimen/dp_40" />
+
+
+    </RelativeLayout>
+
+</ScrollView>
