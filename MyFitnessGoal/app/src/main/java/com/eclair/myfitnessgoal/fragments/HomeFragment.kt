@@ -18,9 +18,7 @@ import com.eclair.myfitnessgoal.activities.VideoPlayerActivity
 import com.eclair.myfitnessgoal.adapter.HomeBlogsAdapter
 import com.eclair.myfitnessgoal.listeners.BlogClickListener
 import com.eclair.myfitnessgoal.models.HomeBlogs
-import com.eclair.myfitnessgoal.roomdb.FoodApplication
-import com.eclair.myfitnessgoal.roomdb.UserViewModel
-import com.eclair.myfitnessgoal.roomdb.UserViewModelFactory
+import com.eclair.myfitnessgoal.roomdb.*
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -36,8 +34,11 @@ class HomeFragment : Fragment(), BlogClickListener {
     private val blogsList = mutableListOf<HomeBlogs>()
     private lateinit var database: FirebaseDatabase
     lateinit var blogsAdapter: HomeBlogsAdapter
+    private lateinit var viewModel: FoodViewModel
     private lateinit var userViewModel: UserViewModel
     private val uid = FirebaseAuth.getInstance().uid
+    private var reqCalorie: Int = 0
+    private var consumedCalorie: Int = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -61,13 +62,36 @@ class HomeFragment : Fragment(), BlogClickListener {
         userViewModel =
             ViewModelProviders.of(this, userViewModelFactory).get(UserViewModel::class.java)
 
+        val repository = application.foodRepo
+        val viewModelFactory = FoodViewModelFactory(repository)
+        viewModel = ViewModelProviders.of(this, viewModelFactory).get(FoodViewModel::class.java)
+
         Log.d("prabin", uid!!)
         CoroutineScope(Dispatchers.IO).launch {
             tvGoalNumHome.text = userViewModel.getReqCalorie(uid)
         }
 
+//        getCalorieDetails()
         getBlogs()
     }
+
+//    private fun getCalorieDetails() {
+//        val uid = FirebaseAuth.getInstance().uid
+//        CoroutineScope(Dispatchers.IO).launch {
+//            reqCalorie = userViewModel.getReqCalorie(uid!!).toInt()
+//            tvGoalNumHome.text = "$reqCalorie"
+//        }
+//
+//        viewModel.getTotalCalorie().observe(requireActivity(), {
+//            consumedCalorie = if (it.toString() == "null") {
+//                0
+//            } else {
+//                it!!
+//            }
+//            tvFoodNumHome.text = consumedCalorie.toString()
+//            tvRemNumHome.text = "${reqCalorie - consumedCalorie}"
+//        })
+//    }
 
     private fun getBlogs() {
         database.reference.child("Home").addValueEventListener(object : ValueEventListener {
