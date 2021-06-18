@@ -539,7 +539,7 @@
                         android:layout_alignParentEnd="true"
                         android:layout_marginTop="@dimen/dp_10"
                         android:layout_marginEnd="@dimen/dp_20"
-                        android:text="445"
+                        android:text="0"
                         android:textColor="@color/black"
                         android:textStyle="bold" />
 

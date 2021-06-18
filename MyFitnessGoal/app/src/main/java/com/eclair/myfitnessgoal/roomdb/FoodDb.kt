@@ -6,13 +6,15 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 
 
-@Database(entities = [FoodEntity::class,UserEntity::class], version = 1)
+@Database(entities = [FoodEntity::class,UserEntity::class, ExerciseEntity::class], version = 1)
 
 abstract class FoodDb : RoomDatabase() {
 
     abstract fun getFoodDao(): FoodDao
 
     abstract fun getUserDao() : UserDao
+
+    abstract fun getExerciseDao():ExerciseDao
 
     companion object {
         private var INSTANCE: FoodDb? = null
