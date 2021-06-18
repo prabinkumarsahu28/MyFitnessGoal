@@ -2,12 +2,14 @@ package com.eclair.myfitnessgoal.roomdb
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 import java.io.Serializable
 
 @Entity(tableName = "User_Table")
 data class UserEntity(
     @ColumnInfo(name = "email") var emailId: String,
+    @ColumnInfo(name = "uid") var uid: String,
     @ColumnInfo(name = "Password") var password: String,
     @ColumnInfo(name = "goal") var goal: String,
     @ColumnInfo(name = "activeness") var activeness: String,
@@ -20,5 +22,5 @@ data class UserEntity(
     ) : Serializable {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
-    var id : Int? = null
+    var id: Int? = null
 }

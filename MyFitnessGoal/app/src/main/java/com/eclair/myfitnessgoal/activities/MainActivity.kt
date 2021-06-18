@@ -9,8 +9,6 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    private var userName: String? = null
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -27,18 +25,23 @@ class MainActivity : AppCompatActivity() {
         bottomNavigation.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.ic_home -> {
+                    tvToolText.text = "MyFitnessGoal"
                     currentFragment(homeFragment)
                 }
                 R.id.ic_diary -> {
+                    tvToolText.text = "Diary"
                     currentFragment(diaryFragment)
                 }
                 R.id.ic_recipes -> {
+                    tvToolText.text = "Recipes"
                     currentFragment(recipesFragment)
                 }
                 R.id.ic_plans -> {
+                    tvToolText.text = "Plans"
                     currentFragment(plansFragment)
                 }
                 R.id.ic_me -> {
+                    tvToolText.text = "Profile"
                     currentFragment(meFragment)
                 }
 
@@ -48,7 +51,7 @@ class MainActivity : AppCompatActivity() {
 
         if (intent != null && intent.extras != null) {
 
-         if (intent.getIntExtra("AddFood", 0) == 2) {
+            if (intent.getIntExtra("AddFood", 0) == 2) {
                 bottomNavigation.selectedItemId = R.id.ic_diary
 
                 currentFragment(diaryFragment)
@@ -66,17 +69,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun currentFragment(fragment: Fragment) {
-        val bundle = Bundle()
-        if (intent != null && intent.extras != null) {
-            userName = intent.getStringExtra("userName")
-
-        }
-        bundle.putString("userName", userName)
-
-        supportFragmentManager.beginTransaction().apply {
-
-            replace(R.id.flContainer, fragment)
-            commit()
-        }
+        val fragmentTransaction = supportFragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.flContainer, fragment).commit()
     }
 }

@@ -1,13 +1,15 @@
+@file:Suppress("DEPRECATION")
+
 package com.eclair.myfitnessgoal.fragments
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.eclair.myfitnessgoal.R
@@ -17,21 +19,26 @@ import com.eclair.myfitnessgoal.adapter.HomeBlogsAdapter
 import com.eclair.myfitnessgoal.listeners.BlogClickListener
 import com.eclair.myfitnessgoal.models.HomeBlogs
 import com.eclair.myfitnessgoal.roomdb.FoodApplication
-import com.eclair.myfitnessgoal.roomdb.UserEntity
 import com.eclair.myfitnessgoal.roomdb.UserViewModel
 import com.eclair.myfitnessgoal.roomdb.UserViewModelFactory
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import kotlinx.android.synthetic.main.fragment_diary.*
 import kotlinx.android.synthetic.main.fragment_home.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment(), BlogClickListener {
 
     private val blogsList = mutableListOf<HomeBlogs>()
     private lateinit var database: FirebaseDatabase
     lateinit var blogsAdapter: HomeBlogsAdapter
-
+    private lateinit var userViewModel: UserViewModel
+    private val uid = FirebaseAuth.getInstance().uid
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -49,7 +56,16 @@ class HomeFragment : Fragment(), BlogClickListener {
         recyclerViewHome.layoutManager = LinearLayoutManager(activity)
         recyclerViewHome.adapter = blogsAdapter
 
+        val application = activity?.application as FoodApplication
+        val userRepo = application.userRepo
+        val userViewModelFactory = UserViewModelFactory(userRepo)
+        userViewModel =
+            ViewModelProviders.of(this, userViewModelFactory).get(UserViewModel::class.java)
 
+        Log.d("prabin", uid!!)
+        CoroutineScope(Dispatchers.IO).launch {
+            tvGoalNumHome.text = userViewModel.getReqCalorie(uid)
+        }
 
         getBlogs()
     }

@@ -6,21 +6,43 @@
     android:layout_height="match_parent"
     tools:context=".activities.MainActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tbMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/smoke_white"
+        android:elevation="@dimen/dp_10"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tvToolText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_40"
+            android:text="MyFitnessGoal"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_20" />
+
+    </androidx.appcompat.widget.Toolbar>
+
     <FrameLayout
         android:id="@+id/flContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/bottomNavigation" />
+        android:layout_above="@id/bottomNavigation"
+        android:layout_below="@id/tbMain" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigation"
         android:layout_width="match_parent"
-        app:labelVisibilityMode="labeled"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="?android:attr/windowBackground"
         app:itemIconTint="@color/bottom_nav_bar"
         app:itemTextColor="@color/bottom_nav_bar"
+        app:labelVisibilityMode="labeled"
         app:menu="@menu/nav_menu" />
 
 </RelativeLayout>

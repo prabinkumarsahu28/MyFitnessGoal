@@ -25,7 +25,12 @@ class GoalFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        user = arguments?.getSerializable("user") as Users
+        if (arguments != null) {
+            user = arguments?.getSerializable("user") as Users
+        }else{
+            user = Users()
+        }
+
 
         clickListener()
 
