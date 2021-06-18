@@ -12,7 +12,10 @@ interface UserDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun addUserData(userEntity: UserEntity)
 
-    @Query("SELECT * from USER_TABLE")
-    fun getAllUserData() : LiveData<UserEntity>
+    @Query("SELECT * from User_Table")
+    fun getAllUserData(): LiveData<UserEntity>
+
+    @Query("SELECT reqCalorie FROM User_Table WHERE uid =:uid")
+    fun getReqCalorie(uid: String): String
 
 }

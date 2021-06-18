@@ -18,16 +18,16 @@ class Users : Serializable {
     var profilePic: String? = null
 
     constructor() {}
-    constructor(userName: String?, email: String?, userId: String?, profilePic: String?) {
+    constructor(userName: String?, email: String?, userId: String?) {
         this.userName = userName
         this.email = email
         this.userId = userId
-        this.profilePic = profilePic
     }
 
-    constructor(userName: String?, email: String?, password: String?) {
+    constructor(userName: String?, email: String?, userId: String?, password: String?) {
         this.userName = userName
         this.email = email
+        this.userId = userId
         this.password = password
     }
 

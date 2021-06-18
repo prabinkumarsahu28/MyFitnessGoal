@@ -5,7 +5,6 @@ package com.eclair.myfitnessgoal.fragments
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,10 +16,8 @@ import com.eclair.myfitnessgoal.activities.CaloriesActivity
 import com.eclair.myfitnessgoal.activities.ShowFoodDetailsActivity
 import com.eclair.myfitnessgoal.adapter.SearchFoodItemsAdapter
 import com.eclair.myfitnessgoal.listeners.FoodClickListener
-import com.eclair.myfitnessgoal.roomdb.FoodApplication
-import com.eclair.myfitnessgoal.roomdb.FoodEntity
-import com.eclair.myfitnessgoal.roomdb.FoodViewModel
-import com.eclair.myfitnessgoal.roomdb.FoodViewModelFactory
+import com.eclair.myfitnessgoal.roomdb.*
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_diary.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -37,6 +34,7 @@ class DiaryFragment : Fragment(), FoodClickListener {
     private val snackList = mutableListOf<FoodEntity>()
 
     private lateinit var viewModel: FoodViewModel
+    private lateinit var userViewModel: UserViewModel
 
     private lateinit var breakFastAdapter: SearchFoodItemsAdapter
     private lateinit var lunchAdapter: SearchFoodItemsAdapter
@@ -71,6 +69,11 @@ class DiaryFragment : Fragment(), FoodClickListener {
         val viewModelFactory = FoodViewModelFactory(repository)
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(FoodViewModel::class.java)
 
+        val userRepo = app.userRepo
+        val userViewModelFactory = UserViewModelFactory(userRepo)
+        userViewModel =
+            ViewModelProviders.of(this, userViewModelFactory).get(UserViewModel::class.java)
+
         clickListeners()
         recyclerData()
         getData()
@@ -85,8 +88,6 @@ class DiaryFragment : Fragment(), FoodClickListener {
         calendar.time = date!!
         calendar.add(Calendar.DATE, req)
         reqDate = dateFormat.format(calendar.time)
-        Log.d("prabin", "$req")
-        Log.d("prabin", reqDate!!)
 
         when (reqDate) {
             curDate -> {
@@ -102,6 +103,15 @@ class DiaryFragment : Fragment(), FoodClickListener {
                 tvDateDiary.text = reqDate
             }
         }
+
+        val uid = FirebaseAuth.getInstance().uid
+        CoroutineScope(Dispatchers.IO).launch {
+            tvGoalCal.text = userViewModel.getReqCalorie(uid!!)
+        }
+
+        viewModel.getTotalCalorie().observe(requireActivity(), {
+            tvFoodCal.text = it.toString()
+        })
 
         viewModel.getFoodDateWise(reqDate!!, "breakfast").observe(requireActivity(), {
             breakFastList.clear()
@@ -182,6 +192,12 @@ class DiaryFragment : Fragment(), FoodClickListener {
         tvAddSnackFood.setOnClickListener {
             val intent = Intent(context, CaloriesActivity::class.java)
             intent.putExtra("type", "snack")
+            startActivity(intent)
+        }
+
+        tvAddExercise.setOnClickListener {
+            val intent = Intent(context, CaloriesActivity::class.java)
+            intent.putExtra("type", "exercise")
             startActivity(intent)
         }
     }

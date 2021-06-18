@@ -13,6 +13,7 @@ data class FoodEntity(
     @ColumnInfo(name = "calories") var calories: String,
     @ColumnInfo(name = "type") var type: String,
     @ColumnInfo(name = "curDate") var curDate: String,
+    @ColumnInfo(name = "uid") var uid: String,
 
     ) : Serializable {
     @PrimaryKey(autoGenerate = true)
