@@ -8,7 +8,9 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_10"
+        android:layout_marginEnd="@dimen/dp_10">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/tb_FoodHeaderDetails"
@@ -63,14 +65,16 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp_10"
             android:layout_marginTop="@dimen/dp_20"
+            android:textColor="@color/black"
             android:textStyle="bold"
+            android:textSize="@dimen/sp_18"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tb_FoodHeaderDetails" />
 
         <View
             android:id="@+id/LineOneFoodDisplay"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_3"
+            android:layout_height="@dimen/dp_2"
             android:layout_marginTop="@dimen/dp_20"
             android:background="#BDC3C7"
             app:layout_constraintTop_toBottomOf="@id/tvFoodItemDisplay" />
@@ -88,7 +92,7 @@
         <View
             android:id="@+id/LineTwoFoodDisplay"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_3"
+            android:layout_height="@dimen/dp_2"
             android:layout_marginTop="@dimen/dp_20"
             android:background="#BDC3C7"
             app:layout_constraintTop_toBottomOf="@id/tvNoOfServings" />
@@ -99,6 +103,7 @@
             android:layout_height="match_parent"
             android:layout_marginTop="@dimen/dp_20"
             android:layout_marginEnd="@dimen/dp_20"
+            android:text="1.0"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/LineOneFoodDisplay" />
 
@@ -116,7 +121,7 @@
         <View
             android:id="@+id/LineThreeFoodDisplay"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_3"
+            android:layout_height="@dimen/dp_2"
             android:layout_marginTop="@dimen/dp_20"
             android:background="#BDC3C7"
             app:layout_constraintTop_toBottomOf="@id/tvServingSize" />
@@ -127,6 +132,7 @@
             android:layout_height="match_parent"
             android:layout_marginTop="@dimen/dp_20"
             android:layout_marginEnd="@dimen/dp_20"
+            android:text="1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/LineTwoFoodDisplay" />
 
@@ -143,7 +149,7 @@
         <View
             android:id="@+id/LineFourFoodDisplay"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_3"
+            android:layout_height="@dimen/dp_2"
             android:layout_marginTop="@dimen/dp_20"
             android:background="#BDC3C7"
             app:layout_constraintTop_toBottomOf="@id/tvTime" />
@@ -163,6 +169,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_30"
+            android:text="150 Cal"
             android:layout_marginEnd="@dimen/dp_30"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/LineFourFoodDisplay" />
@@ -170,7 +177,7 @@
         <View
             android:id="@+id/LineFiveFoodDisplay"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_3"
+            android:layout_height="@dimen/dp_2"
             android:layout_marginTop="@dimen/dp_20"
             android:background="#BDC3C7"
             app:layout_constraintTop_toBottomOf="@id/tvCaloriesFoodDetails" />
@@ -198,25 +205,15 @@
         <View
             android:id="@+id/LineSixFoodDisplay"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_3"
+            android:layout_height="@dimen/dp_2"
             android:layout_marginTop="@dimen/dp_20"
             android:background="#BDC3C7"
             app:layout_constraintTop_toBottomOf="@id/tvFatFoodDetails" />
 
-        <TextView
-            android:id="@+id/tvSaturatedFoodDetails"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp_30"
-            android:text="Saturated"
-            android:textColor="@color/black"
-            app:layout_constraintStart_toStartOf="@id/tvServingSize"
-            app:layout_constraintTop_toBottomOf="@id/LineFiveFoodDisplay" />
-
         <View
             android:id="@+id/LineSevenFoodDisplay"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_3"
+            android:layout_height="@dimen/dp_2"
             android:layout_marginTop="@dimen/dp_20"
             android:background="#BDC3C7"
             app:layout_constraintTop_toBottomOf="@id/tvFatFoodDetails" />
@@ -234,7 +231,7 @@
         <View
             android:id="@+id/LineEightFoodDisplay"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_3"
+            android:layout_height="@dimen/dp_2"
             android:layout_marginTop="@dimen/dp_20"
             android:background="#BDC3C7"
             app:layout_constraintTop_toBottomOf="@id/tvPloySaturatedFoodDetails" />
@@ -263,7 +260,7 @@
         <View
             android:id="@+id/LineNineFoodDisplay"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_3"
+            android:layout_height="@dimen/dp_2"
             android:layout_marginTop="@dimen/dp_20"
             android:background="#BDC3C7"
             app:layout_constraintTop_toBottomOf="@id/tvCholesterolFoodDetails" />
@@ -291,7 +288,7 @@
         <View
             android:id="@+id/LineTenFoodDisplay"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_3"
+            android:layout_height="@dimen/dp_2"
             android:layout_marginTop="@dimen/dp_20"
             android:background="#BDC3C7"
             app:layout_constraintTop_toBottomOf="@id/tvSodiumFoodDetails" />
@@ -319,7 +316,7 @@
         <View
             android:id="@+id/LineElevenFoodDisplay"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_3"
+            android:layout_height="@dimen/dp_2"
             android:layout_marginTop="@dimen/dp_20"
             android:background="#BDC3C7"
             app:layout_constraintTop_toBottomOf="@id/tvPotassiumFoodDetails" />
@@ -347,7 +344,7 @@
         <View
             android:id="@+id/LineTwelveFoodDisplay"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_3"
+            android:layout_height="@dimen/dp_2"
             android:layout_marginTop="@dimen/dp_20"
             android:background="#BDC3C7"
             app:layout_constraintTop_toBottomOf="@id/tvCarbohydratesFoodDetails" />
@@ -375,7 +372,7 @@
         <View
             android:id="@+id/LineThirteenFoodDisplay"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_3"
+            android:layout_height="@dimen/dp_2"
             android:layout_marginTop="@dimen/dp_20"
             android:background="#BDC3C7"
             app:layout_constraintTop_toBottomOf="@id/tvProteinFoodDetails" />
@@ -403,7 +400,7 @@
         <View
             android:id="@+id/LineFourteenFoodDisplay"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_3"
+            android:layout_height="@dimen/dp_2"
             android:layout_marginTop="@dimen/dp_20"
             android:background="#BDC3C7"
             app:layout_constraintTop_toBottomOf="@id/tvVAFoodDetails" />
@@ -431,7 +428,7 @@
         <View
             android:id="@+id/LineFifteenFoodDisplay"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_3"
+            android:layout_height="@dimen/dp_2"
             android:layout_marginTop="@dimen/dp_20"
             android:background="#BDC3C7"
             app:layout_constraintTop_toBottomOf="@id/tvCalorieRules" />
@@ -452,7 +449,7 @@
         <View
             android:id="@+id/LineSixteenFoodDisplay"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_3"
+            android:layout_height="@dimen/dp_2"
             android:layout_marginTop="@dimen/dp_20"
             android:background="#BDC3C7"
             app:layout_constraintTop_toBottomOf="@id/tvReportFood" />

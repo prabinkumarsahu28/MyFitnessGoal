@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/purple_500"
+    android:background="#025d93"
     tools:context=".activities.StartActivity">
 
     <TextView
@@ -42,7 +42,7 @@
         android:backgroundTint="@color/white"
         android:padding="@dimen/dp_17"
         android:text="SIGN UP"
-        android:textColor="@color/purple_500"
+        android:textColor="#025d93"
         android:textSize="@dimen/sp_17"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@id/btnLoginStart" />
