@@ -37,6 +37,10 @@ class FoodRepo(private val foodDao: FoodDao) {
         return foodDao.getAddedFood(types)
     }
 
+    fun getCalDateWise(uid: String, reqDate: String): LiveData<Int?>{
+        return foodDao.getCalDateWise(uid, reqDate)
+    }
+
     fun deleteFoodItem(foodEntity: FoodEntity) {
         CoroutineScope(Dispatchers.IO).launch {
             foodDao.deleteFood(foodEntity)
