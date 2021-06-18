@@ -34,6 +34,10 @@ class FoodViewModel(private val foodRepo: FoodRepo) : ViewModel() {
         return foodRepo.getAddedFood(type)
     }
 
+    fun getCalDateWise(uid: String, reqDate: String): LiveData<Int?>{
+        return foodRepo.getCalDateWise(uid, reqDate)
+    }
+
     fun getDeletedFoodItem(foodEntity: FoodEntity) {
         foodRepo.deleteFoodItem(foodEntity)
     }

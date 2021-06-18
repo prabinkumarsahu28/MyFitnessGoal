@@ -29,8 +29,8 @@ interface FoodDao {
     @Query("SELECT * FROM FoodTable WHERE type =:types")
     fun getAddedFood(types: String): LiveData<List<FoodEntity>>
 
-    @Query("SELECT SUM(calories) FROM FoodTable WHERE id =:id AND type =:types")
-    fun getCalTypeWise(id: String, types: String): LiveData<Int?>
+    @Query("SELECT SUM(calories) FROM FoodTable WHERE uid =:uid AND curDate =:reqDate")
+    fun getCalDateWise(uid: String, reqDate: String): LiveData<Int?>
 
     @Delete
     fun deleteFood(foodEntity: FoodEntity)
