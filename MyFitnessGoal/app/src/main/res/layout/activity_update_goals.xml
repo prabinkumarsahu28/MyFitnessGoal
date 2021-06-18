@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.UpdateGoalsActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/tb_Goals"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/smoke_white"
+            android:elevation="@dimen/dp_10"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/ivBackArrowSignUp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_baseline_arrow_back_24"
+                    app:tint="@color/grey" />
+
+                <TextView
+                    android:id="@+id/tvAddFoodHeader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp_40"
+                    android:text="Goals"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_20" />
+
+                <ImageButton
+                    android:id="@+id/btnSaveDetails"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:layout_marginEnd="@dimen/dp_20"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_iconfinder_3209370_check_choose_correct_mark_tick_icon" />
+            </RelativeLayout>
+
+
+        </androidx.appcompat.widget.Toolbar>
+
+
+        <TextView
+            android:id="@+id/tvStartWeight"
+            android:layout_below="@+id/tb_Goals"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_20"
+            android:text="Starting Weight"
+            android:textColor="@color/black" />
+
+        <View
+            android:id="@+id/vLineOneGoals"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_1"
+            android:layout_below="@id/tvStartWeight"
+            android:layout_marginTop="@dimen/dp_20"
+            android:background="#B3B6B7" />
+
+        <TextView
+            android:id="@+id/tvWeightValGoals"
+            android:layout_below="@id/tb_Goals"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/dp_20"
+            android:layout_marginEnd="40dp" />
+
+        <TextView
+            android:id="@+id/tvCurrentWeight"
+            android:layout_below="@id/vLineOneGoals"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_20"
+            android:text="Current Weight"
+            android:textColor="@color/black" />
+
+        <EditText
+            android:id="@+id/etCurrentWeightVal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/vLineOneGoals"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="38dp" />
+
+        <View
+            android:id="@+id/vLineTwoGoals"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_1"
+            android:layout_below="@id/tvCurrentWeight"
+            android:layout_marginTop="@dimen/dp_20"
+            android:background="#B3B6B7" />
+
+        <TextView
+            android:id="@+id/tvGoalWeight"
+            android:layout_below="@id/vLineTwoGoals"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_20"
+            android:text="Goal Weight"
+            android:textColor="@color/black" />
+
+        <View
+            android:id="@+id/vLineThreeGoal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_1"
+            android:layout_below="@id/tvGoalWeight"
+            android:layout_marginTop="@dimen/dp_20"
+            android:background="#B3B6B7" />
+
+        <EditText
+            android:id="@+id/etGoalWeightVal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/vLineTwoGoals"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="38dp" />
+
+        <TextView
+            android:id="@+id/tvWeeklyGoal"
+            android:layout_below="@id/vLineThreeGoal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_20"
+            android:text="Weekly Goal"
+            android:textColor="@color/black" />
+
+        <View
+            android:id="@+id/vLineFourEdit"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_1"
+            android:layout_below="@id/tvWeeklyGoal"
+            android:layout_marginTop="@dimen/dp_20"
+            android:background="#B3B6B7" />
+
+        <EditText
+            android:id="@+id/etWeeklyGoalVal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/vLineThreeGoal"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="21dp"
+            android:layout_marginEnd="38dp" />
+
+        <TextView
+            android:id="@+id/tvActivityLevel"
+            android:layout_below="@id/vLineFourEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_20"
+            android:text="Activity Level"
+            android:textColor="@color/black" />
+
+        <View
+            android:id="@+id/vLineFiveEdit"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_1"
+            android:layout_below="@id/tvActivityLevel"
+            android:layout_marginTop="@dimen/dp_20"
+            android:background="#B3B6B7" />
+
+        <EditText
+            android:id="@+id/tvActivityVal"
+            android:layout_below="@id/vLineFourEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/dp_20"
+            android:layout_marginEnd="@dimen/dp_40" />
+
+    </RelativeLayout>
+
+</ScrollView>

@@ -86,7 +86,7 @@ class HeightWeightFragment : Fragment() {
                 val viewModelFactory = UserViewModelFactory(repository)
                 viewModel = ViewModelProviders.of(this, viewModelFactory).get(UserViewModel::class.java)
 
-                userEntity = UserEntity(user.email!!,
+                userEntity = UserEntity(user.userName!!,user.email!!,
                     FirebaseAuth.getInstance().uid!!,
                     user.password!!,
                     user.goalType!!,

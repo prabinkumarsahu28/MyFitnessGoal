@@ -24,4 +24,8 @@ class UserRepo(private val userDao: UserDao) {
     fun getWeight(uid : String?): String {
         return userDao.getWeight(uid)
     }
+
+    fun getUserName(uid: String?): String {
+        return userDao.getUserName(uid)
+    }
 }

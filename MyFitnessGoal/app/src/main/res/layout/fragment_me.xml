@@ -75,13 +75,12 @@
                 <ImageButton
                     android:id="@+id/iBtnSettings"
                     android:layout_width="wrap_content"
-                    android:background="@android:color/transparent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginEnd="40dp"
+                    android:background="@android:color/transparent"
                     android:src="@drawable/ic_baseline_settings_24"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.717"
-                    app:layout_constraintStart_toEndOf="@+id/tvUidUser"
                     app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -163,7 +162,7 @@
                     android:id="@+id/tvKgLost"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="0 kg lost"
+                    android:text="5 kg lost"
                     android:textColor="@color/black"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="@+id/pb_SemiCircle"

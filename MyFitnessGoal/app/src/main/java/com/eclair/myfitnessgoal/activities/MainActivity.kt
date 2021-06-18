@@ -57,6 +57,14 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        if (intent != null && intent.extras != null){
+
+            if (intent.getIntExtra("progressBar",0) == 4){
+                bottomNavigation.selectedItemId = R.id.ic_me
+                currentFragment(meFragment)
+            }
+        }
+
     }
 
     override fun onBackPressed() {
