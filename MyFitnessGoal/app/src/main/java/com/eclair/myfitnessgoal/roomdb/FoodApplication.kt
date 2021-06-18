@@ -9,12 +9,18 @@ class FoodApplication : Application() {
         database.getFoodDao()
 
     }
-    private val userDao by lazy {
-        val data = FoodDb.getDbContext(this)
-        data.getUserDao()
-    }
 
     val foodRepo by lazy {
-        FoodRepo(foodDao,userDao)
+        FoodRepo(foodDao)
     }
+
+    private val userDao by lazy {
+        val database = FoodDb.getDbContext(this)
+        database.getUserDao()
+    }
+
+    val userRepo by lazy {
+        UserRepo(userDao)
+    }
+
 }

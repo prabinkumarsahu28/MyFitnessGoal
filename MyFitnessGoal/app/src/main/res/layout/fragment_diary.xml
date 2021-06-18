@@ -539,30 +539,10 @@
                         android:textStyle="bold" />
 
                     <View
-                        android:id="@+id/vLineFive"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/dp_1"
-                        android:layout_below="@+id/tvExer"
-                        android:layout_marginTop="@dimen/dp_10"
-                        android:background="#B3B6B7" />
-
-                    <TextView
-                        android:id="@+id/tvStepTracker"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/tvExer"
-                        android:layout_marginStart="@dimen/dp_20"
-                        android:layout_marginTop="@dimen/dp_20"
-                        android:drawablePadding="@dimen/dp_10"
-                        android:text="Connect a step tracker \n Automatically track steps and calories burned "
-                        android:textColor="@color/black"
-                        app:drawableLeftCompat="@drawable/ic_footprints" />
-
-                    <View
                         android:id="@+id/vLineSix"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/dp_1"
-                        android:layout_below="@+id/tvStepTracker"
+                        android:layout_below="@+id/tvExer"
                         android:layout_marginTop="@dimen/dp_10"
                         android:background="#B3B6B7" />
 
@@ -590,7 +570,6 @@
 
                 </RelativeLayout>
 
-
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
@@ -599,6 +578,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/cvExercise"
                 android:layout_marginTop="@dimen/dp_10"
+                android:layout_marginBottom="@dimen/dp_20"
                 android:elevation="@dimen/dp_20">
 
                 <RelativeLayout
@@ -612,16 +592,6 @@
                         android:layout_marginStart="@dimen/dp_20"
                         android:layout_marginTop="@dimen/dp_10"
                         android:text="Water"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginTop="@dimen/dp_10"
-                        android:layout_marginEnd="@dimen/dp_20"
-                        android:text="445"
                         android:textColor="@color/black"
                         android:textStyle="bold" />
 
@@ -657,93 +627,10 @@
 
                 </RelativeLayout>
 
-
-            </androidx.cardview.widget.CardView>
-
-
-            <RelativeLayout
-                android:id="@+id/rlNutrition"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/cvWater">
-
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/cvNutrition"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/dp_20"
-                    android:layout_marginTop="@dimen/dp_10"
-                    android:elevation="@dimen/dp_50">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/dp_30"
-                        android:layout_marginEnd="@dimen/dp_30"
-                        android:drawablePadding="@dimen/dp_10"
-                        android:padding="@dimen/dp_6"
-                        android:text="Nutrition"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/sp_18"
-                        app:drawableLeftCompat="@drawable/ic_pie_chart__1_"
-                        tools:ignore="SpUsage" />
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/cvNotes"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/dp_20"
-                    android:layout_marginTop="@dimen/dp_10"
-                    android:layout_toEndOf="@+id/cvNutrition"
-                    android:elevation="@dimen/dp_50">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/dp_30"
-                        android:layout_marginEnd="@dimen/dp_30"
-                        android:drawablePadding="@dimen/dp_10"
-                        android:padding="@dimen/dp_6"
-                        android:text="Notes"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/dp_18"
-                        app:drawableLeftCompat="@drawable/ic_document" />
-
-                </androidx.cardview.widget.CardView>
-
-            </RelativeLayout>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/rlNutrition"
-                android:layout_marginStart="@dimen/dp_20"
-                android:layout_marginTop="@dimen/dp_15"
-                android:layout_marginEnd="@dimen/dp_20"
-                android:layout_marginBottom="@dimen/dp_40"
-                android:backgroundTint="@color/purple_500"
-                android:elevation="@dimen/dp_40">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:drawablePadding="@dimen/dp_10"
-                    android:drawableTint="@color/white"
-                    android:paddingTop="@dimen/dp_10"
-                    android:paddingBottom="@dimen/dp_10"
-                    android:text="Complete Diary"
-                    android:textColor="@color/white"
-                    app:drawableLeftCompat="@drawable/ic_journal" />
-
             </androidx.cardview.widget.CardView>
 
         </RelativeLayout>
 
     </ScrollView>
-
 
 </LinearLayout>

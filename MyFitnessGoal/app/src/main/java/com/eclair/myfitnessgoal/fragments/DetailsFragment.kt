@@ -43,13 +43,14 @@ class DetailsFragment : Fragment() {
                         auth.currentUser?.sendEmailVerification()
                             ?.addOnCompleteListener { task ->
                                 if (task.isSuccessful) {
+                                    val id = it.result?.user?.uid
+
                                     val user = Users(
                                         etUsernameDetails.text.toString(),
                                         etEmailDetails.text.toString(),
+                                        id,
                                         etPasswordDetails.text.toString()
                                     )
-
-                                    val id = it.result?.user?.uid
 
                                     database.reference.child("Users").child(id!!).setValue(user)
 

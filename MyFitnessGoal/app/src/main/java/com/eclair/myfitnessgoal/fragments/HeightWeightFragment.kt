@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package com.eclair.myfitnessgoal.fragments
 
 import android.content.Intent
@@ -15,12 +17,11 @@ import com.eclair.myfitnessgoal.roomdb.FoodApplication
 import com.eclair.myfitnessgoal.roomdb.UserEntity
 import com.eclair.myfitnessgoal.roomdb.UserViewModel
 import com.eclair.myfitnessgoal.roomdb.UserViewModelFactory
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_height_weight.*
-import kotlinx.android.synthetic.main.fragment_home.*
 import java.util.*
 import kotlin.math.roundToInt
 
-@Suppress("DEPRECATION")
 class HeightWeightFragment : Fragment() {
 
     private lateinit var user: Users
@@ -30,8 +31,8 @@ class HeightWeightFragment : Fragment() {
     private var height: Int = 0
     private var weight: Int = 0
 
-    lateinit var viewModel: UserViewModel
-    lateinit var userEntity: UserEntity
+    private lateinit var viewModel: UserViewModel
+    private lateinit var userEntity: UserEntity
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -61,26 +62,11 @@ class HeightWeightFragment : Fragment() {
             dob = "$day/${month + 1}/$year"
         }
 
-
-        val users = Users(
-            user.userName,
-            user.email,
-            user.password,
-            user.goalType,
-            user.activeness,
-            user.sex,
-            height.toString(),
-            weight.toString(),
-            dob,
-            reqCalorie.toString()
-        )
-
     }
 
     private fun clickListener() {
 
         btnNextHeightWt.setOnClickListener {
-
 
             if (checkValidation()) {
 
@@ -88,7 +74,6 @@ class HeightWeightFragment : Fragment() {
                 val intent = Intent(context, MainActivity::class.java)
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK
                         or Intent.FLAG_ACTIVITY_CLEAR_TASK)
-                intent.putExtra("userName",user.userName)
 
                 startActivity(intent)
                 Toast.makeText(context,
@@ -97,12 +82,12 @@ class HeightWeightFragment : Fragment() {
 
 
                 val app = activity?.application as FoodApplication
-                val repository = app.foodRepo
+                val repository = app.userRepo
                 val viewModelFactory = UserViewModelFactory(repository)
                 viewModel = ViewModelProviders.of(this, viewModelFactory).get(UserViewModel::class.java)
 
-
                 userEntity = UserEntity(user.email!!,
+                    FirebaseAuth.getInstance().uid!!,
                     user.password!!,
                     user.goalType!!,
                     user.activeness!!,

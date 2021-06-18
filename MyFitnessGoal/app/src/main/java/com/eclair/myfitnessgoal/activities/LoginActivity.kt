@@ -90,13 +90,15 @@ class LoginActivity : AppCompatActivity() {
                             user?.displayName!!,
                             user.email!!,
                             user.uid,
-                            user.photoUrl!!.toString()
+                            "prabin1234"
                         )
 
                     database.reference.child("Users").child(user.uid).setValue(myUser)
 
-                    val intent = Intent(this, MainActivity::class.java)
+                    val intent = Intent(this, SignUpActivity::class.java)
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                    intent.putExtra("user", myUser)
+                    intent.putExtra("type", "google")
                     startActivity(intent)
                     Toast.makeText(this, "SignedIn successfully", Toast.LENGTH_SHORT).show()
 

@@ -5,7 +5,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class FoodRepo(private val foodDao: FoodDao, private val userDao: UserDao) {
+class FoodRepo(private val foodDao: FoodDao) {
 
     fun addFood(foodEntity: FoodEntity) {
         CoroutineScope(Dispatchers.IO).launch {
@@ -33,15 +33,5 @@ class FoodRepo(private val foodDao: FoodDao, private val userDao: UserDao) {
         CoroutineScope(Dispatchers.IO).launch {
             foodDao.deleteFood(foodEntity)
         }
-    }
-
-    fun addUserDetails(userEntity: UserEntity) {
-        CoroutineScope(Dispatchers.IO).launch {
-            userDao.addUserData(userEntity)
-        }
-    }
-
-    fun getAllData() : LiveData<UserEntity>{
-        return userDao.getAllUserData()
     }
 }
