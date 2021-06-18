@@ -8,12 +8,14 @@ import android.view.View
 import android.view.ViewGroup
 import com.eclair.myfitnessgoal.R
 import com.eclair.myfitnessgoal.activities.StartActivity
+import com.eclair.myfitnessgoal.roomdb.FoodApplication
+import com.eclair.myfitnessgoal.roomdb.UserViewModel
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_me.*
 
 class MeFragment : Fragment() {
 
-    private lateinit var auth: FirebaseAuth
+    lateinit var viewModel : UserViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,13 +28,6 @@ class MeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        auth = FirebaseAuth.getInstance()
-
-//        btnSignOut.setOnClickListener {
-//            auth.signOut()
-//            val intent = Intent(activity, StartActivity::class.java)
-//            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
-//            startActivity(intent)
-//        }
+        val app = activity?.application as FoodApplication
     }
 }
