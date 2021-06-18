@@ -12,8 +12,11 @@ class UserViewModel(private val userRepo: UserRepo) : ViewModel() {
         return userRepo.getAllData()
     }
 
-    fun getReqCalorie(uid: String): String {
+    fun getReqCalorie(uid: String?): String {
         return userRepo.getReqCalorie(uid)
+    }
+    fun getWeight(uid: String?): String {
+        return userRepo.getWeight(uid)
     }
 
 }

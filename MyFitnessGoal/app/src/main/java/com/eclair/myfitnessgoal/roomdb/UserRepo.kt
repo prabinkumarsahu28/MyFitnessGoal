@@ -17,7 +17,11 @@ class UserRepo(private val userDao: UserDao) {
         return userDao.getAllUserData()
     }
 
-    fun getReqCalorie(uid: String): String {
+    fun getReqCalorie(uid: String?): String {
         return userDao.getReqCalorie(uid)
+    }
+
+    fun getWeight(uid : String?): String {
+        return userDao.getWeight(uid)
     }
 }
