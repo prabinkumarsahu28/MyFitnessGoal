@@ -114,18 +114,23 @@ class DiaryFragment : Fragment(), FoodClickListener {
                 tvDateDiary.text = reqDate
             }
         }
+        if (reqDate == curDate) {
+            viewModel.getExerciseCalories(uid!!).observe(requireActivity(), {
 
-        viewModel.getExerciseCalories(uid!!).observe(requireActivity(), {
-            if (it.toString() == "null") {
-                calBurned = 0
-                tvExerciseCal.text = "0"
-            } else {
-                calBurned = it!!
-                tvExerciseCal.text = it.toString()
-            }
-        })
+                if (it.toString() == "null") {
+                    calBurned = 0
+                    tvExerciseCal.text = "0"
+                } else {
+                    calBurned = it!!
+                    tvExerciseCal.text = it.toString()
+                }
+            })
+        } else {
+            tvExerciseCal.text = "0"
+            tvRemainingCal.text = "$reqCalorie"
+        }
 
-        viewModel.getCalDateWise(uid, reqDate!!).observe(requireActivity(), {
+        viewModel.getCalDateWise(uid!!, reqDate!!).observe(requireActivity(), {
             Log.d("prabin", it.toString())
             if (it.toString() == "null") {
                 consumedCalorie = 0
@@ -134,6 +139,7 @@ class DiaryFragment : Fragment(), FoodClickListener {
                 consumedCalorie = it!!
                 tvFoodCal.text = it.toString()
             }
+
             tvRemainingCal.text = "${reqCalorie - consumedCalorie + calBurned}"
         })
 

@@ -20,6 +20,7 @@
         android:id="@+id/btnSaveExercise"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="#025d93"
         android:text="save" />
 
 </LinearLayout>

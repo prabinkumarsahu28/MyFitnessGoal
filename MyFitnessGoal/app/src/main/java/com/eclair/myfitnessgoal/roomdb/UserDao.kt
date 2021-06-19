@@ -21,5 +21,8 @@ interface UserDao {
     @Query("SELECT weight FROM User_Table WHERE uid =:uid")
     fun getWeight(uid: String?): String
 
+    @Query("SELECT userName FROM User_Table WHERE uid =:uid")
+    fun getUserName(uid: String?): String
+
 
 }

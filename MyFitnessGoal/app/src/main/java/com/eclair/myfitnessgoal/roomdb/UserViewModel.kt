@@ -18,5 +18,8 @@ class UserViewModel(private val userRepo: UserRepo) : ViewModel() {
     fun getWeight(uid: String?): String {
         return userRepo.getWeight(uid)
     }
+    fun getUserName(uid: String?): String {
+        return userRepo.getUserName(uid)
+    }
 
 }

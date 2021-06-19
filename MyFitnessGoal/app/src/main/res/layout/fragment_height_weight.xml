@@ -98,6 +98,27 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvWeightHtWt" />
 
+<!--    <TextView-->
+<!--        android:id="@+id/tvGoalWeightHtWt"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="@dimen/dp_20"-->
+<!--        android:text="Goal Weight (in kg)"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textSize="@dimen/sp_16"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/etWeight" />-->
+
+<!--    <EditText-->
+<!--        android:id="@+id/etGoalWeight"-->
+<!--        android:layout_width="@dimen/dp_200"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:hint="0 kg"-->
+<!--        android:inputType="number"-->
+<!--        android:maxLength="3"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/tvGoalWeightHtWt" />-->
+
     <TextView
         android:id="@+id/tvDobHtWt"
         android:layout_width="wrap_content"
@@ -136,6 +157,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/dp_30"
         android:text="Finish"
+        android:backgroundTint="#025d93"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProviders
 import com.eclair.myfitnessgoal.R
 import com.eclair.myfitnessgoal.activities.SettingsActivity
+import com.eclair.myfitnessgoal.activities.UpdateGoalsActivity
 import com.eclair.myfitnessgoal.roomdb.FoodApplication
 import com.eclair.myfitnessgoal.roomdb.UserViewModel
 import com.eclair.myfitnessgoal.roomdb.UserViewModelFactory
@@ -27,7 +28,6 @@ class MeFragment : Fragment() {
     private val uid = FirebaseAuth.getInstance().uid
 
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
@@ -41,7 +41,12 @@ class MeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         iBtnSettings.setOnClickListener {
-            val intent = Intent(context,SettingsActivity::class.java)
+            val intent = Intent(context, SettingsActivity::class.java)
+            startActivity(intent)
+        }
+
+        tvUpdateGoals.setOnClickListener {
+            val intent = Intent(context, UpdateGoalsActivity::class.java)
             startActivity(intent)
         }
 
@@ -52,6 +57,7 @@ class MeFragment : Fragment() {
         CoroutineScope(Dispatchers.IO).launch {
             tvCalorieMe.text = "${viewModel.getReqCalorie(uid)} cal"
             tvWeightKg.text = "${viewModel.getWeight(uid)} kg"
+            tvUidUser.text = "${viewModel.getUserName(uid)}"
         }
     }
 }
