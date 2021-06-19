@@ -12,6 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProviders
 import com.eclair.myfitnessgoal.R
+import com.eclair.myfitnessgoal.activities.AddWeightActivity
 import com.eclair.myfitnessgoal.activities.SettingsActivity
 import com.eclair.myfitnessgoal.activities.UpdateGoalsActivity
 import com.eclair.myfitnessgoal.roomdb.*
@@ -25,6 +26,7 @@ class MeFragment : Fragment() {
 
     private lateinit var viewModel: FoodViewModel
     private val uid = FirebaseAuth.getInstance().uid
+    private var weight = 0
     private var location: Uri? = null
 
 
@@ -40,6 +42,30 @@ class MeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val app = activity?.application as FoodApplication
+        val repo = app.foodRepo
+        val foodViewModelFactory = FoodViewModelFactory(repo)
+        viewModel = ViewModelProviders.of(this, foodViewModelFactory).get(FoodViewModel::class.java)
+
+        CoroutineScope(Dispatchers.IO).launch {
+            tvWeightKg.text = "${viewModel.getWeight(uid)} kg"
+            tvUidUser.text = viewModel.getUserName(uid)
+            tvUserEmail.text = viewModel.getUserEmail(uid)
+        }
+
+        viewModel.getReqCalorie(uid).observe(requireActivity(), {
+            tvCalorieMe.text = it
+        })
+
+        if (arguments != null) {
+            weight = arguments?.getInt("weight", 0)!!
+        }
+        pb_SemiCircle.setPercentWithAnimation(weight)
+
+        clickListeners()
+    }
+
+    private fun clickListeners() {
         iBtnSettings.setOnClickListener {
             val intent = Intent(context, SettingsActivity::class.java)
             startActivity(intent)
@@ -50,19 +76,8 @@ class MeFragment : Fragment() {
             startActivity(intent)
         }
 
-        val app = activity?.application as FoodApplication
-        val repo = app.foodRepo
-        val foodViewModelFactory = FoodViewModelFactory(repo)
-        viewModel = ViewModelProviders.of(this, foodViewModelFactory).get(FoodViewModel::class.java)
-        CoroutineScope(Dispatchers.IO).launch {
-            tvWeightKg.text = "${viewModel.getWeight(uid)} kg"
-            tvUidUser.text = viewModel.getUserName(uid)
-            tvUserEmail.text = viewModel.getUserEmail(uid)
-
+        tvAddWeight.setOnClickListener {
+            startActivity(Intent(context, AddWeightActivity::class.java))
         }
-
-        viewModel.getReqCalorie(uid).observe(requireActivity(), {
-            tvCalorieMe.text = it
-        })
     }
 }

@@ -117,6 +117,7 @@ class DiaryFragment : Fragment(), FoodClickListener {
         viewModel.getReqCalorie(uid).observe(requireActivity(), {
             reqCalorie = it.toInt()
             tvGoalCal.text = "$reqCalorie"
+            tvRemainingCal.text = "${reqCalorie - consumedCalorie + calBurned}"
         })
 
         viewModel.getCalDateWise(uid, reqDate!!).observe(requireActivity(), {
@@ -131,6 +132,7 @@ class DiaryFragment : Fragment(), FoodClickListener {
 
             tvRemainingCal.text = "${reqCalorie - consumedCalorie + calBurned}"
         })
+
 
         viewModel.getFoodDateWise(reqDate!!, "breakfast", uid).observe(requireActivity(), {
             breakFastList.clear()

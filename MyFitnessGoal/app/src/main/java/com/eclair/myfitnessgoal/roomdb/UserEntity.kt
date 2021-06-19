@@ -7,7 +7,6 @@ import java.io.Serializable
 
 @Entity(tableName = "User_Table")
 data class UserEntity(
-    @ColumnInfo(name = "profile") var profile: String,
     @ColumnInfo(name = "userName") var userName: String,
     @ColumnInfo(name = "email") var emailId: String,
     @ColumnInfo(name = "uid") var uid: String,
@@ -19,6 +18,7 @@ data class UserEntity(
     @ColumnInfo(name = "weight") var weight: String,
     @ColumnInfo(name = "dob") var dob: String,
     @ColumnInfo(name = "reqCalorie") var reqCalorie: String,
+    @ColumnInfo(name = "profilePic") var profilePic: String,
 
     ) : Serializable {
     @PrimaryKey(autoGenerate = true)

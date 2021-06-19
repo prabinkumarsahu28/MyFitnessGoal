@@ -36,7 +36,7 @@ interface UserDao {
     @Query("SELECT goal FROM User_Table WHERE uid =:uid")
     fun getGoal(uid: String?): String
 
-    @Query("SELECT profile FROM User_Table WHERE uid=:uid")
+    @Query("SELECT profilePic FROM User_Table WHERE uid=:uid")
     fun getProfile(uid: String?): String
 
 //    @Query("SELECT * FROM User_Table WHERE uid =:uid")
