@@ -54,17 +54,15 @@ class MainActivity : AppCompatActivity() {
             if (intent.getIntExtra("AddFood", 0) == 2) {
                 bottomNavigation.selectedItemId = R.id.ic_diary
                 currentFragment(diaryFragment)
-            }
-        }
-
-        if (intent != null && intent.extras != null){
-
-            if (intent.getIntExtra("progressBar",0) == 4){
+            } else if (intent.getIntExtra("AddFood", 0) == 4) {
+                val weight = intent.getIntExtra("weight", 0)
+                val bundle = Bundle()
+                bundle.putInt("weight", weight)
+                meFragment.arguments = bundle
                 bottomNavigation.selectedItemId = R.id.ic_me
                 currentFragment(meFragment)
             }
         }
-
     }
 
     override fun onBackPressed() {

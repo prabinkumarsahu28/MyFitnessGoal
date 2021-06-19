@@ -10,7 +10,6 @@ import com.eclair.myfitnessgoal.R
 import com.eclair.myfitnessgoal.roomdb.*
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_update_goals.*
-import kotlinx.android.synthetic.main.fragment_me.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -34,10 +33,6 @@ class UpdateGoalsActivity : AppCompatActivity() {
 
             currentWeight = etGoalWeightVal.text.toString().toInt()
             goalWeight = etGoalWeightVal.text.toString().toInt()
-
-            if (currentWeight <= goalWeight){
-                pb_SemiCircle.setPercent(goalWeight - currentWeight)
-            }
 
             val intent = Intent(this,MainActivity::class.java)
             intent.putExtra("progressBar",4)

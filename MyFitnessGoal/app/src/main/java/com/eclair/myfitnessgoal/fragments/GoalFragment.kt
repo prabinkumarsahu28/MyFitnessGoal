@@ -25,10 +25,10 @@ class GoalFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        if (arguments != null) {
-            user = arguments?.getSerializable("user") as Users
+        user = if (arguments != null) {
+            arguments?.getSerializable("user") as Users
         }else{
-            user = Users()
+            Users()
         }
 
 
