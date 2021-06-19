@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package com.eclair.myfitnessgoal.activities
 
 import android.content.Intent
@@ -12,8 +14,10 @@ import com.eclair.myfitnessgoal.roomdb.FoodApplication
 import com.eclair.myfitnessgoal.roomdb.FoodViewModel
 import com.eclair.myfitnessgoal.roomdb.FoodViewModelFactory
 import kotlinx.android.synthetic.main.activity_exercise_details.*
+import java.text.SimpleDateFormat
+import java.util.*
 
-@Suppress("DEPRECATION")
+
 class ExerciseDetailsActivity : AppCompatActivity() {
 
     private lateinit var exerciseEntity1: ExerciseEntity
@@ -33,10 +37,13 @@ class ExerciseDetailsActivity : AppCompatActivity() {
         val viewModel = ViewModelProviders.of(this, viewModelFactory).get(FoodViewModel::class.java)
 
         btnSaveExercise.setOnClickListener {
+
+            val dateFormat = SimpleDateFormat("dd/MM/yyyy")
+            val curDate = dateFormat.format(Date())
             val cal = (etTimePerformed.text.toString().toInt() * 3)
             Log.d("prabin", "$cal")
             exerciseEntity2 =
-                ExerciseEntity(exerciseEntity1.name, cal.toString(), exerciseEntity1.uid)
+                ExerciseEntity(exerciseEntity1.name, cal.toString(), curDate, exerciseEntity1.uid)
 
             viewModel.addExercise(exerciseEntity2)
 
@@ -44,7 +51,9 @@ class ExerciseDetailsActivity : AppCompatActivity() {
             intent.putExtra("AddFood", 2)
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
             startActivity(intent)
-            Toast.makeText(this, "Congratulations you've burned '$cal' calories", Toast.LENGTH_SHORT)
+            Toast.makeText(this,
+                "Congratulations you've burned '$cal calories'",
+                Toast.LENGTH_SHORT)
                 .show()
         }
     }

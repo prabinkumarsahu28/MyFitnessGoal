@@ -4,13 +4,11 @@ package com.eclair.myfitnessgoal.fragments
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.eclair.myfitnessgoal.R
 import com.eclair.myfitnessgoal.activities.BlogViewActivity
@@ -25,9 +23,6 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.fragment_home.*
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment(), BlogClickListener {
 
@@ -35,7 +30,6 @@ class HomeFragment : Fragment(), BlogClickListener {
     private lateinit var database: FirebaseDatabase
     lateinit var blogsAdapter: HomeBlogsAdapter
     private lateinit var viewModel: FoodViewModel
-    private lateinit var userViewModel: UserViewModel
     private val uid = FirebaseAuth.getInstance().uid
     private var reqCalorie: Int = 0
     private var consumedCalorie: Int = 0
@@ -56,20 +50,20 @@ class HomeFragment : Fragment(), BlogClickListener {
         recyclerViewHome.layoutManager = LinearLayoutManager(activity)
         recyclerViewHome.adapter = blogsAdapter
 
-        val application = activity?.application as FoodApplication
-        val userRepo = application.userRepo
-        val userViewModelFactory = UserViewModelFactory(userRepo)
-        userViewModel =
-            ViewModelProviders.of(this, userViewModelFactory).get(UserViewModel::class.java)
+//        val application = activity?.application as FoodApplication
+//        val userRepo = application.userRepo
+//        val userViewModelFactory = UserViewModelFactory(userRepo)
+//        userViewModel =
+//            ViewModelProviders.of(this, userViewModelFactory).get(UserViewModel::class.java)
+//
+//        val repository = application.foodRepo
+//        val viewModelFactory = FoodViewModelFactory(repository)
+//        viewModel = ViewModelProviders.of(this, viewModelFactory).get(FoodViewModel::class.java)
 
-        val repository = application.foodRepo
-        val viewModelFactory = FoodViewModelFactory(repository)
-        viewModel = ViewModelProviders.of(this, viewModelFactory).get(FoodViewModel::class.java)
-
-        Log.d("prabin", uid!!)
-        CoroutineScope(Dispatchers.IO).launch {
-            tvGoalNumHome.text = userViewModel.getReqCalorie(uid)
-        }
+//        Log.d("prabin", uid!!)
+////        CoroutineScope(Dispatchers.IO).launch {
+////            tvGoalNumHome.text = viewModel.getReqCalorie(uid)
+////        }
 
 //        getCalorieDetails()
         getBlogs()

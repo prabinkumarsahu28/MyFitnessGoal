@@ -36,7 +36,6 @@ class DiaryFragment : Fragment(), FoodClickListener {
     private val snackList = mutableListOf<FoodEntity>()
 
     private lateinit var viewModel: FoodViewModel
-    private lateinit var userViewModel: UserViewModel
 
     private lateinit var breakFastAdapter: SearchFoodItemsAdapter
     private lateinit var lunchAdapter: SearchFoodItemsAdapter
@@ -75,16 +74,6 @@ class DiaryFragment : Fragment(), FoodClickListener {
         val viewModelFactory = FoodViewModelFactory(repository)
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(FoodViewModel::class.java)
 
-        val userRepo = app.userRepo
-        val userViewModelFactory = UserViewModelFactory(userRepo)
-        userViewModel =
-            ViewModelProviders.of(this, userViewModelFactory).get(UserViewModel::class.java)
-
-        CoroutineScope(Dispatchers.IO).launch {
-            reqCalorie = userViewModel.getReqCalorie(uid!!).toInt()
-            tvGoalCal.text = "$reqCalorie"
-        }
-
         clickListeners()
         recyclerData()
         getData()
@@ -114,23 +103,23 @@ class DiaryFragment : Fragment(), FoodClickListener {
                 tvDateDiary.text = reqDate
             }
         }
-        if (reqDate == curDate) {
-            viewModel.getExerciseCalories(uid!!).observe(requireActivity(), {
+        viewModel.getExerciseCalories(uid!!, reqDate!!).observe(requireActivity(), {
 
-                if (it.toString() == "null") {
-                    calBurned = 0
-                    tvExerciseCal.text = "0"
-                } else {
-                    calBurned = it!!
-                    tvExerciseCal.text = it.toString()
-                }
-            })
-        } else {
-            tvExerciseCal.text = "0"
-            tvRemainingCal.text = "$reqCalorie"
-        }
+            if (it.toString() == "null") {
+                calBurned = 0
+                tvExerciseCal.text = "0"
+            } else {
+                calBurned = it!!
+                tvExerciseCal.text = it.toString()
+            }
+        })
 
-        viewModel.getCalDateWise(uid!!, reqDate!!).observe(requireActivity(), {
+        viewModel.getReqCalorie(uid).observe(requireActivity(), {
+            reqCalorie = it.toInt()
+            tvGoalCal.text = "$reqCalorie"
+        })
+
+        viewModel.getCalDateWise(uid, reqDate!!).observe(requireActivity(), {
             Log.d("prabin", it.toString())
             if (it.toString() == "null") {
                 consumedCalorie = 0

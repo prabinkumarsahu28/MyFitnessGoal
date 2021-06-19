@@ -18,12 +18,15 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.activity_calories.*
 import kotlinx.android.synthetic.main.activity_exercise_search.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 class ExerciseSearchActivity : AppCompatActivity(), ExerciseClickListener {
 
     private val exercises = mutableListOf<ExerciseEntity>()
     private lateinit var database: FirebaseDatabase
     private lateinit var exerciseAdapter: ExerciseAdapter
+    var curDate: String? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,6 +39,9 @@ class ExerciseSearchActivity : AppCompatActivity(), ExerciseClickListener {
         exerciseAdapter = ExerciseAdapter(exercises, this)
         rvSearchExercise.layoutManager = LinearLayoutManager(this)
         rvSearchExercise.adapter = exerciseAdapter
+
+        val dateFormat = SimpleDateFormat("dd/MM/yyyy")
+        curDate = dateFormat.format(Date())
 
         clickListeners()
     }
@@ -65,7 +71,7 @@ class ExerciseSearchActivity : AppCompatActivity(), ExerciseClickListener {
                         val temp: List<String> = data.split(",")
 
                         val exerciseEntity =
-                            ExerciseEntity(temp[0], temp[1], FirebaseAuth.getInstance().uid!!)
+                            ExerciseEntity(temp[0], temp[1],curDate, FirebaseAuth.getInstance().uid!!)
                         exercises.add(exerciseEntity)
 
                     }

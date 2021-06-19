@@ -16,13 +16,16 @@ interface UserDao {
     fun getAllUserData(): LiveData<UserEntity>
 
     @Query("SELECT reqCalorie FROM User_Table WHERE uid =:uid")
-    fun getReqCalorie(uid: String?): String
+    fun getReqCalorie(uid: String?): LiveData<String>
 
     @Query("SELECT weight FROM User_Table WHERE uid =:uid")
     fun getWeight(uid: String?): String
 
     @Query("SELECT userName FROM User_Table WHERE uid =:uid")
     fun getUserName(uid: String?): String
+
+    @Query("SELECT email FROM User_Table WHERE uid =:uid")
+    fun getUserEmail(uid: String?): String
 
 
 }

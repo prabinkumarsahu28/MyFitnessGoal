@@ -49,28 +49,16 @@
                     app:layout_constraintTop_toTopOf="@id/profile_image" />
 
 
-
                 <TextView
-                    android:id="@+id/tvIndia"
+                    android:id="@+id/tvUserEmail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="India"
+                    android:layout_marginTop="@dimen/dp_7"
+                    android:text="prabinkumarsahu28@gmail.com"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/sp_16"
+                    android:textSize="@dimen/sp_14"
                     app:layout_constraintStart_toStartOf="@id/tvUidUser"
                     app:layout_constraintTop_toBottomOf="@id/tvUidUser" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dp_8"
-                    android:layout_marginBottom="@dimen/dp_30"
-                    android:text="Streak : 9 days"
-                    android:textColor="@color/black"
-                    app:layout_constraintStart_toStartOf="@id/tvIndia"
-                    app:layout_constraintTop_toBottomOf="@id/tvIndia">
-
-                </TextView>
 
                 <ImageButton
                     android:id="@+id/iBtnSettings"
@@ -78,8 +66,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
                     android:layout_marginEnd="40dp"
-                    android:background="@android:color/transparent"
-                    android:src="@drawable/ic_baseline_settings_24"
+                    android:background="?selectableItemBackground"                    android:src="@drawable/ic_baseline_settings_24"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -300,8 +287,8 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_marginBottom="@dimen/dp_10"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_10"
                 android:orientation="vertical">
 
                 <TextView
@@ -318,10 +305,10 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/ic_iconfinder_290109_award_prize_trophy_win_winner_icon"
-                    android:drawablePadding="@dimen/dp_10"
                     android:layout_marginStart="@dimen/dp_20"
                     android:layout_marginTop="@dimen/dp_20"
+                    android:drawableLeft="@drawable/ic_iconfinder_290109_award_prize_trophy_win_winner_icon"
+                    android:drawablePadding="@dimen/dp_10"
                     android:text="Join a challenge to earn prizes and stay motivated"
                     android:textColor="@color/black" />
 

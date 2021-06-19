@@ -13,9 +13,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.eclair.myfitnessgoal.R
 import com.eclair.myfitnessgoal.activities.SettingsActivity
 import com.eclair.myfitnessgoal.activities.UpdateGoalsActivity
-import com.eclair.myfitnessgoal.roomdb.FoodApplication
-import com.eclair.myfitnessgoal.roomdb.UserViewModel
-import com.eclair.myfitnessgoal.roomdb.UserViewModelFactory
+import com.eclair.myfitnessgoal.roomdb.*
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_me.*
 import kotlinx.coroutines.CoroutineScope
@@ -24,7 +22,7 @@ import kotlinx.coroutines.launch
 
 class MeFragment : Fragment() {
 
-    private lateinit var viewModel: UserViewModel
+    private lateinit var viewModel: FoodViewModel
     private val uid = FirebaseAuth.getInstance().uid
 
 
@@ -51,13 +49,14 @@ class MeFragment : Fragment() {
         }
 
         val app = activity?.application as FoodApplication
-        val repo = app.userRepo
-        val userViewModelFactory = UserViewModelFactory(repo)
-        viewModel = ViewModelProviders.of(this, userViewModelFactory).get(UserViewModel::class.java)
+        val repo = app.foodRepo
+        val foodViewModelFactory = FoodViewModelFactory(repo)
+        viewModel = ViewModelProviders.of(this, foodViewModelFactory).get(FoodViewModel::class.java)
         CoroutineScope(Dispatchers.IO).launch {
             tvCalorieMe.text = "${viewModel.getReqCalorie(uid)} cal"
             tvWeightKg.text = "${viewModel.getWeight(uid)} kg"
-            tvUidUser.text = "${viewModel.getUserName(uid)}"
+            tvUidUser.text = viewModel.getUserName(uid)
+            tvUserEmail.text = viewModel.getUserEmail(uid)
         }
     }
 }
