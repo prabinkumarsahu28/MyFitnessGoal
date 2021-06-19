@@ -53,10 +53,13 @@ class MeFragment : Fragment() {
         val foodViewModelFactory = FoodViewModelFactory(repo)
         viewModel = ViewModelProviders.of(this, foodViewModelFactory).get(FoodViewModel::class.java)
         CoroutineScope(Dispatchers.IO).launch {
-            tvCalorieMe.text = "${viewModel.getReqCalorie(uid)} cal"
             tvWeightKg.text = "${viewModel.getWeight(uid)} kg"
             tvUidUser.text = viewModel.getUserName(uid)
             tvUserEmail.text = viewModel.getUserEmail(uid)
         }
+
+        viewModel.getReqCalorie(uid).observe(requireActivity(), {
+            tvCalorieMe.text = it
+        })
     }
 }
