@@ -78,6 +78,22 @@ class FoodRepo(
         return userDao.getUserEmail(uid)
     }
 
+    fun getSex(uid: String?): String{
+        return userDao.getSex(uid)
+    }
+
+    fun getGoal(uid: String?): String{
+        return userDao.getGoal(uid)
+    }
+
+    fun getHeight(uid: String?): String{
+        return userDao.getHeight(uid)
+    }
+
+    fun getDob(uid: String?): String{
+        return userDao.getDob(uid)
+    }
+
 
     fun addExercise(exerciseEntity: ExerciseEntity) {
         CoroutineScope(Dispatchers.IO).launch {

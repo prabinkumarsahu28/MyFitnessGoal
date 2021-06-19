@@ -22,7 +22,7 @@ class FoodViewModel(private val foodRepo: FoodRepo) : ViewModel() {
         reqDate: String,
         types: String,
         uid: String,
-    ): LiveData<Int?>{
+    ): LiveData<Int?> {
         return foodRepo.getFoodDateWiseCalSum(reqDate, types, uid)
     }
 
@@ -34,7 +34,7 @@ class FoodViewModel(private val foodRepo: FoodRepo) : ViewModel() {
         return foodRepo.getAddedFood(type)
     }
 
-    fun getCalDateWise(uid: String, reqDate: String): LiveData<Int?>{
+    fun getCalDateWise(uid: String, reqDate: String): LiveData<Int?> {
         return foodRepo.getCalDateWise(uid, reqDate)
     }
 
@@ -50,22 +50,41 @@ class FoodViewModel(private val foodRepo: FoodRepo) : ViewModel() {
     fun getReqCalorie(uid: String?): LiveData<String> {
         return foodRepo.getReqCalorie(uid)
     }
+
     fun getWeight(uid: String?): String {
         return foodRepo.getWeight(uid)
     }
+
     fun getUserName(uid: String?): String {
         return foodRepo.getUserName(uid)
     }
-    fun getUserEmail(uid: String?): String{
+
+    fun getUserEmail(uid: String?): String {
         return foodRepo.getUserEmail(uid)
     }
 
+    fun getSex(uid: String?): String{
+        return foodRepo.getSex(uid)
+    }
 
-    fun addExercise(exerciseEntity: ExerciseEntity){
+    fun getGoal(uid: String?): String{
+        return foodRepo.getGoal(uid)
+    }
+
+    fun getHeight(uid: String?): String {
+        return foodRepo.getHeight(uid)
+    }
+
+    fun getDob(uid: String?): String{
+        return foodRepo.getDob(uid)
+    }
+
+
+    fun addExercise(exerciseEntity: ExerciseEntity) {
         foodRepo.addExercise(exerciseEntity)
     }
 
-    fun getExerciseCalories(uid:String, curDate:String):LiveData<Int?>{
+    fun getExerciseCalories(uid: String, curDate: String): LiveData<Int?> {
         return foodRepo.getExerciseCalories(uid, curDate)
     }
 }

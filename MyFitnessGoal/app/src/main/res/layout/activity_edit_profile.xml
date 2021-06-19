@@ -10,8 +10,32 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/tbSettings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/smoke_white"
+            android:elevation="@dimen/dp_10"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tvToolText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_30"
+                android:drawableLeft="@drawable/ic_baseline_arrow_back_24"
+                android:drawablePadding="@dimen/dp_10"
+                android:text="Edit Profile"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_20" />
+
+        </androidx.appcompat.widget.Toolbar>
+
         <TextView
             android:id="@+id/tvUserName"
+            android:layout_below="@+id/tbSettings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp_20"
@@ -29,6 +53,8 @@
 
         <TextView
             android:id="@+id/tvSoubiaEdit"
+            android:textColor="#025d93"
+            android:layout_below="@+id/tbSettings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
@@ -37,9 +63,9 @@
 
         <TextView
             android:id="@+id/tvProfileEdit"
-            android:layout_below="@id/vLineOneEdit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/vLineOneEdit"
             android:layout_marginStart="@dimen/dp_20"
             android:layout_marginTop="@dimen/dp_20"
             android:text="Profile Photo"
@@ -55,9 +81,9 @@
 
         <TextView
             android:id="@+id/tvHeightEdit"
-            android:layout_below="@id/vLineTwoEdit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/vLineTwoEdit"
             android:layout_marginStart="@dimen/dp_20"
             android:layout_marginTop="@dimen/dp_20"
             android:text="Height"
@@ -73,18 +99,19 @@
 
         <TextView
             android:id="@+id/tvHeightValEdit"
-            android:layout_below="@id/vLineTwoEdit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/vLineTwoEdit"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="@dimen/dp_20"
-            android:layout_marginEnd="@dimen/dp_40" />
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="40dp"
+            android:textColor="#025d93" />
 
         <TextView
             android:id="@+id/tvSexEdit"
-            android:layout_below="@id/vLineThreeEdit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/vLineThreeEdit"
             android:layout_marginStart="@dimen/dp_20"
             android:layout_marginTop="@dimen/dp_20"
             android:text="Sex"
@@ -100,18 +127,19 @@
 
         <TextView
             android:id="@+id/tvSexValEdit"
-            android:layout_below="@id/vLineThreeEdit"
+            android:textColor="#025d93"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/vLineThreeEdit"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="@dimen/dp_20"
             android:layout_marginEnd="@dimen/dp_40" />
 
         <TextView
             android:id="@+id/tvDobEdit"
-            android:layout_below="@id/vLineFourEdit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/vLineFourEdit"
             android:layout_marginStart="@dimen/dp_20"
             android:layout_marginTop="@dimen/dp_20"
             android:text="Date of Birth"
@@ -127,18 +155,19 @@
 
         <TextView
             android:id="@+id/tvDobValEdit"
-            android:layout_below="@id/vLineFourEdit"
+            android:textColor="#025d93"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/vLineFourEdit"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="@dimen/dp_20"
             android:layout_marginEnd="@dimen/dp_40" />
 
         <TextView
             android:id="@+id/tvLocationEdit"
-            android:layout_below="@id/vLineFiveEdit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/vLineFiveEdit"
             android:layout_marginStart="@dimen/dp_20"
             android:layout_marginTop="@dimen/dp_20"
             android:text="Location"
@@ -154,18 +183,19 @@
 
         <TextView
             android:id="@+id/tvLocationValEdit"
-            android:layout_below="@id/vLineFiveEdit"
+            android:textColor="#025d93"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/vLineFiveEdit"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="@dimen/dp_20"
             android:layout_marginEnd="@dimen/dp_40" />
 
         <TextView
             android:id="@+id/tvTimeEdit"
-            android:layout_below="@id/vLineSixEdit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/vLineSixEdit"
             android:layout_marginStart="@dimen/dp_20"
             android:layout_marginTop="@dimen/dp_20"
             android:text="Time Zone"
@@ -181,18 +211,19 @@
 
         <TextView
             android:id="@+id/tvTimeValEdit"
-            android:layout_below="@id/vLineSixEdit"
+            android:textColor="#025d93"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/vLineSixEdit"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="@dimen/dp_20"
             android:layout_marginEnd="@dimen/dp_40" />
 
         <TextView
             android:id="@+id/tvZipEdit"
-            android:layout_below="@id/vLineSevenEdit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/vLineSevenEdit"
             android:layout_marginStart="@dimen/dp_20"
             android:layout_marginTop="@dimen/dp_20"
             android:text="Zip Code"
@@ -208,18 +239,19 @@
 
         <TextView
             android:id="@+id/tvZipValEdit"
-            android:layout_below="@id/vLineSevenEdit"
+            android:textColor="#025d93"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/vLineSevenEdit"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="@dimen/dp_20"
             android:layout_marginEnd="@dimen/dp_40" />
 
         <TextView
             android:id="@+id/tvEmailEdit"
-            android:layout_below="@id/vLineEightEdit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/vLineEightEdit"
             android:layout_marginStart="@dimen/dp_20"
             android:layout_marginTop="@dimen/dp_20"
             android:text="Email"
@@ -235,12 +267,33 @@
 
         <TextView
             android:id="@+id/tvEmailValEdit"
-            android:layout_below="@id/vLineEightEdit"
+            android:textColor="#025d93"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/vLineEightEdit"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="@dimen/dp_20"
             android:layout_marginEnd="@dimen/dp_40" />
+
+        <TextView
+            android:id="@+id/tvGoalsEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/vLineNineEdit"
+            android:layout_marginStart="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_20"
+            android:text="Goals"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/tvGoalsValEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvGoalsEdit"
+            android:layout_marginStart="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_10" />
+
+
 
 
     </RelativeLayout>
