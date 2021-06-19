@@ -1,20 +1,19 @@
+@file:Suppress("DEPRECATION")
+
 package com.eclair.myfitnessgoal.fragments
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.eclair.myfitnessgoal.R
 import com.eclair.myfitnessgoal.activities.SettingsActivity
-import com.eclair.myfitnessgoal.activities.StartActivity
 import com.eclair.myfitnessgoal.activities.UpdateGoalsActivity
-import com.eclair.myfitnessgoal.models.Users
 import com.eclair.myfitnessgoal.roomdb.FoodApplication
-import com.eclair.myfitnessgoal.roomdb.UserEntity
 import com.eclair.myfitnessgoal.roomdb.UserViewModel
 import com.eclair.myfitnessgoal.roomdb.UserViewModelFactory
 import com.google.firebase.auth.FirebaseAuth
@@ -37,6 +36,7 @@ class MeFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_me, container, false)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 

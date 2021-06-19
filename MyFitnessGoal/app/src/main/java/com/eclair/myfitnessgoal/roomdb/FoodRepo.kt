@@ -5,7 +5,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class FoodRepo(private val foodDao: FoodDao) {
+class FoodRepo(private val foodDao: FoodDao, private val exerciseDao: ExerciseDao) {
 
     fun addFood(foodEntity: FoodEntity) {
         CoroutineScope(Dispatchers.IO).launch {
@@ -45,5 +45,17 @@ class FoodRepo(private val foodDao: FoodDao) {
         CoroutineScope(Dispatchers.IO).launch {
             foodDao.deleteFood(foodEntity)
         }
+    }
+
+
+
+    fun addExercise(exerciseEntity: ExerciseEntity){
+        CoroutineScope(Dispatchers.IO).launch {
+            exerciseDao.addExercise(exerciseEntity)
+        }
+    }
+
+    fun getExerciseCalories(uid:String):LiveData<Int?>{
+        return exerciseDao.getExerciseCalories(uid)
     }
 }

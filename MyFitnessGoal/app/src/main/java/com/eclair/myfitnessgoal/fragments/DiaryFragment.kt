@@ -14,6 +14,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.eclair.myfitnessgoal.R
 import com.eclair.myfitnessgoal.activities.CaloriesActivity
+import com.eclair.myfitnessgoal.activities.ExerciseSearchActivity
 import com.eclair.myfitnessgoal.activities.ShowFoodDetailsActivity
 import com.eclair.myfitnessgoal.adapter.SearchFoodItemsAdapter
 import com.eclair.myfitnessgoal.listeners.FoodClickListener
@@ -48,6 +49,7 @@ class DiaryFragment : Fragment(), FoodClickListener {
     private var req = 0
     private var reqCalorie: Int = 0
     private var consumedCalorie: Int = 0
+    private var calBurned: Int = 0
     private val uid = FirebaseAuth.getInstance().uid
 
 
@@ -112,6 +114,21 @@ class DiaryFragment : Fragment(), FoodClickListener {
                 tvDateDiary.text = reqDate
             }
         }
+        if (reqDate == curDate) {
+            viewModel.getExerciseCalories(uid!!).observe(requireActivity(), {
+
+                if (it.toString() == "null") {
+                    calBurned = 0
+                    tvExerciseCal.text = "0"
+                } else {
+                    calBurned = it!!
+                    tvExerciseCal.text = it.toString()
+                }
+            })
+        } else {
+            tvExerciseCal.text = "0"
+            tvRemainingCal.text = "$reqCalorie"
+        }
 
         viewModel.getCalDateWise(uid!!, reqDate!!).observe(requireActivity(), {
             Log.d("prabin", it.toString())
@@ -122,10 +139,11 @@ class DiaryFragment : Fragment(), FoodClickListener {
                 consumedCalorie = it!!
                 tvFoodCal.text = it.toString()
             }
-            tvRemainingCal.text = "${reqCalorie - consumedCalorie}"
+
+            tvRemainingCal.text = "${reqCalorie - consumedCalorie + calBurned}"
         })
 
-        viewModel.getFoodDateWise(reqDate!!, "breakfast", uid!!).observe(requireActivity(), {
+        viewModel.getFoodDateWise(reqDate!!, "breakfast", uid).observe(requireActivity(), {
             breakFastList.clear()
             breakFastList.addAll(it)
             breakFastAdapter.notifyDataSetChanged()
@@ -215,6 +233,10 @@ class DiaryFragment : Fragment(), FoodClickListener {
             getData()
         }
 
+        tvAddExercise.setOnClickListener {
+            startActivity(Intent(context, ExerciseSearchActivity::class.java))
+        }
+
         tvAddFood.setOnClickListener {
             val intent = Intent(context, CaloriesActivity::class.java)
             intent.putExtra("type", "breakfast")
@@ -239,11 +261,6 @@ class DiaryFragment : Fragment(), FoodClickListener {
             startActivity(intent)
         }
 
-        tvAddExercise.setOnClickListener {
-            val intent = Intent(context, CaloriesActivity::class.java)
-            intent.putExtra("type", "exercise")
-            startActivity(intent)
-        }
     }
 
     override fun onCreateView(

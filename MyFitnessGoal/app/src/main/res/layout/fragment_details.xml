@@ -117,6 +117,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dp_150"
+        android:backgroundTint="#025d93"
         android:padding="@dimen/sp_11"
         android:text="SIGN UP"
         android:textSize="@dimen/sp_17"

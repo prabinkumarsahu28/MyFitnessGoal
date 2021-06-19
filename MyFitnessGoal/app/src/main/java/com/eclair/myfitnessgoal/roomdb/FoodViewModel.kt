@@ -41,4 +41,13 @@ class FoodViewModel(private val foodRepo: FoodRepo) : ViewModel() {
     fun getDeletedFoodItem(foodEntity: FoodEntity) {
         foodRepo.deleteFoodItem(foodEntity)
     }
+
+
+    fun addExercise(exerciseEntity: ExerciseEntity){
+        foodRepo.addExercise(exerciseEntity)
+    }
+
+    fun getExerciseCalories(uid:String):LiveData<Int?>{
+        return foodRepo.getExerciseCalories(uid)
+    }
 }
