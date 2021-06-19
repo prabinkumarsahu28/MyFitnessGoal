@@ -73,9 +73,10 @@ class HeightWeightFragment : Fragment() {
                 val app = activity?.application as FoodApplication
                 val repository = app.foodRepo
                 val viewModelFactory = FoodViewModelFactory(repository)
-                viewModel = ViewModelProviders.of(this, viewModelFactory).get(FoodViewModel::class.java)
+                viewModel =
+                    ViewModelProviders.of(this, viewModelFactory).get(FoodViewModel::class.java)
 
-                userEntity = UserEntity(user.userName!!,user.email!!,
+                userEntity = UserEntity(user.userName!!, user.email!!,
                     FirebaseAuth.getInstance().uid!!,
                     user.password!!,
                     user.goalType!!,
@@ -84,7 +85,8 @@ class HeightWeightFragment : Fragment() {
                     height.toString(),
                     weight.toString(),
                     dob!!,
-                    reqCalorie.toString())
+                    reqCalorie.toString(),
+                    "profilePic")
                 viewModel.addData(userEntity)
             }
         }

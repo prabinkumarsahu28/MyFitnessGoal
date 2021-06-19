@@ -18,6 +18,7 @@ data class UserEntity(
     @ColumnInfo(name = "weight") var weight: String,
     @ColumnInfo(name = "dob") var dob: String,
     @ColumnInfo(name = "reqCalorie") var reqCalorie: String,
+    @ColumnInfo(name = "profilePic") var profilePic: String,
 
     ) : Serializable {
     @PrimaryKey(autoGenerate = true)
