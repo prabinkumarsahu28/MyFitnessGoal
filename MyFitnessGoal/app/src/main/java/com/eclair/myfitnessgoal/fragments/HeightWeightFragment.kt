@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
 import com.eclair.myfitnessgoal.R
 import com.eclair.myfitnessgoal.activities.MainActivity
@@ -75,7 +76,7 @@ class HeightWeightFragment : Fragment() {
                 val viewModelFactory = FoodViewModelFactory(repository)
                 viewModel = ViewModelProviders.of(this, viewModelFactory).get(FoodViewModel::class.java)
 
-                userEntity = UserEntity(user.userName!!,user.email!!,
+                userEntity = UserEntity(user.profilePic!!,user.userName!!,user.email!!,
                     FirebaseAuth.getInstance().uid!!,
                     user.password!!,
                     user.goalType!!,
@@ -86,6 +87,7 @@ class HeightWeightFragment : Fragment() {
                     dob!!,
                     reqCalorie.toString())
                 viewModel.addData(userEntity)
+                Toast.makeText(context,"$userEntity,$reqCalorie",Toast.LENGTH_LONG).show()
             }
         }
     }
@@ -108,6 +110,9 @@ class HeightWeightFragment : Fragment() {
             "Active" -> reqCalorie = (beforeActiveness * 1.55).roundToInt()
             "Very Active" -> reqCalorie = (beforeActiveness * 1.725).roundToInt()
         }
+
+        Toast.makeText(context,"$userEntity,$height,$weight",Toast.LENGTH_LONG).show()
+
     }
 
     private fun checkValidation(): Boolean {
@@ -132,5 +137,7 @@ class HeightWeightFragment : Fragment() {
         }
         return age.toString()
     }
+
+
 
 }

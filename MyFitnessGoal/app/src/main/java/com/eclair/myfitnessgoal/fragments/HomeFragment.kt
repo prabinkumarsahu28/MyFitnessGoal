@@ -103,6 +103,7 @@ class HomeFragment : Fragment(), BlogClickListener {
                         blogsList.add(blog)
                     }
                     blogsAdapter.notifyDataSetChanged()
+
                 }
             }
 

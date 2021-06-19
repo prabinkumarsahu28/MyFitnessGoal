@@ -63,19 +63,23 @@ class FoodViewModel(private val foodRepo: FoodRepo) : ViewModel() {
         return foodRepo.getUserEmail(uid)
     }
 
-    fun getSex(uid: String?): String{
+    fun getSex(uid: String?): String {
         return foodRepo.getSex(uid)
     }
 
-    fun getGoal(uid: String?): String{
+    fun getGoal(uid: String?): String {
         return foodRepo.getGoal(uid)
+    }
+
+    fun getProfile(uid: String?): String {
+        return foodRepo.getProfile(uid)
     }
 
     fun getHeight(uid: String?): String {
         return foodRepo.getHeight(uid)
     }
 
-    fun getDob(uid: String?): String{
+    fun getDob(uid: String?): String {
         return foodRepo.getDob(uid)
     }
 
@@ -87,4 +91,12 @@ class FoodViewModel(private val foodRepo: FoodRepo) : ViewModel() {
     fun getExerciseCalories(uid: String, curDate: String): LiveData<Int?> {
         return foodRepo.getExerciseCalories(uid, curDate)
     }
+
+//    fun getUserDetails(uid: String?):LiveData<UserEntity>{
+//        return foodRepo.getUserDetails(uid)
+//    }
+//
+//    fun editProfile(userEntity: UserEntity?) {
+//        foodRepo.editProfile(userEntity)
+//    }
 }

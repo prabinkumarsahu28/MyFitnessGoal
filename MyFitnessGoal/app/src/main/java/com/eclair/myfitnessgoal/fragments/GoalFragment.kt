@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.eclair.myfitnessgoal.R
 import com.eclair.myfitnessgoal.models.Users
@@ -25,10 +26,10 @@ class GoalFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        if (arguments != null) {
-            user = arguments?.getSerializable("user") as Users
+        user = if (arguments != null) {
+            arguments?.getSerializable("user") as Users
         }else{
-            user = Users()
+            Users()
         }
 
 
@@ -58,6 +59,9 @@ class GoalFragment : Fragment() {
                     requireActivity().supportFragmentManager.beginTransaction()
                 fragmentTransaction.add(R.id.flSignUp, fragment)
                     .addToBackStack("activityLevelFragment").commit()
+
+
+                Toast.makeText(context,"$users,$goalType",Toast.LENGTH_LONG).show()
             }
         }
     }

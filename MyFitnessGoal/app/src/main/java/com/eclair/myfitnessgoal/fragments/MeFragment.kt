@@ -4,6 +4,7 @@ package com.eclair.myfitnessgoal.fragments
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -24,6 +25,7 @@ class MeFragment : Fragment() {
 
     private lateinit var viewModel: FoodViewModel
     private val uid = FirebaseAuth.getInstance().uid
+    private var location: Uri? = null
 
 
     override fun onCreateView(
@@ -56,6 +58,7 @@ class MeFragment : Fragment() {
             tvWeightKg.text = "${viewModel.getWeight(uid)} kg"
             tvUidUser.text = viewModel.getUserName(uid)
             tvUserEmail.text = viewModel.getUserEmail(uid)
+
         }
 
         viewModel.getReqCalorie(uid).observe(requireActivity(), {
