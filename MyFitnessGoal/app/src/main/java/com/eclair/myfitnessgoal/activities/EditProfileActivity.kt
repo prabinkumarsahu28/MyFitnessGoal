@@ -14,16 +14,12 @@ import com.eclair.myfitnessgoal.roomdb.UserEntity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_edit_profile.*
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import java.util.*
 
 class EditProfileActivity : AppCompatActivity() {
 
     private var location: Uri? = null
     lateinit var userEntity: UserEntity
-    lateinit var fitnessEntity : UserEntity
+    lateinit var fitnessEntity: UserEntity
 
     private lateinit var viewModel: FoodViewModel
     private val uid = FirebaseAuth.getInstance().uid
@@ -35,6 +31,8 @@ class EditProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_profile)
 
+
+
         Log.d("password", password.toString())
         clickListeners()
 
@@ -44,16 +42,37 @@ class EditProfileActivity : AppCompatActivity() {
         viewModel = ViewModelProviders.of(this, foodViewModelFactory).get(FoodViewModel::class.java)
 
 
-//        viewModel.getUserDetails(uid!!).observe(this,{
-//            fitnessEntity = it
-//            etSoubiaEdit.setText(it.userName)
-//            tvHeightValEdit.setText(it.height)
-//            tvEmailValEdit.setText(it.emailId)
-//            tvDobValEdit.setText(it.dob)
-//            tvSexValEdit.setText(it.sex)
-//            tvGoalsValEdit.setText(it.goal)
-//        })
-//
+        viewModel.getUserDetails(uid).observe(this, {
+
+            fitnessEntity = it
+            etSoubiaEdit.setText(it.userName)
+            tvHeightValEdit.setText(it.height)
+            tvEmailValEdit.setText(it.emailId)
+            tvDobValEdit.setText(it.dob)
+            tvSexValEdit.setText(it.sex)
+            tvGoalsValEdit.setText(it.goal)
+            userData()
+        })
+
+
+
+    }
+
+    private fun userData() {
+        userEntity = UserEntity(
+            etSoubiaEdit.text.toString(),
+            tvEmailValEdit.text.toString(),
+            uid!!,
+            fitnessEntity.password,
+            tvGoalsValEdit.text.toString(),
+            fitnessEntity.activeness,
+            tvSexValEdit.text.toString(),
+            tvHeightValEdit.text.toString(),
+            fitnessEntity.weight,
+            tvDobValEdit.text.toString(),
+            "2345",
+            location.toString()
+        )
     }
 
     private fun clickListeners() {
@@ -64,13 +83,13 @@ class EditProfileActivity : AppCompatActivity() {
             startActivityForResult(intent, 0)
         }
 
-//        btnSaveEdits.setOnClickListener {
-//            viewModel.editProfile(userEntity)
-//            val intent = Intent(this, MainActivity::class.java)
-//            intent.putExtra("editedDetails", 3)
-//            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
-//            startActivity(intent)
-//        }
+        btnSaveEdits.setOnClickListener {
+            viewModel.editProfile(tvHeightValEdit.text.toString(),uid)
+            val intent = Intent(this, MainActivity::class.java)
+            intent.putExtra("editedDetails", 3)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+            startActivity(intent)
+        }
 
     }
 

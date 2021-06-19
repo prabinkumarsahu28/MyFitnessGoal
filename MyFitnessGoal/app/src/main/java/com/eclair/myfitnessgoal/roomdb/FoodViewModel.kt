@@ -92,11 +92,11 @@ class FoodViewModel(private val foodRepo: FoodRepo) : ViewModel() {
         return foodRepo.getExerciseCalories(uid, curDate)
     }
 
-//    fun getUserDetails(uid: String?):LiveData<UserEntity>{
-//        return foodRepo.getUserDetails(uid)
-//    }
-//
-//    fun editProfile(userEntity: UserEntity?) {
-//        foodRepo.editProfile(userEntity)
-//    }
+    fun getUserDetails(uid: String?):LiveData<UserEntity>{
+        return foodRepo.getUserDetails(uid)
+    }
+
+    fun editProfile( height: String?, uid:String?) {
+        foodRepo.editProfile(height, uid)
+    }
 }

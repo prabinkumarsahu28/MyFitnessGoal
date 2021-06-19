@@ -27,7 +27,6 @@ class MeFragment : Fragment() {
     private lateinit var viewModel: FoodViewModel
     private val uid = FirebaseAuth.getInstance().uid
     private var weight = 0
-    private var location: Uri? = null
 
 
     override fun onCreateView(
@@ -53,9 +52,9 @@ class MeFragment : Fragment() {
             tvUserEmail.text = viewModel.getUserEmail(uid)
         }
 
-        viewModel.getReqCalorie(uid).observe(requireActivity(), {
-            tvCalorieMe.text = it
-        })
+//        viewModel.getReqCalorie(uid).observe(requireActivity(), {
+//            tvCalorieMe.text = it
+//        })
 
         if (arguments != null) {
             weight = arguments?.getInt("weight", 0)!!

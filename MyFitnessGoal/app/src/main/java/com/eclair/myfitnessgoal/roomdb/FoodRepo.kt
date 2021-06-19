@@ -110,13 +110,13 @@ class FoodRepo(
         return exerciseDao.getExerciseCalories(uid, curDate)
     }
 
-//    fun getUserDetails(uid: String?):LiveData<UserEntity>{
-//        return userDao.getUserDetails(uid)
-//    }
-//
-//    fun editProfile(userEntity: UserEntity?) {
-//        CoroutineScope(Dispatchers.IO).launch {
-//            userDao.editProfile(userEntity)
-//        }
-//    }
+    fun getUserDetails(uid: String?):LiveData<UserEntity>{
+        return userDao.getUserDetails(uid)
+    }
+
+    fun editProfile( height: String?, uid:String?) {
+        CoroutineScope(Dispatchers.IO).launch {
+            userDao.editProfile(height,uid)
+        }
+    }
 }

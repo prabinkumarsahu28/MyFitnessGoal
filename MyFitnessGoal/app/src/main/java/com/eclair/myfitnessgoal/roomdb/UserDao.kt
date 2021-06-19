@@ -39,10 +39,10 @@ interface UserDao {
     @Query("SELECT profilePic FROM User_Table WHERE uid=:uid")
     fun getProfile(uid: String?): String
 
-//    @Query("SELECT * FROM User_Table WHERE uid =:uid")
-//    fun getUserDetails(uid: String?):LiveData<UserEntity>
-//
-//    @Update
-//    fun editProfile(userEntity: UserEntity?)
+    @Query("SELECT * FROM User_Table WHERE uid =:uid")
+    fun getUserDetails(uid: String?): LiveData<UserEntity>
+
+    @Query("UPDATE User_Table SET height =:height WHERE uid =:uid")
+    fun editProfile( height: String?, uid:String?)
 
 }
