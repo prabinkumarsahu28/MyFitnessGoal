@@ -4,21 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="@dimen/dp_15"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".activities.ExerciseDetailsActivity">
+    tools:context=".activities.AddWeightActivity">
 
     <EditText
-        android:id="@+id/etTimePerformed"
-        android:layout_width="250dp"
+        android:id="@+id/etAddWeight"
+        android:layout_width="@dimen/dp_200"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/dp_15"
         android:gravity="center"
-        android:hint="Minutes performed"
+        android:hint="Weight (kg)"
         android:inputType="number" />
 
     <Button
-        android:id="@+id/btnSaveExercise"
+        android:id="@+id/btnSaveWeight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#025d93"
