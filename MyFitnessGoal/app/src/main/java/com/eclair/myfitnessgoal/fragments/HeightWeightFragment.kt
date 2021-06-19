@@ -8,15 +8,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
 import com.eclair.myfitnessgoal.R
 import com.eclair.myfitnessgoal.activities.MainActivity
 import com.eclair.myfitnessgoal.models.Users
-import com.eclair.myfitnessgoal.roomdb.FoodApplication
-import com.eclair.myfitnessgoal.roomdb.UserEntity
-import com.eclair.myfitnessgoal.roomdb.UserViewModel
-import com.eclair.myfitnessgoal.roomdb.UserViewModelFactory
+import com.eclair.myfitnessgoal.roomdb.*
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_height_weight.*
 import java.util.*
@@ -31,7 +27,7 @@ class HeightWeightFragment : Fragment() {
     private var height: Int = 0
     private var weight: Int = 0
 
-    private lateinit var viewModel: UserViewModel
+    private lateinit var viewModel: FoodViewModel
     private lateinit var userEntity: UserEntity
 
     override fun onCreateView(
@@ -47,9 +43,6 @@ class HeightWeightFragment : Fragment() {
 
 
         user = arguments?.getSerializable("user") as Users
-        Toast.makeText(context,
-            "${user.userName}, ${user.goalType}, ${user.activeness}, ${user.sex}",
-            Toast.LENGTH_LONG).show()
 
         clickListener()
 
@@ -76,15 +69,11 @@ class HeightWeightFragment : Fragment() {
                         or Intent.FLAG_ACTIVITY_CLEAR_TASK)
 
                 startActivity(intent)
-                Toast.makeText(context,
-                    "age: $age, reqCalorie: $reqCalorie",
-                    Toast.LENGTH_LONG).show()
-
 
                 val app = activity?.application as FoodApplication
-                val repository = app.userRepo
-                val viewModelFactory = UserViewModelFactory(repository)
-                viewModel = ViewModelProviders.of(this, viewModelFactory).get(UserViewModel::class.java)
+                val repository = app.foodRepo
+                val viewModelFactory = FoodViewModelFactory(repository)
+                viewModel = ViewModelProviders.of(this, viewModelFactory).get(FoodViewModel::class.java)
 
                 userEntity = UserEntity(user.userName!!,user.email!!,
                     FirebaseAuth.getInstance().uid!!,

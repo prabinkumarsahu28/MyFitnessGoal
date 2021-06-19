@@ -43,11 +43,29 @@ class FoodViewModel(private val foodRepo: FoodRepo) : ViewModel() {
     }
 
 
+    fun addData(userEntity: UserEntity) {
+        foodRepo.addUserDetails(userEntity)
+    }
+
+    fun getReqCalorie(uid: String?): LiveData<String> {
+        return foodRepo.getReqCalorie(uid)
+    }
+    fun getWeight(uid: String?): String {
+        return foodRepo.getWeight(uid)
+    }
+    fun getUserName(uid: String?): String {
+        return foodRepo.getUserName(uid)
+    }
+    fun getUserEmail(uid: String?): String{
+        return foodRepo.getUserEmail(uid)
+    }
+
+
     fun addExercise(exerciseEntity: ExerciseEntity){
         foodRepo.addExercise(exerciseEntity)
     }
 
-    fun getExerciseCalories(uid:String):LiveData<Int?>{
-        return foodRepo.getExerciseCalories(uid)
+    fun getExerciseCalories(uid:String, curDate:String):LiveData<Int?>{
+        return foodRepo.getExerciseCalories(uid, curDate)
     }
 }

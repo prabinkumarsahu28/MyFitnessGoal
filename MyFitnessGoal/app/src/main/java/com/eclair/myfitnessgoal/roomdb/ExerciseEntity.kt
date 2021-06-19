@@ -9,6 +9,7 @@ import java.io.Serializable
 class ExerciseEntity(
     @ColumnInfo(name = "name") var name: String?,
     @ColumnInfo(name = "cal") var cal: String?,
+    @ColumnInfo(name = "curDate") var curDate: String?,
     @ColumnInfo(name = "uid") var uid: String?,
 ):Serializable {
     @PrimaryKey(autoGenerate = true)

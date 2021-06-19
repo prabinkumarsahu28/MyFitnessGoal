@@ -15,17 +15,13 @@ class FoodApplication : Application() {
         database.getExerciseDao()
     }
 
-    val foodRepo by lazy {
-        FoodRepo(foodDao, exerciseDao)
-    }
-
     private val userDao by lazy {
         val database = FoodDb.getDbContext(this)
         database.getUserDao()
     }
 
-    val userRepo by lazy {
-        UserRepo(userDao)
+    val foodRepo by lazy {
+        FoodRepo(foodDao, exerciseDao, userDao)
     }
 
 }

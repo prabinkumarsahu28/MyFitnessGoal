@@ -12,7 +12,7 @@ interface ExerciseDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun addExercise(exerciseEntity: ExerciseEntity)
 
-    @Query("SELECT SUM(cal) FROM ExerciseTable WHERE uid =:uid")
-    fun getExerciseCalories(uid:String):LiveData<Int?>
+    @Query("SELECT SUM(cal) FROM ExerciseTable WHERE uid =:uid AND curDate =:curDate")
+    fun getExerciseCalories(uid:String, curDate:String):LiveData<Int?>
 
 }

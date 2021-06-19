@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package com.eclair.myfitnessgoal.activities
 
 import android.content.Intent
@@ -5,9 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProviders
 import com.eclair.myfitnessgoal.R
-import com.eclair.myfitnessgoal.roomdb.FoodApplication
-import com.eclair.myfitnessgoal.roomdb.UserViewModel
-import com.eclair.myfitnessgoal.roomdb.UserViewModelFactory
+import com.eclair.myfitnessgoal.roomdb.*
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_update_goals.*
 import kotlinx.android.synthetic.main.fragment_me.*
@@ -21,7 +21,7 @@ class UpdateGoalsActivity : AppCompatActivity() {
     private var goalWeight : Int = 0
 
 
-    private lateinit var viewModel: UserViewModel
+    private lateinit var viewModel: FoodViewModel
     private val uid = FirebaseAuth.getInstance().uid
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,9 +46,9 @@ class UpdateGoalsActivity : AppCompatActivity() {
         }
 
         val app = application as FoodApplication
-        val repo = app.userRepo
-        val userViewModelFactory = UserViewModelFactory(repo)
-        viewModel = ViewModelProviders.of(this, userViewModelFactory).get(UserViewModel::class.java)
+        val repo = app.foodRepo
+        val foodViewModelFactory = FoodViewModelFactory(repo)
+        viewModel = ViewModelProviders.of(this, foodViewModelFactory).get(FoodViewModel::class.java)
         CoroutineScope(Dispatchers.IO).launch {
             tvWeightValGoals.text = "${viewModel.getWeight(uid)} kg"
         }
