@@ -27,7 +27,7 @@ class HeightWeightFragment : Fragment() {
     private var height: Int = 0
     private var weight: Int = 0
 
-    private lateinit var viewModel: FoodViewModel
+    private lateinit var viewModel: FitnessViewModel
     private lateinit var userEntity: UserEntity
 
     override fun onCreateView(
@@ -74,7 +74,7 @@ class HeightWeightFragment : Fragment() {
                 val repository = app.foodRepo
                 val viewModelFactory = FoodViewModelFactory(repository)
                 viewModel =
-                    ViewModelProviders.of(this, viewModelFactory).get(FoodViewModel::class.java)
+                    ViewModelProviders.of(this, viewModelFactory).get(FitnessViewModel::class.java)
 
                 userEntity = UserEntity(user.userName!!, user.email!!,
                     FirebaseAuth.getInstance().uid!!,

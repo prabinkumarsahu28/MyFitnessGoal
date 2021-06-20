@@ -35,7 +35,7 @@ class DiaryFragment : Fragment(), FoodClickListener {
     private val dinnerList = mutableListOf<FoodEntity>()
     private val snackList = mutableListOf<FoodEntity>()
 
-    private lateinit var viewModel: FoodViewModel
+    private lateinit var viewModel: FitnessViewModel
 
     private lateinit var breakFastAdapter: SearchFoodItemsAdapter
     private lateinit var lunchAdapter: SearchFoodItemsAdapter
@@ -72,7 +72,7 @@ class DiaryFragment : Fragment(), FoodClickListener {
         val app = activity?.application as FoodApplication
         val repository = app.foodRepo
         val viewModelFactory = FoodViewModelFactory(repository)
-        viewModel = ViewModelProviders.of(this, viewModelFactory).get(FoodViewModel::class.java)
+        viewModel = ViewModelProviders.of(this, viewModelFactory).get(FitnessViewModel::class.java)
 
         clickListeners()
         recyclerData()

@@ -30,7 +30,7 @@ class HomeFragment : Fragment(), BlogClickListener {
     private val blogsList = mutableListOf<HomeBlogs>()
     private lateinit var database: FirebaseDatabase
     lateinit var blogsAdapter: HomeBlogsAdapter
-    private lateinit var viewModel: FoodViewModel
+    private lateinit var viewModel: FitnessViewModel
     private val uid = FirebaseAuth.getInstance().uid
     private var reqCalorie: Int = 0
     private var consumedCalorie: Int = 0
@@ -106,6 +106,7 @@ class HomeFragment : Fragment(), BlogClickListener {
                         blogsList.add(blog)
                     }
                     blogsAdapter.notifyDataSetChanged()
+
                 }
             }
 

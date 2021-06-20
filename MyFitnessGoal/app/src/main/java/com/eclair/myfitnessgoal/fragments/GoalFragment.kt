@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.eclair.myfitnessgoal.R
 import com.eclair.myfitnessgoal.models.Users
@@ -58,6 +59,9 @@ class GoalFragment : Fragment() {
                     requireActivity().supportFragmentManager.beginTransaction()
                 fragmentTransaction.add(R.id.flSignUp, fragment)
                     .addToBackStack("activityLevelFragment").commit()
+
+
+                Toast.makeText(context,"$users,$goalType",Toast.LENGTH_LONG).show()
             }
         }
     }
