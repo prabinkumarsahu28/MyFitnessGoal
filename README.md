@@ -31,7 +31,7 @@
  </table>
 
 
-![Visitor Count](https://profile-counter.glitch.me/prabinkumarsahu28/count.svg)
+![Visitor Count](https://profile-counter.glitch.me/myfitnessgoal/count.svg)
 
 
 
