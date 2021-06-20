@@ -20,7 +20,7 @@ class UpdateGoalsActivity : AppCompatActivity() {
     private var goalWeight : Int = 0
 
 
-    private lateinit var viewModel: FoodViewModel
+    private lateinit var viewModel: FitnessViewModel
     private val uid = FirebaseAuth.getInstance().uid
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,7 +43,7 @@ class UpdateGoalsActivity : AppCompatActivity() {
         val app = application as FoodApplication
         val repo = app.foodRepo
         val foodViewModelFactory = FoodViewModelFactory(repo)
-        viewModel = ViewModelProviders.of(this, foodViewModelFactory).get(FoodViewModel::class.java)
+        viewModel = ViewModelProviders.of(this, foodViewModelFactory).get(FitnessViewModel::class.java)
         CoroutineScope(Dispatchers.IO).launch {
             tvWeightValGoals.text = "${viewModel.getWeight(uid)} kg"
         }

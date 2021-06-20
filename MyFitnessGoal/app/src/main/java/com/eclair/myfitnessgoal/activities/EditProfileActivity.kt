@@ -8,7 +8,7 @@ import android.util.Log
 import androidx.lifecycle.ViewModelProviders
 import com.eclair.myfitnessgoal.R
 import com.eclair.myfitnessgoal.roomdb.FoodApplication
-import com.eclair.myfitnessgoal.roomdb.FoodViewModel
+import com.eclair.myfitnessgoal.roomdb.FitnessViewModel
 import com.eclair.myfitnessgoal.roomdb.FoodViewModelFactory
 import com.eclair.myfitnessgoal.roomdb.UserEntity
 import com.google.firebase.auth.FirebaseAuth
@@ -17,11 +17,11 @@ import kotlinx.android.synthetic.main.activity_edit_profile.*
 
 class EditProfileActivity : AppCompatActivity() {
 
-    private var location: Uri? = null
+    private var profileLocation: Uri? = null
     lateinit var userEntity: UserEntity
     lateinit var fitnessEntity: UserEntity
 
-    private lateinit var viewModel: FoodViewModel
+    private lateinit var viewModel: FitnessViewModel
     private val uid = FirebaseAuth.getInstance().uid
     val password =
         FirebaseDatabase.getInstance().reference.child("Users").child(uid!!).child("password")
@@ -39,7 +39,7 @@ class EditProfileActivity : AppCompatActivity() {
         val app = application as FoodApplication
         val repo = app.foodRepo
         val foodViewModelFactory = FoodViewModelFactory(repo)
-        viewModel = ViewModelProviders.of(this, foodViewModelFactory).get(FoodViewModel::class.java)
+        viewModel = ViewModelProviders.of(this, foodViewModelFactory).get(FitnessViewModel::class.java)
 
 
         viewModel.getUserDetails(uid).observe(this, {
@@ -55,24 +55,23 @@ class EditProfileActivity : AppCompatActivity() {
         })
 
 
-
     }
 
     private fun userData() {
-        userEntity = UserEntity(
-            etSoubiaEdit.text.toString(),
-            tvEmailValEdit.text.toString(),
-            uid!!,
-            fitnessEntity.password,
-            tvGoalsValEdit.text.toString(),
-            fitnessEntity.activeness,
-            tvSexValEdit.text.toString(),
-            tvHeightValEdit.text.toString(),
-            fitnessEntity.weight,
-            tvDobValEdit.text.toString(),
-            "2345",
-            location.toString()
-        )
+//        userEntity = UserEntity(
+//            etSoubiaEdit.text.toString(),
+//            tvEmailValEdit.text.toString(),
+//            uid!!,
+//            fitnessEntity.password,
+//            tvGoalsValEdit.text.toString(),
+//            fitnessEntity.activeness,
+//            tvSexValEdit.text.toString(),
+//            tvHeightValEdit.text.toString(),
+//            fitnessEntity.weight,
+//            tvDobValEdit.text.toString(),
+//            "2345",
+//            location.toString()
+//        )
     }
 
     private fun clickListeners() {
@@ -83,21 +82,37 @@ class EditProfileActivity : AppCompatActivity() {
             startActivityForResult(intent, 0)
         }
 
+
         btnSaveEdits.setOnClickListener {
-            viewModel.editProfile(tvHeightValEdit.text.toString(),uid)
+
+            fitnessEntity.userName = etSoubiaEdit.text.toString()
+            fitnessEntity.height = tvHeightValEdit.text.toString()
+            fitnessEntity.dob = tvDobValEdit.text.toString()
+            fitnessEntity.profilePic = profileLocation.toString()
+
+            viewModel.updateProfile(fitnessEntity)
+
             val intent = Intent(this, MainActivity::class.java)
             intent.putExtra("editedDetails", 3)
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
             startActivity(intent)
         }
 
+//        btnSaveEdits.setOnClickListener {
+//            viewModel.editProfile(tvHeightValEdit.text.toString(),uid)
+//            val intent = Intent(this, MainActivity::class.java)
+//            intent.putExtra("editedDetails", 3)
+//            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+//            startActivity(intent)
+//        }
+
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, intent: Intent?) {
         super.onActivityResult(requestCode, resultCode, intent)
         if (intent?.data != null) {
-            location = intent.data
-            profile_Edit.setImageURI(location)
+            profileLocation = intent.data
+            profile_Edit.setImageURI(profileLocation)
         }
     }
 

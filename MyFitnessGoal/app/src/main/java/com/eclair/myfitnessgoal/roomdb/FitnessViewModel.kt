@@ -3,19 +3,19 @@ package com.eclair.myfitnessgoal.roomdb
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 
-class FoodViewModel(private val foodRepo: FoodRepo) : ViewModel() {
+class FitnessViewModel(private val fitnessRepo: FitnessRepo) : ViewModel() {
 
     fun addFood(foodEntity: FoodEntity) {
-        foodRepo.addFood(foodEntity)
+        fitnessRepo.addFood(foodEntity)
     }
 
 
     fun getAllFood(): LiveData<List<FoodEntity>> {
-        return foodRepo.getAllFood()
+        return fitnessRepo.getAllFood()
     }
 
     fun getFoodDateWise(reqDate: String, types: String, uid: String): LiveData<List<FoodEntity>> {
-        return foodRepo.getFoodDateWise(reqDate, types, uid)
+        return fitnessRepo.getFoodDateWise(reqDate, types, uid)
     }
 
     fun getFoodDateWiseCalSum(
@@ -23,80 +23,84 @@ class FoodViewModel(private val foodRepo: FoodRepo) : ViewModel() {
         types: String,
         uid: String,
     ): LiveData<Int?> {
-        return foodRepo.getFoodDateWiseCalSum(reqDate, types, uid)
+        return fitnessRepo.getFoodDateWiseCalSum(reqDate, types, uid)
     }
 
     fun getTotalCalorie(): LiveData<Int?> {
-        return foodRepo.getTotalCalorie()
+        return fitnessRepo.getTotalCalorie()
     }
 
     fun getALlAddedFood(type: String): LiveData<List<FoodEntity>> {
-        return foodRepo.getAddedFood(type)
+        return fitnessRepo.getAddedFood(type)
     }
 
     fun getCalDateWise(uid: String, reqDate: String): LiveData<Int?> {
-        return foodRepo.getCalDateWise(uid, reqDate)
+        return fitnessRepo.getCalDateWise(uid, reqDate)
     }
 
     fun getDeletedFoodItem(foodEntity: FoodEntity) {
-        foodRepo.deleteFoodItem(foodEntity)
+        fitnessRepo.deleteFoodItem(foodEntity)
     }
 
 
     fun addData(userEntity: UserEntity) {
-        foodRepo.addUserDetails(userEntity)
+        fitnessRepo.addUserDetails(userEntity)
     }
 
     fun getReqCalorie(uid: String?): LiveData<String> {
-        return foodRepo.getReqCalorie(uid)
+        return fitnessRepo.getReqCalorie(uid)
     }
 
     fun getWeight(uid: String?): String {
-        return foodRepo.getWeight(uid)
+        return fitnessRepo.getWeight(uid)
     }
 
     fun getUserName(uid: String?): String {
-        return foodRepo.getUserName(uid)
+        return fitnessRepo.getUserName(uid)
     }
 
     fun getUserEmail(uid: String?): String {
-        return foodRepo.getUserEmail(uid)
+        return fitnessRepo.getUserEmail(uid)
     }
 
     fun getSex(uid: String?): String {
-        return foodRepo.getSex(uid)
+        return fitnessRepo.getSex(uid)
     }
 
     fun getGoal(uid: String?): String {
-        return foodRepo.getGoal(uid)
+        return fitnessRepo.getGoal(uid)
     }
 
     fun getProfile(uid: String?): String {
-        return foodRepo.getProfile(uid)
+        return fitnessRepo.getProfile(uid)
     }
 
     fun getHeight(uid: String?): String {
-        return foodRepo.getHeight(uid)
+        return fitnessRepo.getHeight(uid)
     }
 
     fun getDob(uid: String?): String {
-        return foodRepo.getDob(uid)
+        return fitnessRepo.getDob(uid)
     }
 
 
     fun addExercise(exerciseEntity: ExerciseEntity) {
-        foodRepo.addExercise(exerciseEntity)
+        fitnessRepo.addExercise(exerciseEntity)
     }
 
     fun getExerciseCalories(uid: String, curDate: String): LiveData<Int?> {
-        return foodRepo.getExerciseCalories(uid, curDate)
+        return fitnessRepo.getExerciseCalories(uid, curDate)
     }
 
     fun getUserDetails(uid: String?):LiveData<UserEntity>{
-        return foodRepo.getUserDetails(uid)
+        return fitnessRepo.getUserDetails(uid)
     }
 
     fun editProfile( height: String?, uid:String?) {
-        foodRepo.editProfile(height, uid)
+        fitnessRepo.editProfile(height, uid)
+    }
+
+    fun updateProfile(userEntity: UserEntity){
+        fitnessRepo.updateProfile(userEntity)
     }
 }

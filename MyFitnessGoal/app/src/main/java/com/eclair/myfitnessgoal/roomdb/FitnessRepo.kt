@@ -5,7 +5,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class FoodRepo(
+class FitnessRepo(
     private val foodDao: FoodDao,
     private val exerciseDao: ExerciseDao,
     private val userDao: UserDao,
@@ -119,4 +119,11 @@ class FoodRepo(
             userDao.editProfile(height,uid)
         }
     }
+
+    fun updateProfile(userEntity: UserEntity){
+        CoroutineScope(Dispatchers.IO).launch {
+            userDao.updateProfile(userEntity)
+        }
+    }
+
 }

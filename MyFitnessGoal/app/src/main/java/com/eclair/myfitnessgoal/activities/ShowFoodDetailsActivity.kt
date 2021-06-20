@@ -4,13 +4,12 @@ package com.eclair.myfitnessgoal.activities
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
 import com.eclair.myfitnessgoal.R
 import com.eclair.myfitnessgoal.roomdb.FoodApplication
 import com.eclair.myfitnessgoal.roomdb.FoodEntity
-import com.eclair.myfitnessgoal.roomdb.FoodViewModel
+import com.eclair.myfitnessgoal.roomdb.FitnessViewModel
 import com.eclair.myfitnessgoal.roomdb.FoodViewModelFactory
 import kotlinx.android.synthetic.main.activity_show_food_details.*
 
@@ -33,7 +32,7 @@ class ShowFoodDetailsActivity : AppCompatActivity() {
         val app = application as FoodApplication
         val repository = app.foodRepo
         val viewModelFactory = FoodViewModelFactory(repository)
-        val viewModel = ViewModelProviders.of(this, viewModelFactory).get(FoodViewModel::class.java)
+        val viewModel = ViewModelProviders.of(this, viewModelFactory).get(FitnessViewModel::class.java)
         btnAddFoodItem.setOnClickListener {
             if (type == "save") {
                 viewModel.addFood(foodEntity)
