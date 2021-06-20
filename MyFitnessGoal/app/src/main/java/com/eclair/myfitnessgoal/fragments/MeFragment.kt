@@ -19,9 +19,6 @@ import com.eclair.myfitnessgoal.activities.UpdateGoalsActivity
 import com.eclair.myfitnessgoal.roomdb.*
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_me.*
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 class MeFragment : Fragment() {
 
@@ -48,6 +45,7 @@ class MeFragment : Fragment() {
         val foodViewModelFactory = FoodViewModelFactory(repo)
         viewModel = ViewModelProviders.of(this, foodViewModelFactory).get(FitnessViewModel::class.java)
 
+
         viewModel.getUserDetails(uid).observe(requireActivity(),{
             userEntity = it
 
@@ -57,7 +55,6 @@ class MeFragment : Fragment() {
             if (it.profilePic != "profilePic"){
               Glide.with(requireActivity()).load(it.profilePic.toUri()).placeholder(R.drawable.user).into(profile_image)
             }
-
             tvCalorieMe.text = it.reqCalorie
         })
 
@@ -68,6 +65,7 @@ class MeFragment : Fragment() {
 
         clickListeners()
     }
+
 
     private fun clickListeners() {
         iBtnSettings.setOnClickListener {
