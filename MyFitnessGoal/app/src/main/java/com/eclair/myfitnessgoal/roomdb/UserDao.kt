@@ -45,4 +45,7 @@ interface UserDao {
     @Query("UPDATE User_Table SET height =:height WHERE uid =:uid")
     fun editProfile( height: String?, uid:String?)
 
+    @Update
+    fun updateProfile(userEntity: UserEntity)
+
 }

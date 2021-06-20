@@ -21,7 +21,7 @@ class FoodApplication : Application() {
     }
 
     val foodRepo by lazy {
-        FoodRepo(foodDao, exerciseDao, userDao)
+        FitnessRepo(foodDao, exerciseDao, userDao)
     }
 
 }
