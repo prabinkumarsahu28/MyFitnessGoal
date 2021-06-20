@@ -31,18 +31,12 @@
  </table>
 
 ## Libraries & Tech Used
-- [Kotlin](https://kotlinlang.org/) based, [Coroutines](https://github.com/Kotlin/kotlinx.coroutines) for asynchronous handling.
-- JetPack
-  - LiveData - notify domain layer data to views.
-  - Lifecycle - observing data when lifecycle state changes.
-  - ViewModel - lifecycle aware UI related data holder.
-- Architecture
-  - MVVM Architecture (View - DataBinding - ViewModel - Model) 
 - [Circular View](https://github.com/hdodenhof/CircleImageView) 
 - [Glide](https://github.com/bumptech/glide) 
 - [Lottie](https://github.com/airbnb/lottie-android) 
 - [ExoPlayer](https://exoplayer.dev/hello-world.html) 
 - [Semicircle ProgressBar](https://github.com/hadibtf/SemiCircleArcProgressBar) 
+- [Firebase](https://firebase.google.com/)
 - [Used Icons](https://www.flaticon.com/)
 
 
