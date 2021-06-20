@@ -17,9 +17,7 @@ import com.eclair.myfitnessgoal.activities.UpdateGoalsActivity
 import com.eclair.myfitnessgoal.roomdb.*
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_me.*
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 
 class MeFragment : Fragment() {
 
@@ -46,9 +44,10 @@ class MeFragment : Fragment() {
         viewModel = ViewModelProviders.of(this, foodViewModelFactory).get(FoodViewModel::class.java)
 
         CoroutineScope(Dispatchers.IO).launch {
-            tvWeightKg.text = "${viewModel.getWeight(uid)} kg"
-            tvUidUser.text = viewModel.getUserName(uid)
-            tvUserEmail.text = viewModel.getUserEmail(uid)
+
+            updateUi(viewModel.getWeight(uid),
+                viewModel.getUserName(uid),
+                viewModel.getUserEmail(uid))
         }
 
         viewModel.getReqCalorie(uid).observe(requireActivity(), {
@@ -61,6 +60,14 @@ class MeFragment : Fragment() {
         pb_SemiCircle.setPercentWithAnimation(weight)
 
         clickListeners()
+    }
+
+    private fun updateUi(weight: String, userName: String, userEmail: String) {
+        CoroutineScope(Dispatchers.Main).launch {
+            tvWeightKg.text = "$weight kg"
+            tvUidUser.text = userName
+            tvUserEmail.text = userEmail
+        }
     }
 
     private fun clickListeners() {
