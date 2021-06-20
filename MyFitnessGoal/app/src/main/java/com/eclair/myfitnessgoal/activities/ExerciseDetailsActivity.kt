@@ -10,9 +10,9 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
 import com.eclair.myfitnessgoal.R
 import com.eclair.myfitnessgoal.roomdb.ExerciseEntity
-import com.eclair.myfitnessgoal.roomdb.FoodApplication
+import com.eclair.myfitnessgoal.roomdb.FitnessApplication
 import com.eclair.myfitnessgoal.roomdb.FitnessViewModel
-import com.eclair.myfitnessgoal.roomdb.FoodViewModelFactory
+import com.eclair.myfitnessgoal.roomdb.FitnessViewModelFactory
 import kotlinx.android.synthetic.main.activity_exercise_details.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -31,9 +31,9 @@ class ExerciseDetailsActivity : AppCompatActivity() {
             exerciseEntity1 = intent.getSerializableExtra("exercise") as ExerciseEntity
         }
 
-        val app = application as FoodApplication
+        val app = application as FitnessApplication
         val repository = app.foodRepo
-        val viewModelFactory = FoodViewModelFactory(repository)
+        val viewModelFactory = FitnessViewModelFactory(repository)
         val viewModel = ViewModelProviders.of(this, viewModelFactory).get(FitnessViewModel::class.java)
 
         btnSaveExercise.setOnClickListener {

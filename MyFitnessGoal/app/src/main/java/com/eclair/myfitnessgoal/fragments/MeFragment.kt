@@ -40,10 +40,9 @@ class MeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-        val app = activity?.application as FoodApplication
+        val app = activity?.application as FitnessApplication
         val repo = app.foodRepo
-        val foodViewModelFactory = FoodViewModelFactory(repo)
+        val foodViewModelFactory = FitnessViewModelFactory(repo)
         viewModel =
             ViewModelProviders.of(this, foodViewModelFactory).get(FitnessViewModel::class.java)
 

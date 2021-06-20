@@ -7,9 +7,9 @@ import android.os.Bundle
 import android.util.Log
 import androidx.lifecycle.ViewModelProviders
 import com.eclair.myfitnessgoal.R
-import com.eclair.myfitnessgoal.roomdb.FoodApplication
+import com.eclair.myfitnessgoal.roomdb.FitnessApplication
 import com.eclair.myfitnessgoal.roomdb.FitnessViewModel
-import com.eclair.myfitnessgoal.roomdb.FoodViewModelFactory
+import com.eclair.myfitnessgoal.roomdb.FitnessViewModelFactory
 import com.eclair.myfitnessgoal.roomdb.UserEntity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
@@ -36,9 +36,9 @@ class EditProfileActivity : AppCompatActivity() {
         Log.d("password", password.toString())
         clickListeners()
 
-        val app = application as FoodApplication
+        val app = application as FitnessApplication
         val repo = app.foodRepo
-        val foodViewModelFactory = FoodViewModelFactory(repo)
+        val foodViewModelFactory = FitnessViewModelFactory(repo)
         viewModel = ViewModelProviders.of(this, foodViewModelFactory).get(FitnessViewModel::class.java)
 
 
