@@ -40,28 +40,35 @@ class MeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
         val app = activity?.application as FoodApplication
         val repo = app.foodRepo
         val foodViewModelFactory = FoodViewModelFactory(repo)
-        viewModel = ViewModelProviders.of(this, foodViewModelFactory).get(FitnessViewModel::class.java)
+        viewModel =
+            ViewModelProviders.of(this, foodViewModelFactory).get(FitnessViewModel::class.java)
 
 
-        viewModel.getUserDetails(uid).observe(requireActivity(),{
+        viewModel.getUserDetails(uid).observe(requireActivity(), {
             userEntity = it
 
-            tvWeightKg.text = it.weight
+
+
+            tvWeightKg.text = "${it.weight} kg"
             tvUidUser.text = it.userName
             tvUserEmail.text = it.emailId
-            if (it.profilePic != "profilePic"){
-              Glide.with(requireActivity()).load(it.profilePic.toUri()).placeholder(R.drawable.user).into(profile_image)
+            if (it.profilePic != "profilePic") {
+                Glide.with(requireActivity()).load(it.profilePic.toUri())
+                    .placeholder(R.drawable.user).into(profile_image)
             }
-            tvCalorieMe.text = it.reqCalorie
+            tvCalorieMe.text = "${it.reqCalorie} cal"
+            tvReqWeightMe.text = "${it.weight} kg"
         })
 
         if (arguments != null) {
             weight = arguments?.getInt("weight", 0)!!
         }
         pb_SemiCircle.setPercentWithAnimation(weight)
+        tvGoalWeightMe.text = "${weight.toString()} kg"
 
         clickListeners()
     }

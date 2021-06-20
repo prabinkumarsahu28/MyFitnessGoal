@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.eclair.myfitnessgoal.R
+import com.eclair.myfitnessgoal.fragments.MeFragment
 import kotlinx.android.synthetic.main.activity_add_weight.*
 
 class AddWeightActivity : AppCompatActivity() {
@@ -12,9 +13,8 @@ class AddWeightActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_weight)
 
-        Log.d("prabin", "opened")
         btnSaveWeight.setOnClickListener {
-            Log.d("prabin", "clicked")
+
             val intent = Intent(this, MainActivity::class.java)
             intent.putExtra("AddFood", 4)
             intent.putExtra("weight", etAddWeight.text.toString().toInt())

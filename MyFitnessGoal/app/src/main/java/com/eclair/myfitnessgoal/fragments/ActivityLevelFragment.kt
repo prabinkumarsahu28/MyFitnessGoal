@@ -50,7 +50,6 @@ class ActivityLevelFragment : Fragment() {
                 fragmentTransaction.add(R.id.flSignUp, fragment)
                     .addToBackStack("youFragment").commit()
 
-                Toast.makeText(context,"$users,$activeness", Toast.LENGTH_LONG).show()
 
             }
         }

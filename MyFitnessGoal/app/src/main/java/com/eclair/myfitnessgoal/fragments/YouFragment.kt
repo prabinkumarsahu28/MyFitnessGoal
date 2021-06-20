@@ -54,8 +54,6 @@ class YouFragment : Fragment() {
                 fragmentTransaction.add(R.id.flSignUp, fragment)
                     .addToBackStack("heightWeightFragment").commit()
 
-                Toast.makeText(context,"$users,$sex", Toast.LENGTH_LONG).show()
-
             }
         }
     }
