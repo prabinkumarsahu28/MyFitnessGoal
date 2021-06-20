@@ -40,22 +40,25 @@ class MeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val app = activity?.application as FoodApplication
+        val app = activity?.application as FitnessApplication
         val repo = app.foodRepo
-        val foodViewModelFactory = FoodViewModelFactory(repo)
-        viewModel = ViewModelProviders.of(this, foodViewModelFactory).get(FitnessViewModel::class.java)
+        val foodViewModelFactory = FitnessViewModelFactory(repo)
+        viewModel =
+            ViewModelProviders.of(this, foodViewModelFactory).get(FitnessViewModel::class.java)
 
 
-        viewModel.getUserDetails(uid).observe(requireActivity(),{
+        viewModel.getUserDetails(uid).observe(requireActivity(), {
             userEntity = it
 
             tvWeightKg.text = it.weight
             tvUidUser.text = it.userName
             tvUserEmail.text = it.emailId
-            if (it.profilePic != "profilePic"){
-              Glide.with(requireActivity()).load(it.profilePic.toUri()).placeholder(R.drawable.user).into(profile_image)
+            if (it.profilePic != "profilePic") {
+                Glide.with(requireActivity()).load(it.profilePic.toUri())
+                    .placeholder(R.drawable.user).into(profile_image)
             }
             tvCalorieMe.text = it.reqCalorie
+
         })
 
         if (arguments != null) {

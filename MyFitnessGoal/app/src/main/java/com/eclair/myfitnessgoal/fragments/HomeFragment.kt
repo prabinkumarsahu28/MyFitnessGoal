@@ -4,6 +4,7 @@ package com.eclair.myfitnessgoal.fragments
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -50,6 +51,7 @@ class HomeFragment : Fragment(), BlogClickListener {
         recyclerViewHome.layoutManager = LinearLayoutManager(activity)
         recyclerViewHome.adapter = blogsAdapter
 
+
 //        val application = activity?.application as FoodApplication
 //        val userRepo = application.userRepo
 //        val userViewModelFactory = UserViewModelFactory(userRepo)
@@ -88,6 +90,7 @@ class HomeFragment : Fragment(), BlogClickListener {
 //    }
 
     private fun getBlogs() {
+        Log.d("prabin", "inside")
         database.reference.child("Home").addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()) {

@@ -2,7 +2,7 @@ package com.eclair.myfitnessgoal.roomdb
 
 import android.app.Application
 
-class FoodApplication : Application() {
+class FitnessApplication : Application() {
 
     private val foodDao by lazy {
         val database = FoodDb.getDbContext(this)
