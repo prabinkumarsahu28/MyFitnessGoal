@@ -30,11 +30,6 @@
  
  </table>
 
-
-![Visitor Count](https://profile-counter.glitch.me/myfitnessgoal/count.svg)
-
-
-
 ## Libraries & Tech Used
 - [Kotlin](https://kotlinlang.org/) based, [Coroutines](https://github.com/Kotlin/kotlinx.coroutines) for asynchronous handling.
 - JetPack
