@@ -40,9 +40,9 @@ class UpdateGoalsActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        val app = application as FoodApplication
+        val app = application as FitnessApplication
         val repo = app.foodRepo
-        val foodViewModelFactory = FoodViewModelFactory(repo)
+        val foodViewModelFactory = FitnessViewModelFactory(repo)
         viewModel = ViewModelProviders.of(this, foodViewModelFactory).get(FitnessViewModel::class.java)
         CoroutineScope(Dispatchers.IO).launch {
             tvWeightValGoals.text = "${viewModel.getWeight(uid)} kg"

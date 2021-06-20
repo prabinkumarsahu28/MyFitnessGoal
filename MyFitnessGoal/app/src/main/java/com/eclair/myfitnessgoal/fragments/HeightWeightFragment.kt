@@ -70,9 +70,9 @@ class HeightWeightFragment : Fragment() {
 
                 startActivity(intent)
 
-                val app = activity?.application as FoodApplication
+                val app = activity?.application as FitnessApplication
                 val repository = app.foodRepo
-                val viewModelFactory = FoodViewModelFactory(repository)
+                val viewModelFactory = FitnessViewModelFactory(repository)
                 viewModel =
                     ViewModelProviders.of(this, viewModelFactory).get(FitnessViewModel::class.java)
 
