@@ -60,8 +60,6 @@ class GoalFragment : Fragment() {
                 fragmentTransaction.add(R.id.flSignUp, fragment)
                     .addToBackStack("activityLevelFragment").commit()
 
-
-                Toast.makeText(context,"$users,$goalType",Toast.LENGTH_LONG).show()
             }
         }
     }

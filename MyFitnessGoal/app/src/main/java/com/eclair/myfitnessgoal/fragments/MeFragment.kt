@@ -50,21 +50,24 @@ class MeFragment : Fragment() {
         viewModel.getUserDetails(uid).observe(requireActivity(), {
             userEntity = it
 
-            tvWeightKg.text = it.weight
+
+
+            tvWeightKg.text = "${it.weight} kg"
             tvUidUser.text = it.userName
             tvUserEmail.text = it.emailId
             if (it.profilePic != "profilePic") {
                 Glide.with(requireActivity()).load(it.profilePic.toUri())
                     .placeholder(R.drawable.user).into(profile_image)
             }
-            tvCalorieMe.text = it.reqCalorie
-
+            tvCalorieMe.text = "${it.reqCalorie} cal"
+            tvReqWeightMe.text = "${it.weight} kg"
         })
 
         if (arguments != null) {
             weight = arguments?.getInt("weight", 0)!!
         }
         pb_SemiCircle.setPercentWithAnimation(weight)
+        tvGoalWeightMe.text = "${weight.toString()} kg"
 
         clickListeners()
     }
