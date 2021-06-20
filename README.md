@@ -4,6 +4,10 @@
   <a href="https://android-arsenal.com/api?level=23"><img alt="API" src="https://img.shields.io/badge/API-23%2B-brightgreen.svg?style=flat"/></a>
 </p>
 
+<p align="center">  
+MyFitnessGoal is an application that tracks diet, exercise and helps user maintain the daily calorie intake and fitness.
+</p>
+
 <table>
   
   <tr>
