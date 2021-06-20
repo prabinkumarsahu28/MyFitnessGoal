@@ -45,6 +45,7 @@ class FoodRepo(
         return foodDao.getCalDateWise(uid, reqDate)
     }
 
+
     fun deleteFoodItem(foodEntity: FoodEntity) {
         CoroutineScope(Dispatchers.IO).launch {
             foodDao.deleteFood(foodEntity)
@@ -58,7 +59,7 @@ class FoodRepo(
         }
     }
 
-    fun getAllData() : LiveData<UserEntity> {
+    fun getAllData(): LiveData<UserEntity> {
         return userDao.getAllUserData()
     }
 
@@ -66,7 +67,7 @@ class FoodRepo(
         return userDao.getReqCalorie(uid)
     }
 
-    fun getWeight(uid : String?): String {
+    fun getWeight(uid: String?): String {
         return userDao.getWeight(uid)
     }
 
@@ -74,8 +75,28 @@ class FoodRepo(
         return userDao.getUserName(uid)
     }
 
-    fun getUserEmail(uid: String?): String{
+    fun getUserEmail(uid: String?): String {
         return userDao.getUserEmail(uid)
+    }
+
+    fun getSex(uid: String?): String {
+        return userDao.getSex(uid)
+    }
+
+    fun getGoal(uid: String?): String {
+        return userDao.getGoal(uid)
+    }
+
+    fun getProfile(uid: String?): String {
+        return userDao.getProfile(uid)
+    }
+
+    fun getHeight(uid: String?): String {
+        return userDao.getHeight(uid)
+    }
+
+    fun getDob(uid: String?): String {
+        return userDao.getDob(uid)
     }
 
 
@@ -87,5 +108,15 @@ class FoodRepo(
 
     fun getExerciseCalories(uid: String, curDate: String): LiveData<Int?> {
         return exerciseDao.getExerciseCalories(uid, curDate)
+    }
+
+    fun getUserDetails(uid: String?):LiveData<UserEntity>{
+        return userDao.getUserDetails(uid)
+    }
+
+    fun editProfile( height: String?, uid:String?) {
+        CoroutineScope(Dispatchers.IO).launch {
+            userDao.editProfile(height,uid)
+        }
     }
 }

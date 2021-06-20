@@ -63,6 +63,14 @@ class MainActivity : AppCompatActivity() {
                 currentFragment(meFragment)
             }
         }
+        if (intent != null && intent.extras != null){
+
+            if (intent.getIntExtra("editedDetails",0)==3){
+                bottomNavigation.selectedItemId = R.id.ic_me
+                currentFragment(meFragment)
+            }
+        }
+
     }
 
     override fun onBackPressed() {

@@ -1,10 +1,7 @@
 package com.eclair.myfitnessgoal.roomdb
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 
 @Dao
 interface UserDao {
@@ -21,11 +18,31 @@ interface UserDao {
     @Query("SELECT weight FROM User_Table WHERE uid =:uid")
     fun getWeight(uid: String?): String
 
+    @Query("SELECT height FROM User_Table WHERE uid =:uid")
+    fun getHeight(uid: String?): String
+
+    @Query("SELECT dob FROM User_Table WHERE uid =:uid")
+    fun getDob(uid: String?): String
+
     @Query("SELECT userName FROM User_Table WHERE uid =:uid")
     fun getUserName(uid: String?): String
 
     @Query("SELECT email FROM User_Table WHERE uid =:uid")
     fun getUserEmail(uid: String?): String
 
+    @Query("SELECT Sex FROM User_Table WHERE uid =:uid")
+    fun getSex(uid: String?): String
+
+    @Query("SELECT goal FROM User_Table WHERE uid =:uid")
+    fun getGoal(uid: String?): String
+
+    @Query("SELECT profilePic FROM User_Table WHERE uid=:uid")
+    fun getProfile(uid: String?): String
+
+    @Query("SELECT * FROM User_Table WHERE uid =:uid")
+    fun getUserDetails(uid: String?): LiveData<UserEntity>
+
+    @Query("UPDATE User_Table SET height =:height WHERE uid =:uid")
+    fun editProfile( height: String?, uid:String?)
 
 }

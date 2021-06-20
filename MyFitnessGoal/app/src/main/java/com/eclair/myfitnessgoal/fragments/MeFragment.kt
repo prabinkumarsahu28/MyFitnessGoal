@@ -4,6 +4,7 @@ package com.eclair.myfitnessgoal.fragments
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -51,9 +52,9 @@ class MeFragment : Fragment() {
             tvUserEmail.text = viewModel.getUserEmail(uid)
         }
 
-        viewModel.getReqCalorie(uid).observe(requireActivity(), {
-            tvCalorieMe.text = it
-        })
+//        viewModel.getReqCalorie(uid).observe(requireActivity(), {
+//            tvCalorieMe.text = it
+//        })
 
         if (arguments != null) {
             weight = arguments?.getInt("weight", 0)!!

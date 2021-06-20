@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.eclair.myfitnessgoal.R
 import com.eclair.myfitnessgoal.models.Users
 import kotlinx.android.synthetic.main.fragment_activity_level.*
@@ -48,6 +49,9 @@ class ActivityLevelFragment : Fragment() {
                     requireActivity().supportFragmentManager.beginTransaction()
                 fragmentTransaction.add(R.id.flSignUp, fragment)
                     .addToBackStack("youFragment").commit()
+
+                Toast.makeText(context,"$users,$activeness", Toast.LENGTH_LONG).show()
+
             }
         }
     }
