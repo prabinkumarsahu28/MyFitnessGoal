@@ -249,9 +249,9 @@
                         android:layout_below="@+id/vLineOne"
                         android:layout_marginStart="@dimen/dp_20"
                         android:layout_marginTop="@dimen/dp_15"
-                        android:layout_marginBottom="@dimen/dp_8"
+                        android:layout_marginBottom="@dimen/dp_2"
                         android:text="ADD FOOD"
-                        android:textColor="#2874A6 "
+                        android:textColor="#2874A6"
                         android:textStyle="bold" />
 
                     <androidx.recyclerview.widget.RecyclerView
@@ -326,7 +326,7 @@
                         android:layout_below="@+id/vLineTwo"
                         android:layout_marginStart="@dimen/dp_20"
                         android:layout_marginTop="@dimen/dp_15"
-                        android:layout_marginBottom="@dimen/dp_8"
+                        android:layout_marginBottom="@dimen/dp_2"
                         android:text="ADD FOOD"
                         android:textColor="#2874A6 "
                         android:textStyle="bold" />
